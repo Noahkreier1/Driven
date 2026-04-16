@@ -41,34 +41,14 @@
       color: var(--white);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
-      cursor: none;
     }
     img { display: block; width: 100%; height: 100%; object-fit: cover; }
     a  { color: inherit; text-decoration: none; }
-    button { font-family: var(--font); cursor: none; border: none; background: none; }
+    button { font-family: var(--font); border: none; background: none; }
     input, textarea { font-family: var(--font); }
 
-    /* ── Custom cursor ── */
-    #cursor {
-      position: fixed; top: 0; left: 0; z-index: 9999;
-      pointer-events: none;
-      mix-blend-mode: difference;
-    }
-    #cursor-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--white);
-      transform: translate(-50%,-50%);
-      transition: transform .15s var(--ease-out), width .3s var(--ease-out), height .3s var(--ease-out);
-    }
-    #cursor-ring {
-      width: 36px; height: 36px; border-radius: 50%;
-      border: 1px solid rgba(255,255,255,.5);
-      transform: translate(-50%,-50%);
-      position: absolute; top: 0; left: 0;
-      transition: transform .4s var(--ease-out), width .4s var(--ease-out), height .4s var(--ease-out), opacity .3s;
-    }
-    body.cursor-hover #cursor-dot  { width: 14px; height: 14px; }
-    body.cursor-hover #cursor-ring { width: 56px; height: 56px; opacity: .6; }
+    /* ── Custom cursor (disabled) ── */
+    #cursor { display: none; }
 
     /* ── Page router ── */
     .page { display: none; min-height: 100vh; }
@@ -292,14 +272,19 @@
       background: var(--grey-800);
       min-height: 400px;
     }
+    .story-panel-img img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .7s var(--ease-out);
+    }
+    .story-panel-img:hover img { transform: scale(1.04); }
     .story-panel-img-inner {
       position: absolute; inset: 0;
       transition: transform 8s var(--ease-out);
     }
-    .story-panel-img:hover .story-panel-img-inner { transform: scale(1.04); }
     .story-panel-img .img-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(10,10,10,.3) 0%, transparent 60%);
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(135deg, rgba(10,10,10,.35) 0%, transparent 60%);
     }
     /* CSS-only abstract visuals */
     .vis-1 {
@@ -376,11 +361,15 @@
     .product-card {
       position: relative; overflow: hidden;
       background: var(--grey-800);
-      aspect-ratio: 3/4; cursor: none;
+      aspect-ratio: 3/4; cursor: pointer;
     }
     .product-card-img {
       position: absolute; inset: 0;
       transition: transform .7s var(--ease-out);
+    }
+    .product-card-img img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
     }
     .product-card:hover .product-card-img { transform: scale(1.04); }
     .product-card-overlay {
@@ -486,7 +475,7 @@
       animation: stock-fill-anim 1.5s var(--ease-out) forwards;
       width: 0;
     }
-    @keyframes stock-fill-anim { to { width: 73%; } }
+    @keyframes stock-fill-anim { to { width: 100%; } }
 
     /* ============================================================
        PAGE 2 — DROP
@@ -635,10 +624,14 @@
       gap: 2px;
       border-top: 1px solid rgba(255,255,255,.06);
     }
+    .full-grid:has(.full-product-card:only-child) {
+      grid-template-columns: minmax(300px, 560px);
+      justify-content: center;
+    }
     .full-product-card {
       position: relative; overflow: hidden;
       aspect-ratio: 3/4;
-      cursor: none;
+      cursor: pointer;
     }
     .full-product-card-bg {
       position: absolute; inset: 0;
@@ -698,16 +691,20 @@
     }
     .pdp-main-img:hover .pdp-img-mock { transform: scale(1.02) rotate(-.5deg); }
     .pdp-thumbs {
-      display: flex; gap: 2px; padding: 12px; background: var(--black);
-      height: 88px;
+      display: flex; gap: 6px; padding: 12px; background: var(--black);
+      height: 130px;
     }
     .pdp-thumb {
-      flex: 1; background: #1a1a1a; cursor: none;
+      flex: 1; background: #1a1a1a; cursor: pointer;
       border: 2px solid transparent; transition: border-color .25s;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px; font-weight: 900; color: rgba(255,255,255,.08);
+      position: relative; overflow: hidden;
+    }
+    .pdp-thumb img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
     }
     .pdp-thumb.active { border-color: var(--white); }
+    .pdp-thumb:hover { border-color: rgba(255,255,255,.4); }
     .pdp-info {
       padding: clamp(40px, 5vw, 72px) clamp(32px, 4vw, 64px);
       overflow-y: auto;
@@ -936,7 +933,7 @@
     .cart-item-name { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
     .cart-item-size { font-size: 11px; color: var(--grey-400); margin-top: 4px; }
     .cart-item-price { font-size: 14px; font-weight: 700; margin-top: 8px; }
-    .cart-item-remove { font-size: 11px; color: var(--grey-400); text-decoration: underline; margin-top: 6px; cursor: none; transition: color .2s; }
+    .cart-item-remove { font-size: 11px; color: var(--grey-400); text-decoration: underline; margin-top: 6px; cursor: pointer; transition: color .2s; }
     .cart-item-remove:hover { color: var(--white); }
     .cart-footer {
       padding: 24px;
@@ -1066,7 +1063,6 @@
       .footer-top      { grid-template-columns: 1fr; }
       .social-proof    { grid-template-columns: 1fr 1fr; }
       .story-panel-img { min-height: 280px; }
-      body             { cursor: auto; }
       #cursor          { display: none; }
     }
     @media (max-width: 480px) {
@@ -1426,7 +1422,7 @@
         <button class="modal-close" onclick="closeSizeGuide()">×</button>
       </div>
       <div class="modal-body">
-        <div style="font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px">The Foundation Tee</div>
+        <div style="font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px">Stay On Your Path Tee</div>
         <table class="size-table">
           <thead>
             <tr><th>Size</th><th>Chest (in)</th><th>Length (in)</th><th>Shoulder (in)</th></tr>
@@ -1441,7 +1437,7 @@
           </tbody>
         </table>
         <div class="size-tip">
-          <strong>Our recommendation:</strong> The Foundation Tee has a dropped-shoulder, relaxed fit.
+          <strong>Our recommendation:</strong> Stay On Your Path Tee has a dropped-shoulder, relaxed fit.
           If you prefer a closer fit, size down. All measurements are of the garment, not the body.
         </div>
       </div>
@@ -1549,7 +1545,7 @@
             <div class="co-page" id="co-step-2">
               <div class="co-section-label">Shipping Method</div>
               <div id="shipping-options" style="display:flex;flex-direction:column;gap:12px">
-                <label style="display:flex;align-items:center;justify-content:space-between;padding:16px;border:1px solid rgba(255,255,255,.3);cursor:none">
+                <label style="display:flex;align-items:center;justify-content:space-between;padding:16px;border:1px solid rgba(255,255,255,.3);cursor:pointer">
                   <div style="display:flex;align-items:center;gap:12px">
                     <input type="radio" name="shipping" value="standard" checked style="accent-color:var(--accent)" />
                     <div>
@@ -1557,9 +1553,9 @@
                       <div style="font-size:11px;color:var(--grey-400);margin-top:2px">3–5 business days</div>
                     </div>
                   </div>
-                  <span style="font-weight:700">$8</span>
+                  <span style="font-weight:700">CHF 8.–</span>
                 </label>
-                <label style="display:flex;align-items:center;justify-content:space-between;padding:16px;border:1px solid rgba(255,255,255,.1);cursor:none">
+                <label style="display:flex;align-items:center;justify-content:space-between;padding:16px;border:1px solid rgba(255,255,255,.1);cursor:pointer">
                   <div style="display:flex;align-items:center;gap:12px">
                     <input type="radio" name="shipping" value="express" style="accent-color:var(--accent)" />
                     <div>
@@ -1567,14 +1563,14 @@
                       <div style="font-size:11px;color:var(--grey-400);margin-top:2px">1–2 business days</div>
                     </div>
                   </div>
-                  <span style="font-weight:700">$18</span>
+                  <span style="font-weight:700">CHF 18.–</span>
                 </label>
-                <label style="display:flex;align-items:center;justify-content:space-between;padding:16px;border:1px solid rgba(255,255,255,.1);cursor:none">
+                <label style="display:flex;align-items:center;justify-content:space-between;padding:16px;border:1px solid rgba(255,255,255,.1);cursor:pointer">
                   <div style="display:flex;align-items:center;gap:12px">
                     <input type="radio" name="shipping" value="free" style="accent-color:var(--accent)" />
                     <div>
                       <div style="font-size:13px;font-weight:600">Free Shipping</div>
-                      <div style="font-size:11px;color:var(--grey-400);margin-top:2px">5–7 business days — orders $120+</div>
+                      <div style="font-size:11px;color:var(--grey-400);margin-top:2px">5–7 business days — orders CHF 120+</div>
                     </div>
                   </div>
                   <span style="font-weight:700;color:var(--accent)">Free</span>
@@ -1608,14 +1604,14 @@
             <div class="co-section-label">Order Summary</div>
             <div id="co-summary-items"></div>
             <div class="co-totals">
-              <div class="co-total-row"><span>Subtotal</span><span id="co-sub">$85</span></div>
-              <div class="co-total-row"><span>Shipping</span><span>$8</span></div>
-              <div class="co-total-row"><span>Tax</span><span id="co-tax">$7.65</span></div>
-              <div class="co-total-row grand"><span>Total</span><span id="co-total">$100.65</span></div>
+              <div class="co-total-row"><span>Subtotal</span><span id="co-sub">CHF 37.–</span></div>
+              <div class="co-total-row"><span>Shipping</span><span>CHF 8.–</span></div>
+              <div class="co-total-row"><span>Tax (7.7%)</span><span id="co-tax">CHF 2.85</span></div>
+              <div class="co-total-row grand"><span>Total</span><span id="co-total">CHF 47.85</span></div>
             </div>
             <div style="margin-top:24px;padding:16px;background:rgba(200,169,110,.05);border-left:2px solid var(--accent)">
               <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:6px">Drop 001</div>
-              <div style="font-size:12px;color:var(--grey-400);line-height:1.7">41 units left. Your order holds your unit for 10 minutes.</div>
+              <div style="font-size:12px;color:var(--grey-400);line-height:1.7">100 units left. Your order holds your unit for 10 minutes.</div>
             </div>
           </div>
         </div>
@@ -1697,7 +1693,7 @@
       <div class="cart-footer" id="cartFooter" style="display:none">
         <div class="cart-subtotal">
           <span class="cart-subtotal-label">Subtotal</span>
-          <span class="cart-subtotal-val" id="cartTotal">$0</span>
+          <span class="cart-subtotal-val" id="cartTotal">CHF 0.–</span>
         </div>
         <button class="btn-checkout" onclick="openCheckout()">Checkout →</button>
       </div>
@@ -1712,7 +1708,7 @@
       <button class="exit-close" id="exitClose">×</button>
       <div class="exit-eyebrow">Wait — One More Thing</div>
       <div class="exit-title">Get Early Access to Drop 001</div>
-      <div class="exit-sub">150 units. No restock. Be the first in line before it sells out.</div>
+      <div class="exit-sub">100 units. No restock. Be the first in line before it sells out.</div>
       <div class="exit-form">
         <input class="exit-input" type="email" placeholder="your@email.com" />
         <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="handleExitSubmit()">
@@ -1731,10 +1727,10 @@
   <!-- Sticky CTA (drop page) -->
   <div class="sticky-cta" id="stickyCta">
     <div>
-      <div class="sticky-cta-info">The Foundation Tee — Drop 001</div>
-      <div class="sticky-cta-sub">Only 41 units remaining</div>
+      <div class="sticky-cta-info">Stay On Your Path Tee — Drop 001</div>
+      <div class="sticky-cta-sub">Only 100 units remaining</div>
     </div>
-    <button class="btn btn-primary" onclick="addToCart()">Add to Cart — $85</button>
+    <button class="btn btn-primary" onclick="addToCart()">Add to Cart — CHF 37.–</button>
   </div>
 
   <!-- ================================================================
@@ -1744,7 +1740,9 @@
 
     <!-- Hero -->
     <section class="hero">
-      <div class="hero-bg"></div>
+      <div class="hero-bg">
+        <img src="images/flatlay.jpg" alt="" style="object-fit:cover;width:100%;height:100%;opacity:.35;object-position:center 30%" />
+      </div>
       <div class="hero-geo"></div>
       <div class="hero-lines"></div>
       <div class="hero-content">
@@ -1771,14 +1769,14 @@
     <div class="marquee-bar">
       <div class="marquee-track">
         <span class="marquee-item">Drop 001 <span>·</span></span>
-        <span class="marquee-item">Limited to 150 Units <span>·</span></span>
+        <span class="marquee-item">Limited to 100 Units <span>·</span></span>
         <span class="marquee-item">No Restock <span>·</span></span>
-        <span class="marquee-item">Free Shipping Over $120 <span>·</span></span>
+        <span class="marquee-item">Free Shipping Over CHF 120.– <span>·</span></span>
         <span class="marquee-item">Wear the Drive <span>·</span></span>
         <span class="marquee-item">Drop 001 <span>·</span></span>
-        <span class="marquee-item">Limited to 150 Units <span>·</span></span>
+        <span class="marquee-item">Limited to 100 Units <span>·</span></span>
         <span class="marquee-item">No Restock <span>·</span></span>
-        <span class="marquee-item">Free Shipping Over $120 <span>·</span></span>
+        <span class="marquee-item">Free Shipping Over CHF 120.– <span>·</span></span>
         <span class="marquee-item">Wear the Drive <span>·</span></span>
       </div>
     </div>
@@ -1798,7 +1796,8 @@
 
     <!-- Storytelling strip 1 -->
     <div class="story-strip">
-      <div class="story-panel-img vis-1 parallax" data-speed=".04">
+      <div class="story-panel-img parallax" data-speed=".04">
+        <img src="images/tee-front.jpg" alt="Stay On Your Path Tee — Front" style="object-position:center top" />
         <div class="img-overlay"></div>
       </div>
       <div class="story-panel-text">
@@ -1816,14 +1815,15 @@
 
     <!-- Storytelling strip 2 -->
     <div class="story-strip reverse">
-      <div class="story-panel-img vis-2 parallax" data-speed=".04">
+      <div class="story-panel-img parallax" data-speed=".04">
+        <img src="images/tee-back.jpg" alt="Stay On Your Path Tee — Back" style="object-position:center top" />
         <div class="img-overlay"></div>
       </div>
       <div class="story-panel-text">
         <div class="story-panel-num reveal">02</div>
         <h2 class="story-panel-title reveal delay-1">Limited.<br>By Design.</h2>
         <p class="story-panel-body reveal delay-2">
-          Drop 001 is 150 units. No second run. No archive. When it's gone,
+          Drop 001 is 100 units. No second run. No archive. When it's gone,
           it's gone — and that's exactly the point.
         </p>
         <button class="btn btn-ghost reveal delay-3" data-link="drop">
@@ -1835,11 +1835,11 @@
     <!-- Social proof -->
     <div class="social-proof">
       <div class="proof-item">
-        <div class="proof-num count-up" data-target="150">0</div>
+        <div class="proof-num count-up" data-target="100">0</div>
         <div class="proof-label">Units — Drop 001</div>
       </div>
       <div class="proof-item">
-        <div class="proof-num count-up" data-target="41">0</div>
+        <div class="proof-num count-up" data-target="100">0</div>
         <div class="proof-label">Remaining</div>
       </div>
       <div class="proof-item">
@@ -1863,32 +1863,16 @@
           View all <span class="arrow">→</span>
         </button>
       </div>
-      <div class="collection-grid">
-        <div class="product-card" onclick="navigate('pdp')">
-          <div class="product-card-img cv-1"></div>
+      <div style="max-width:560px;margin:0 auto">
+        <div class="product-card" onclick="navigate('pdp')" style="aspect-ratio:3/4">
+          <div class="product-card-img">
+            <img src="images/tee-front.jpg" alt="Stay On Your Path Tee" style="object-position:center top" />
+          </div>
           <span class="product-badge badge-drop">Drop 001</span>
           <div class="product-card-overlay"></div>
           <div class="product-card-info">
-            <div class="product-card-name">The Foundation Tee</div>
-            <div class="product-card-price">$85</div>
-          </div>
-        </div>
-        <div class="product-card" onclick="navigate('pdp')">
-          <div class="product-card-img cv-2"></div>
-          <span class="product-badge badge-drop">Drop 001</span>
-          <div class="product-card-overlay"></div>
-          <div class="product-card-info">
-            <div class="product-card-name">The Driven Hoodie</div>
-            <div class="product-card-price">$145</div>
-          </div>
-        </div>
-        <div class="product-card" onclick="navigate('pdp')">
-          <div class="product-card-img cv-3"></div>
-          <span class="product-badge badge-sold">Sold Out</span>
-          <div class="product-card-overlay"></div>
-          <div class="product-card-info">
-            <div class="product-card-name">The Motion Cap</div>
-            <div class="product-card-price">$48</div>
+            <div class="product-card-name">Stay On Your Path Tee</div>
+            <div class="product-card-price">CHF 37.–</div>
           </div>
         </div>
       </div>
@@ -1898,12 +1882,10 @@
     <div class="drop-banner">
       <div class="drop-banner-visual">
         <div class="drop-banner-visual-inner"></div>
-        <div class="drop-shirt-mock">
-          <div class="shirt-logo-mock">D</div>
-        </div>
+        <img src="images/tee-front.jpg" alt="Stay On Your Path Tee — Front" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.85" />
       </div>
       <div class="drop-banner-content">
-        <div class="section-label reveal">Drop 001 — The Foundation Tee</div>
+        <div class="section-label reveal">Drop 001 — Stay On Your Path Tee</div>
         <h2 class="section-title reveal delay-1">Drops in:</h2>
         <div class="countdown-wrap reveal delay-2">
           <div class="countdown-unit">
@@ -1929,7 +1911,7 @@
         <div class="stock-bar-wrap reveal delay-3">
           <div class="stock-label">
             <span>Stock remaining</span>
-            <span style="color:var(--accent)">41 / 150</span>
+            <span style="color:var(--accent)">100 / 100</span>
           </div>
           <div class="stock-bar"><div class="stock-fill" id="stockFill"></div></div>
         </div>
@@ -1944,7 +1926,8 @@
 
     <!-- Storytelling strip 3 -->
     <div class="story-strip">
-      <div class="story-panel-img vis-3 parallax" data-speed=".04">
+      <div class="story-panel-img parallax" data-speed=".04">
+        <img src="images/flatlay.jpg" alt="Driven Co. flatlay" style="object-position:center 40%" />
         <div class="img-overlay"></div>
       </div>
       <div class="story-panel-text">
@@ -2046,9 +2029,7 @@
           <div class="footer-brand-name">Driven</div>
           <div class="footer-brand-tagline">Premium streetwear built for those who move differently. No noise. Just drive.</div>
           <div class="footer-socials">
-            <a class="footer-social-link" href="#" aria-label="Instagram">IG</a>
-            <a class="footer-social-link" href="#" aria-label="TikTok">TK</a>
-            <a class="footer-social-link" href="#" aria-label="Twitter">X</a>
+            <a class="footer-social-link" href="https://www.instagram.com/drivenco_" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
           </div>
         </div>
         <div>
@@ -2056,8 +2037,6 @@
           <div class="footer-links">
             <a class="footer-link" href="#" data-link="drop">Drop 001</a>
             <a class="footer-link" href="#" data-link="collection">Collection</a>
-            <a class="footer-link" href="#">Lookbook</a>
-            <a class="footer-link" href="#">Archive</a>
           </div>
         </div>
         <div>
@@ -2066,7 +2045,6 @@
             <a class="footer-link" href="#" data-link="story">Our Story</a>
             <a class="footer-link" href="#">Sizing Guide</a>
             <a class="footer-link" href="#">Sustainability</a>
-            <a class="footer-link" href="#">Careers</a>
           </div>
         </div>
         <div>
@@ -2095,16 +2073,16 @@
     <div class="drop-hero">
       <div class="drop-hero-visual">
         <div class="drop-hero-bg"></div>
-        <div class="drop-product-mock">D</div>
+        <img src="images/tee-front.jpg" alt="Stay On Your Path Tee — Front" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;mix-blend-mode:normal;opacity:.92" />
       </div>
       <div class="drop-hero-content">
-        <div class="drop-subtitle reveal">Drop 001 — Limited Edition</div>
-        <h1 class="drop-name reveal delay-1">The<br>Foundation<br>Tee</h1>
+        <div class="drop-subtitle reveal">Drop 001 — Limited to 100 Units</div>
+        <h1 class="drop-name reveal delay-1">Stay On<br>Your<br>Path.</h1>
         <p class="drop-desc reveal delay-2">
-          The first piece from Driven. Heavyweight 340gsm cotton. Dropped shoulders.
-          No logo on the outside — the intention is worn, not announced.
+          Three words. One commitment. The first drop from Driven Co. — heavyweight 340gsm cotton,
+          dropped shoulder, cream colourway. The message on your back does the talking.
         </p>
-        <div class="drop-price reveal delay-3">$85 USD</div>
+        <div class="drop-price reveal delay-3">CHF 37.–</div>
 
         <!-- Size configurator -->
         <div class="size-configurator reveal delay-3">
@@ -2113,18 +2091,18 @@
             <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide()">Size Guide →</button>
           </div>
           <div class="size-grid">
-            <button class="size-btn sold-out" disabled>XS</button>
-            <button class="size-btn sold-out" disabled>S</button>
+            <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+            <button class="size-btn" onclick="selectSize(this,'S')">S</button>
             <button class="size-btn" onclick="selectSize(this,'M')">M</button>
             <button class="size-btn" onclick="selectSize(this,'L')">L</button>
             <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
-            <button class="size-btn sold-out" disabled>XXL</button>
+            <button class="size-btn" onclick="selectSize(this,'XXL')">XXL</button>
           </div>
         </div>
 
         <div class="add-to-cart-section reveal delay-4">
           <button class="btn-add-cart" onclick="addToCart()" id="dropAddBtn">
-            Add to Cart — $85
+            Add to Cart — CHF 37.–
           </button>
           <button class="btn-wishlist" aria-label="Wishlist" onclick="showToast('Saved to wishlist')">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -2157,7 +2135,7 @@
       </div>
       <div style="text-align:right">
         <div class="stock-label" style="justify-content:flex-end;margin-bottom:10px">
-          <span style="color:var(--accent);font-size:13px;font-weight:700">41 units left</span>
+          <span style="color:var(--accent);font-size:13px;font-weight:700">100 units left</span>
         </div>
         <div class="stock-bar" style="width:200px">
           <div class="stock-fill"></div>
@@ -2199,40 +2177,48 @@
       <p class="reveal delay-2" style="font-size:16px;font-weight:300;line-height:1.9;color:var(--grey-400)">
         Drop 001 started with a single question: what would you wear if you had nothing to prove?
         Not a logo to hide behind. Not a trend to follow. Just intention, material, and movement.
-        The Foundation Tee is that answer. Heavy enough to mean something. Clean enough to say nothing.
+        Stay On Your Path Tee is that answer. Heavy enough to mean something. Clean enough to say nothing.
       </p>
     </section>
 
     <!-- You may also like -->
     <section style="padding:0 0 clamp(60px,8vw,100px)">
       <div style="padding:0 var(--gutter) clamp(24px,3vw,40px);display:flex;justify-content:space-between;align-items:center">
-        <div class="section-label">You May Also Like</div>
-        <button class="btn btn-ghost" data-link="collection">View all <span class="arrow">→</span></button>
+        <div class="section-label">More Views</div>
+        <button class="btn btn-ghost" data-link="pdp">View Product <span class="arrow">→</span></button>
       </div>
       <div class="collection-grid">
         <div class="product-card" onclick="navigate('pdp')">
-          <div class="product-card-img cv-2"></div>
+          <div class="product-card-img">
+            <img src="images/tee-front.jpg" alt="Front view" style="object-position:center top" />
+          </div>
+          <span class="product-badge badge-drop">Drop 001</span>
           <div class="product-card-overlay"></div>
           <div class="product-card-info">
-            <div class="product-card-name">The Driven Hoodie</div>
-            <div class="product-card-price">$145</div>
+            <div class="product-card-name">Stay On Your Path Tee</div>
+            <div class="product-card-price">Front View — CHF 37.–</div>
           </div>
         </div>
         <div class="product-card" onclick="navigate('pdp')">
-          <div class="product-card-img cv-3"></div>
-          <span class="product-badge badge-sold">Sold Out</span>
+          <div class="product-card-img">
+            <img src="images/tee-back.jpg" alt="Back view" style="object-position:center top" />
+          </div>
+          <span class="product-badge badge-drop">Drop 001</span>
           <div class="product-card-overlay"></div>
           <div class="product-card-info">
-            <div class="product-card-name">The Motion Cap</div>
-            <div class="product-card-price">$48</div>
+            <div class="product-card-name">Stay On Your Path Tee</div>
+            <div class="product-card-price">Back View — CHF 37.–</div>
           </div>
         </div>
         <div class="product-card" onclick="navigate('pdp')">
-          <div class="product-card-img cv-1"></div>
+          <div class="product-card-img">
+            <img src="images/flatlay.jpg" alt="Flatlay" style="object-position:center 25%" />
+          </div>
+          <span class="product-badge badge-drop">Drop 001</span>
           <div class="product-card-overlay"></div>
           <div class="product-card-info">
-            <div class="product-card-name">The Core Jogger</div>
-            <div class="product-card-price">$110</div>
+            <div class="product-card-name">Stay On Your Path Tee</div>
+            <div class="product-card-price">Campaign Shot — CHF 37.–</div>
           </div>
         </div>
       </div>
@@ -2256,9 +2242,9 @@
       <p class="section-sub reveal delay-2">Every piece considered. Nothing excess.</p>
       <div class="collection-filter reveal delay-3">
         <button class="filter-btn active" onclick="setFilter(this,'all')">All</button>
-        <button class="filter-btn" onclick="setFilter(this,'tops')">Tops</button>
-        <button class="filter-btn" onclick="setFilter(this,'bottoms')">Bottoms</button>
-        <button class="filter-btn" onclick="setFilter(this,'accessories')">Accessories</button>
+        <button class="filter-btn" onclick="setFilter(this,'tshirts')">T-Shirts</button>
+        <button class="filter-btn" onclick="setFilter(this,'hoodies')">Hoodies</button>
+        <button class="filter-btn" onclick="setFilter(this,'core')">Core Edition</button>
         <button class="filter-btn" onclick="setFilter(this,'drop')">Drop 001</button>
       </div>
     </section>
@@ -2291,25 +2277,30 @@
     <div class="pdp-layout">
       <!-- Gallery -->
       <div class="pdp-gallery">
-        <div class="pdp-main-img">
-          <div class="pdp-img-mock">D</div>
+        <div class="pdp-main-img" id="pdpMainImg">
+          <img id="pdpMainImgEl" src="images/tee-front.jpg" alt="Stay On Your Path Tee" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;transition:opacity .4s;padding:12px" />
         </div>
         <div class="pdp-thumbs">
-          <div class="pdp-thumb active">D</div>
-          <div class="pdp-thumb">D</div>
-          <div class="pdp-thumb">D</div>
-          <div class="pdp-thumb">D</div>
+          <div class="pdp-thumb active" onclick="pdpSwitch(this,'images/tee-front.jpg')">
+            <img src="images/tee-front.jpg" style="object-position:center 30%" alt="Front view" />
+          </div>
+          <div class="pdp-thumb" onclick="pdpSwitch(this,'images/tee-back.jpg')">
+            <img src="images/tee-back.jpg" style="object-position:center 30%" alt="Back view" />
+          </div>
+          <div class="pdp-thumb" onclick="pdpSwitch(this,'images/flatlay.jpg')">
+            <img src="images/flatlay.jpg" style="object-position:center 40%" alt="Campaign" />
+          </div>
         </div>
       </div>
       <!-- Info -->
       <div class="pdp-info">
-        <div class="pdp-tag">Drop 001 — Limited to 150</div>
-        <h1 class="pdp-title">The Foundation<br>Tee</h1>
-        <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:20px">$85 USD</div>
+        <div class="pdp-tag">Drop 001 — Limited to 100 Units</div>
+        <h1 class="pdp-title">Stay On<br>Your Path<br>Tee</h1>
+        <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:20px">CHF 37.–</div>
         <div class="pdp-story reveal">
-          The first piece from Driven. A heavyweight tee built not to be seen, but to be felt.
-          No external branding. No seasonal trends. Just a clean canvas for the person who
-          already knows what they stand for.
+          Three words on the back. A message you carry everywhere you go.
+          The "Stay On Your Path" Tee is Drop 001 from Driven Co. — heavyweight
+          340gsm cotton, dropped shoulder, built for those who already know the answer.
         </div>
         <div class="pdp-attrs reveal delay-1">
           <div class="pdp-attr">
@@ -2326,7 +2317,7 @@
           </div>
           <div class="pdp-attr">
             <div class="pdp-attr-label">Drop</div>
-            <div class="pdp-attr-val">001 / 150 Units</div>
+            <div class="pdp-attr-val">001 / 100 Units</div>
           </div>
         </div>
         <div class="size-configurator reveal delay-2">
@@ -2335,16 +2326,16 @@
             <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide()">Size Guide →</button>
           </div>
           <div class="size-grid">
-            <button class="size-btn sold-out" disabled>XS</button>
-            <button class="size-btn sold-out" disabled>S</button>
+            <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+            <button class="size-btn" onclick="selectSize(this,'S')">S</button>
             <button class="size-btn" onclick="selectSize(this,'M')">M</button>
             <button class="size-btn" onclick="selectSize(this,'L')">L</button>
             <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
-            <button class="size-btn sold-out" disabled>XXL</button>
+            <button class="size-btn" onclick="selectSize(this,'XXL')">XXL</button>
           </div>
         </div>
         <div class="add-to-cart-section reveal delay-3">
-          <button class="btn-add-cart" onclick="addToCart()">Add to Cart — $85</button>
+          <button class="btn-add-cart" onclick="addToCart()">Add to Cart — CHF 37.–</button>
           <button class="btn-wishlist" aria-label="Wishlist" onclick="showToast('Saved to wishlist')">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
@@ -2352,7 +2343,7 @@
           </button>
         </div>
         <div class="drop-trust reveal delay-4">
-          <span>✓ Free shipping $120+</span>
+          <span>✓ Free shipping CHF 120+</span>
           <span>✓ Free returns</span>
           <span>✓ Ships in 2–3 days</span>
         </div>
@@ -2383,33 +2374,14 @@
     <!-- Also like -->
     <section style="padding:clamp(60px,8vw,100px) 0">
       <div style="padding:0 var(--gutter) clamp(24px,3vw,40px)">
-        <div class="section-label">Complete the Look</div>
+        <div class="section-label">Campaign</div>
       </div>
-      <div class="collection-grid">
-        <div class="product-card" onclick="navigate('pdp')">
-          <div class="product-card-img cv-2"></div>
-          <div class="product-card-overlay"></div>
-          <div class="product-card-info">
-            <div class="product-card-name">The Driven Hoodie</div>
-            <div class="product-card-price">$145</div>
+      <div style="max-width:700px;margin:0 auto">
+        <div class="product-card" style="aspect-ratio:4/3">
+          <div class="product-card-img">
+            <img src="images/flatlay.jpg" alt="Stay On Your Path Tee — Campaign" style="object-position:center 25%" />
           </div>
-        </div>
-        <div class="product-card" onclick="navigate('pdp')">
-          <div class="product-card-img cv-3"></div>
           <div class="product-card-overlay"></div>
-          <div class="product-card-info">
-            <div class="product-card-name">The Core Jogger</div>
-            <div class="product-card-price">$110</div>
-          </div>
-        </div>
-        <div class="product-card" onclick="navigate('pdp')">
-          <div class="product-card-img cv-1"></div>
-          <span class="product-badge badge-sold">Sold Out</span>
-          <div class="product-card-overlay"></div>
-          <div class="product-card-info">
-            <div class="product-card-name">The Motion Cap</div>
-            <div class="product-card-price">$48</div>
-          </div>
         </div>
       </div>
     </section>
@@ -2463,7 +2435,7 @@
         it doesn't get made.
       </p>
       <p class="reveal delay-3" style="font-size:16px;font-weight:300;line-height:1.9;color:var(--grey-400)">
-        Drop 001 is our first answer. The Foundation Tee. The place we start from.
+        Drop 001 is our first answer. Stay On Your Path Tee. The place we start from.
         And the place every piece we ever make will return to.
       </p>
     </section>
@@ -2503,9 +2475,7 @@
           <div class="footer-brand-name">Driven</div>
           <div class="footer-brand-tagline">Premium streetwear for those who move differently. No noise. Just drive.</div>
           <div class="footer-socials">
-            <a class="footer-social-link" href="#" aria-label="Instagram">IG</a>
-            <a class="footer-social-link" href="#" aria-label="TikTok">TK</a>
-            <a class="footer-social-link" href="#" aria-label="Twitter">X</a>
+            <a class="footer-social-link" href="https://www.instagram.com/drivenco_" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
           </div>
         </div>
         <div>
@@ -2552,12 +2522,7 @@
 
   /* ── Products data ── */
   const products = [
-    { id:1, name:'The Foundation Tee',  price:85,  cat:'tops',        drop:true,  sold:false },
-    { id:2, name:'The Driven Hoodie',   price:145, cat:'tops',        drop:true,  sold:false },
-    { id:3, name:'The Core Jogger',     price:110, cat:'bottoms',     drop:false, sold:false },
-    { id:4, name:'The Motion Cap',      price:48,  cat:'accessories', drop:true,  sold:true  },
-    { id:5, name:'The Utility Jacket',  price:220, cat:'tops',        drop:false, sold:false },
-    { id:6, name:'The Session Short',   price:85,  cat:'bottoms',     drop:false, sold:false },
+    { id:1, name:'Stay On Your Path Tee', price:37, cat:'tshirts', drop:true, sold:false, img:'images/tee-front.jpg', imgPos:'center top' },
   ];
 
   /* ── Custom cursor ── */
@@ -2663,7 +2628,7 @@
       showToast('Please select a size');
       return;
     }
-    state.cart.push({ name:'The Foundation Tee', size:state.selectedSize, price:85 });
+    state.cart.push({ name:'Stay On Your Path Tee', size:state.selectedSize, price:37 });
     updateCart();
     showToast('Added to cart ✓');
     openCart();
@@ -2694,12 +2659,12 @@
         <div class="cart-item-info">
           <div class="cart-item-name">${item.name}</div>
           <div class="cart-item-size">Size: ${item.size}</div>
-          <div class="cart-item-price">$${item.price}</div>
+          <div class="cart-item-price">CHF ${item.price}.–</div>
           <div class="cart-item-remove" onclick="removeFromCart(${i})">Remove</div>
         </div>
       </div>`;
     }).join('');
-    totalEl.textContent = '$' + total;
+    totalEl.textContent = 'CHF ' + total + '.–';
   }
 
   function removeFromCart(i) {
@@ -2839,13 +2804,18 @@
     renderCollection(filter);
   }
 
-  /* ── PDP thumb selector ── */
-  document.querySelectorAll('.pdp-thumb').forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
-      thumb.classList.add('active');
-    });
-  });
+  /* ── PDP image switcher ── */
+  function pdpSwitch(thumb, src) {
+    document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
+    const img = document.getElementById('pdpMainImgEl');
+    if (!img) return;
+    img.style.opacity = '0';
+    setTimeout(() => {
+      img.src = src;
+      img.style.opacity = '1';
+    }, 200);
+  }
 
   /* ── Wiggle keyframe (add dynamically) ── */
   const wiggleStyle = document.createElement('style');
@@ -2969,15 +2939,15 @@
         <div>
           <div class="co-summary-name">${item.name}</div>
           <div class="co-summary-detail">Size: ${item.size} · Qty: 1</div>
-          <div style="font-size:14px;font-weight:700;margin-top:6px">$${item.price}</div>
+          <div style="font-size:14px;font-weight:700;margin-top:6px">CHF ${item.price}.–</div>
         </div>
       </div>`;
     }).join('');
-    const tax = (sub * 0.09).toFixed(2);
+    const tax = (sub * 0.077).toFixed(2);
     const total = (sub + 8 + parseFloat(tax)).toFixed(2);
-    document.getElementById('co-sub').textContent   = '$' + sub;
-    document.getElementById('co-tax').textContent   = '$' + tax;
-    document.getElementById('co-total').textContent = '$' + total;
+    document.getElementById('co-sub').textContent   = 'CHF ' + sub + '.–';
+    document.getElementById('co-tax').textContent   = 'CHF ' + tax;
+    document.getElementById('co-total').textContent = 'CHF ' + total;
   }
 
   document.getElementById('checkoutOverlay').addEventListener('click', e => {
@@ -2988,10 +2958,9 @@
   const bgClasses = ['cv-1','cv-2','cv-3'];
   function renderCollection(filter) {
     const grid = document.getElementById('productGrid');
-    const filtered = filter==='all'
-      ? products
-      : filter==='drop'
-      ? products.filter(p=>p.drop)
+    const filtered = filter==='all'    ? products
+      : filter==='drop'                 ? products.filter(p=>p.drop)
+      : filter==='core'                 ? products.filter(p=>p.core)
       : products.filter(p=>p.cat===filter);
 
     if (filtered.length === 0) {
@@ -3001,13 +2970,16 @@
 
     grid.innerHTML = filtered.map((p,i) => `
       <div class="full-product-card" onclick="${p.sold ? 'openNotify()' : "navigate('pdp')"}">
-        <div class="full-product-card-bg ${bgClasses[i%3]}"></div>
+        ${p.img
+          ? `<img src="${p.img}" alt="${p.name}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${p.imgPos||'center'};transition:transform .7s var(--ease-out)" />`
+          : `<div class="full-product-card-bg ${bgClasses[i%3]}"></div>`
+        }
         <div class="full-product-overlay"></div>
         ${p.drop ? '<span class="product-badge badge-drop">Drop 001</span>' : ''}
         ${p.sold ? '<span class="product-badge badge-sold" style="top:auto;bottom:70px">Sold Out</span>' : ''}
         <div class="full-product-info">
           <div class="full-product-name">${p.name}</div>
-          <div class="full-product-price">$${p.price}</div>
+          <div class="full-product-price">CHF ${p.price}.–</div>
         </div>
         <div class="quick-add">${p.sold ? 'Notify Me' : 'Quick Add'}</div>
       </div>
