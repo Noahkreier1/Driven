@@ -2046,8 +2046,6 @@
           <div class="footer-col-title">Info</div>
           <div class="footer-links">
             <a class="footer-link" href="#" data-link="story">Our Story</a>
-            <a class="footer-link" href="#">Sizing Guide</a>
-            <a class="footer-link" href="#">Sustainability</a>
           </div>
         </div>
         <div>
@@ -2056,7 +2054,6 @@
             <a class="footer-link" href="#">Shipping &amp; Returns</a>
             <a class="footer-link" href="#">FAQ</a>
             <a class="footer-link" href="#">Contact</a>
-            <a class="footer-link" href="#">Track Order</a>
           </div>
         </div>
       </div>
@@ -2526,7 +2523,6 @@
           <div class="footer-col-title">Info</div>
           <div class="footer-links">
             <a class="footer-link" href="#" data-link="story">Our Story</a>
-            <a class="footer-link" href="#">Sizing Guide</a>
           </div>
         </div>
         <div>
@@ -2912,16 +2908,7 @@
   let coStep = 1;
   const coLabels = ['Continue to Shipping →', 'Continue to Payment →', 'Place Order →'];
 
-  function openCheckout() {
-    if (state.cart.length === 0) { showToast('Your cart is empty'); return; }
-    closeCart();
-    coStep = 1;
-    renderCoSteps();
-    renderCoSummary();
-    document.getElementById('checkoutOverlay').classList.add('visible');
-    document.getElementById('coSuccess').style.display = 'none';
-    document.getElementById('coFormWrap').style.display = 'block';
-  }
+  /* openCheckout() is defined below with Shopify integration */
 
   function closeCheckout() {
     document.getElementById('checkoutOverlay').classList.remove('visible');
@@ -3061,6 +3048,47 @@
   /* ── Init ── */
   setupReveal();
   handleParallax();
+
+  /* ── Shopify Checkout ── */
+  var _shopifyClient = null;
+  var _shopifyVariants = [];
+
+  (function() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+    script.onload = function() {
+      _shopifyClient = ShopifyBuy.buildClient({
+        domain: 'fwb21g-6r.myshopify.com',
+        storefrontAccessToken: 'bad846b7ce03656330b4a44a23cd0630',
+      });
+      _shopifyClient.product.fetch('gid://shopify/Product/15865888866685').then(function(product) {
+        if (product) _shopifyVariants = product.variants;
+      });
+    };
+    document.head.appendChild(script);
+  })();
+
+  function openCheckout() {
+    if (state.cart.length === 0) { showToast('Your cart is empty'); return; }
+    closeCart();
+    if (!_shopifyClient) { showToast('Connecting to store…'); return; }
+
+    var lineItems = state.cart.map(function(item) {
+      var variant = _shopifyVariants.find(function(v) {
+        return v.selectedOptions && v.selectedOptions.some(function(o) {
+          return o.name.toLowerCase() === 'size' && o.value.toUpperCase() === (item.size || '').toUpperCase();
+        });
+      }) || _shopifyVariants[0];
+      return { variantId: variant ? variant.id : null, quantity: 1 };
+    }).filter(function(li) { return li.variantId; });
+
+    if (lineItems.length === 0) { showToast('Could not match size — try again'); return; }
+
+    _shopifyClient.checkout.create({ lineItems: lineItems }).then(function(checkout) {
+      window.location.href = checkout.webUrl;
+    }).catch(function() { showToast('Checkout error — please try again'); });
+  }
   </script>
 </body>
 </html>
