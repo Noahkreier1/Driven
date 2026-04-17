@@ -926,8 +926,11 @@
     .cart-item-img {
       width: 80px; height: 100px;
       background: #222; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px; font-weight: 900; color: rgba(255,255,255,.06);
+      position: relative; overflow: hidden;
+    }
+    .cart-item-img img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
     }
     .cart-item-info { flex: 1; }
     .cart-item-name { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
@@ -1570,7 +1573,7 @@
                     <input type="radio" name="shipping" value="free" style="accent-color:var(--accent)" />
                     <div>
                       <div style="font-size:13px;font-weight:600">Free Shipping</div>
-                      <div style="font-size:11px;color:var(--grey-400);margin-top:2px">5–7 business days — orders CHF 120+</div>
+                      <div style="font-size:11px;color:var(--grey-400);margin-top:2px">5–7 business days — always free</div>
                     </div>
                   </div>
                   <span style="font-weight:700;color:var(--accent)">Free</span>
@@ -1771,12 +1774,12 @@
         <span class="marquee-item">Drop 001 <span>·</span></span>
         <span class="marquee-item">Limited to 100 Units <span>·</span></span>
         <span class="marquee-item">No Restock <span>·</span></span>
-        <span class="marquee-item">Free Shipping Over CHF 120.– <span>·</span></span>
+        <span class="marquee-item">Free Shipping <span>·</span></span>
         <span class="marquee-item">Wear the Drive <span>·</span></span>
         <span class="marquee-item">Drop 001 <span>·</span></span>
         <span class="marquee-item">Limited to 100 Units <span>·</span></span>
         <span class="marquee-item">No Restock <span>·</span></span>
-        <span class="marquee-item">Free Shipping Over CHF 120.– <span>·</span></span>
+        <span class="marquee-item">Free Shipping <span>·</span></span>
         <span class="marquee-item">Wear the Drive <span>·</span></span>
       </div>
     </div>
@@ -2075,17 +2078,34 @@
         <div class="drop-hero-bg"></div>
         <img src="images/tee-front.jpg" alt="Stay On Your Path Tee — Front" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;mix-blend-mode:normal;opacity:.92" />
       </div>
-      <div class="drop-hero-content">
-        <div class="drop-subtitle reveal">Drop 001 — Limited to 100 Units</div>
-        <h1 class="drop-name reveal delay-1">Stay On<br>Your<br>Path.</h1>
-        <p class="drop-desc reveal delay-2">
-          Three words. One commitment. The first drop from Driven Co. — heavyweight 340gsm cotton,
-          dropped shoulder, cream colourway. The message on your back does the talking.
-        </p>
-        <div class="drop-price reveal delay-3">CHF 37.–</div>
-
-        <!-- Size configurator -->
-        <div class="size-configurator reveal delay-3">
+      <div class="pdp-info">
+        <div class="pdp-tag">Drop 001 — Limited to 100 Units</div>
+        <h1 class="pdp-title">Stay On<br>Your Path<br>Tee</h1>
+        <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:20px">CHF 37.–</div>
+        <div class="pdp-story reveal">
+          Three words on the back. A message you carry everywhere you go.
+          The "Stay On Your Path" Tee is Drop 001 from Driven Co. — heavyweight
+          340gsm cotton, dropped shoulder, built for those who already know the answer.
+        </div>
+        <div class="pdp-attrs reveal delay-1">
+          <div class="pdp-attr">
+            <div class="pdp-attr-label">Material</div>
+            <div class="pdp-attr-val">340gsm Cotton</div>
+          </div>
+          <div class="pdp-attr">
+            <div class="pdp-attr-label">Fit</div>
+            <div class="pdp-attr-val">Dropped Shoulder</div>
+          </div>
+          <div class="pdp-attr">
+            <div class="pdp-attr-label">Origin</div>
+            <div class="pdp-attr-val">Made in Portugal</div>
+          </div>
+          <div class="pdp-attr">
+            <div class="pdp-attr-label">Drop</div>
+            <div class="pdp-attr-val">001 / 100 Units</div>
+          </div>
+        </div>
+        <div class="size-configurator reveal delay-2">
           <div class="size-label">
             <span>Select Size</span>
             <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide()">Size Guide →</button>
@@ -2099,22 +2119,39 @@
             <button class="size-btn" onclick="selectSize(this,'XXL')">XXL</button>
           </div>
         </div>
-
-        <div class="add-to-cart-section reveal delay-4">
-          <button class="btn-add-cart" onclick="addToCart()" id="dropAddBtn">
-            Add to Cart — CHF 37.–
-          </button>
+        <div class="add-to-cart-section reveal delay-3">
+          <button class="btn-add-cart" onclick="addToCart()">Add to Cart — CHF 37.–</button>
           <button class="btn-wishlist" aria-label="Wishlist" onclick="showToast('Saved to wishlist')">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
             </svg>
           </button>
         </div>
-
-        <div class="drop-trust reveal delay-5">
+        <div class="drop-trust reveal delay-4">
+          <span>✓ Free shipping</span>
           <span>✓ Free returns</span>
           <span>✓ Ships in 2–3 days</span>
-          <span>✓ Secure checkout</span>
+        </div>
+
+        <!-- Story continued -->
+        <div style="border-top:1px solid rgba(255,255,255,.06);margin-top:48px;padding-top:48px">
+          <div class="section-label" style="margin-bottom:16px">The Fabric</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
+            340gsm heavyweight cotton. Preshrunk, enzyme-washed for an immediate broken-in feel.
+            No synthetic blends. The kind of quality that improves with every wash, every wear.
+            Built for years — not seasons.
+          </p>
+          <div class="section-label" style="margin-bottom:16px">The Fit</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
+            Dropped shoulder, relaxed through the chest, slightly cropped at the hem.
+            Designed to layer. Double-stitched cuffs and collar for longevity. One colourway.
+            One size run. Zero compromises.
+          </p>
+          <div class="section-label" style="margin-bottom:16px">The Intention</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
+            No logo on the outside. The label is inside. What's on the outside is you.
+            Driven is for people who don't need a brand to tell them who they are.
+          </p>
         </div>
       </div>
     </div>
@@ -2343,7 +2380,7 @@
           </button>
         </div>
         <div class="drop-trust reveal delay-4">
-          <span>✓ Free shipping CHF 120+</span>
+          <span>✓ Free shipping</span>
           <span>✓ Free returns</span>
           <span>✓ Ships in 2–3 days</span>
         </div>
@@ -2655,7 +2692,7 @@
     itemsEl.innerHTML = state.cart.map((item,i) => {
       total += item.price;
       return `<div class="cart-item">
-        <div class="cart-item-img">D</div>
+        <div class="cart-item-img"><img src="${item.img || 'images/tee-front.jpg'}" alt="${item.name}" /></div>
         <div class="cart-item-info">
           <div class="cart-item-name">${item.name}</div>
           <div class="cart-item-size">Size: ${item.size}</div>
