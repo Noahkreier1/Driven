@@ -254,7 +254,7 @@
       display: inline-block;
       animation: marquee-scroll 30s linear infinite;
     }
-    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-track:hover { animation-play-state: running; }
     @keyframes marquee-scroll { to { transform: translateX(-50%); } }
     .marquee-item {
       display: inline-block;
@@ -1953,13 +1953,13 @@
             <div class="star"></div><div class="star"></div>
           </div>
           <div class="testimonial-quote">
-            "I've bought from every hype brand out there. This is the first tee I've worn where people ask me what it is — and there's no logo to point to. That's the flex."
+            "The Midnight Black hoodie is on another level. The weight, the cut, the feel — you can tell no corners were cut."
           </div>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">M</div>
+            <div class="testimonial-avatar">L</div>
             <div>
-              <div class="testimonial-name">Marcus T.</div>
-              <div class="testimonial-handle">@marcust · Drop 001 customer</div>
+              <div class="testimonial-name">Lukas B.</div>
+              <div class="testimonial-handle">@lukasb · Core Edition customer</div>
             </div>
           </div>
         </div>
@@ -1969,13 +1969,13 @@
             <div class="star"></div><div class="star"></div>
           </div>
           <div class="testimonial-quote">
-            "The weight of this thing is unlike anything I've felt at the price point. It doesn't crease. It doesn't pill. It just gets better. Waiting for every drop from here."
+            "Been wearing the Ocean Blue hoodie almost every day for weeks. Holds its shape, holds its colour. Can't wait to see what the next drop brings."
           </div>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">J</div>
+            <div class="testimonial-avatar">S</div>
             <div>
-              <div class="testimonial-name">Jade L.</div>
-              <div class="testimonial-handle">@jadelouise · Verified buyer</div>
+              <div class="testimonial-name">Sina M.</div>
+              <div class="testimonial-handle">@sinam · Core Edition · Zürich</div>
             </div>
           </div>
         </div>
@@ -1985,13 +1985,13 @@
             <div class="star"></div><div class="star"></div>
           </div>
           <div class="testimonial-quote">
-            "Ordered a medium. Fits exactly how the description says — dropped shoulder, relaxed but not sloppy. Shipped in two days. Already bought a second one as a gift."
+            "Ordered both Core Edition hoodies. Delivered in two days, packaging clean, quality exactly as promised. Midnight Black is my go-to."
           </div>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">R</div>
+            <div class="testimonial-avatar">F</div>
             <div>
-              <div class="testimonial-name">Ryan A.</div>
-              <div class="testimonial-handle">@ryan.a · Drop 001 customer</div>
+              <div class="testimonial-name">Fabian R.</div>
+              <div class="testimonial-handle">@fabianr · Core Edition · Bern</div>
             </div>
           </div>
         </div>
@@ -2005,7 +2005,7 @@
         Get in<br>before<br>the drop.
       </h2>
       <p class="section-sub reveal delay-2" style="margin:20px auto 0;text-align:center;position:relative;z-index:2">
-        Join 4,800+ on the list. First access. No spam. Ever.
+        Join 203+ on the list. First access. No spam. Ever.
       </p>
       <form class="email-form reveal delay-3" onsubmit="handleEmailSubmit(event)">
         <input class="email-input" type="email" placeholder="Enter your email" required />
@@ -2973,7 +2973,7 @@
   }
 
   /* ── Countdown timer ── */
-  const DROP_DATE = new Date('2026-04-22T10:00:00');
+  const DROP_DATE = new Date('2026-04-26T18:00:00');
   function updateCountdowns() {
     const now  = new Date();
     const diff = Math.max(0, DROP_DATE - now);
