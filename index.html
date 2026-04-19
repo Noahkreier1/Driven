@@ -2040,15 +2040,19 @@
         <div>
           <div class="footer-col-title">Support</div>
           <div class="footer-links">
-            <a class="footer-link" href="#">Shipping &amp; Returns</a>
+            <a class="footer-link" href="#" data-link="shipping">Shipping &amp; Returns</a>
             <a class="footer-link" href="#">FAQ</a>
-            <a class="footer-link" href="#">Contact</a>
+            <a class="footer-link" href="#" data-link="contact">Contact</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 Driven Co. All rights reserved.</span>
-        <span>Privacy · Terms · Cookies</span>
+        <span>
+          <a href="#" data-link="privacy" style="color:inherit">Privacy</a> ·
+          <a href="#" data-link="terms" style="color:inherit">Terms</a> ·
+          <a href="#" data-link="cookies" style="color:inherit">Cookies</a>
+        </span>
       </div>
     </footer>
   </div><!-- /page-home -->
@@ -2517,8 +2521,8 @@
         <div>
           <div class="footer-col-title">Support</div>
           <div class="footer-links">
-            <a class="footer-link" href="#">Shipping</a>
-            <a class="footer-link" href="#">Contact</a>
+            <a class="footer-link" href="#" data-link="shipping">Shipping &amp; Returns</a>
+            <a class="footer-link" href="#" data-link="contact">Contact</a>
           </div>
         </div>
       </div>
@@ -2528,6 +2532,262 @@
       </div>
     </footer>
   </div><!-- /page-story -->
+
+  <!-- ================================================================
+       PAGE: CONTACT
+       ================================================================ -->
+  <div class="page" id="page-contact">
+    <div style="padding:calc(var(--nav-h) + clamp(60px,8vw,100px)) var(--gutter) clamp(60px,8vw,100px); max-width:720px; margin:0 auto">
+      <div class="section-label reveal">Get in touch</div>
+      <h1 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:24px" class="reveal delay-1">Contact</h1>
+      <p style="font-size:16px;font-weight:300;line-height:1.8;color:var(--grey-400);margin-bottom:48px;max-width:480px" class="reveal delay-2">
+        Questions about your order, sizing, or anything else — we're here.
+      </p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:56px" class="reveal delay-2">
+        <div style="background:var(--grey-800);padding:32px 28px">
+          <div class="section-label" style="margin-bottom:10px">Email</div>
+          <a href="mailto:hello@driven-co.ch" style="font-size:16px;font-weight:500;color:var(--white);transition:color .2s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--white)'">hello@driven-co.ch</a>
+        </div>
+        <div style="background:var(--grey-800);padding:32px 28px">
+          <div class="section-label" style="margin-bottom:10px">Address</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.7;color:var(--grey-400)">Ribetschi 2<br>6405 Immensee<br>Switzerland</p>
+        </div>
+      </div>
+
+      <div class="reveal delay-3">
+        <div class="section-label" style="margin-bottom:24px">Send a message</div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+            <input type="text" placeholder="Name" style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;width:100%" />
+            <input type="email" placeholder="Email" style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;width:100%" />
+          </div>
+          <input type="tel" placeholder="Phone (optional)" style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;width:100%" />
+          <textarea placeholder="Your message" rows="5" style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;resize:vertical;width:100%"></textarea>
+          <button class="btn btn-primary" style="align-self:flex-start" onclick="showToast('Message sent — we\'ll get back to you shortly')">Send Message</button>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-bottom" style="padding-top:0;border-top:none">
+        <span>© 2026 Driven Co.</span>
+        <button class="btn btn-ghost" data-link="home">← Back to Home</button>
+      </div>
+    </footer>
+  </div><!-- /page-contact -->
+
+  <!-- ================================================================
+       PAGE: SHIPPING & RETURNS
+       ================================================================ -->
+  <div class="page" id="page-shipping">
+    <div style="padding:calc(var(--nav-h) + clamp(60px,8vw,100px)) var(--gutter) clamp(60px,8vw,100px); max-width:800px; margin:0 auto">
+      <div class="section-label reveal">Legal</div>
+      <h1 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:56px" class="reveal delay-1">Shipping &amp; Returns</h1>
+
+      <div style="display:flex;flex-direction:column;gap:48px">
+
+        <div class="reveal">
+          <div class="section-label" style="margin-bottom:16px;color:var(--accent)">Shipping</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:20px">Orders are generally processed within <strong style="color:var(--white)">2–4 business days</strong> after receipt of payment. Delays may occur during peak periods.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:24px">
+            <div style="background:var(--grey-800);padding:24px">
+              <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-400);margin-bottom:8px">Switzerland &amp; Liechtenstein</div>
+              <div style="font-size:15px;font-weight:500">2–4 business days</div>
+            </div>
+            <div style="background:var(--grey-800);padding:24px">
+              <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-400);margin-bottom:8px">Germany &amp; Austria</div>
+              <div style="font-size:15px;font-weight:500">4–7 business days</div>
+            </div>
+          </div>
+          <p style="font-size:13px;font-weight:300;line-height:1.8;color:var(--grey-400);margin-top:20px">Shipping costs are displayed at checkout. Free shipping within Switzerland for orders over CHF 100. International customers are responsible for any customs duties or import fees. Once handed to the carrier, responsibility passes to the customer. Tracking information is sent by email after dispatch.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:48px" class="reveal">
+          <div class="section-label" style="margin-bottom:16px;color:var(--accent)">Returns</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:20px">We accept returns within <strong style="color:var(--white)">30 days</strong> of receipt. Items must be unworn, unused, with tags intact, in original packaging, and accompanied by proof of purchase.</p>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:20px">To initiate a return, contact us at <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a> before sending anything back — unsolicited returns will not be accepted.</p>
+          <p style="font-size:13px;font-weight:300;line-height:1.8;color:var(--grey-400)"><strong style="color:var(--white)">Return address:</strong> Ribetschi 2, 6405 Immensee, Switzerland</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:48px" class="reveal">
+          <div class="section-label" style="margin-bottom:16px;color:var(--accent)">Refunds</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">Once your return is approved, refunds are processed within <strong style="color:var(--white)">10 business days</strong> to your original payment method. If you haven't received your refund after 15 business days, contact us at <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a>.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:48px" class="reveal">
+          <div class="section-label" style="margin-bottom:16px;color:var(--accent)">Non-returnable items</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">Sale items, gift cards, and custom/personalised products cannot be returned.</p>
+          <p style="font-size:13px;font-weight:300;line-height:1.8;color:var(--grey-400);margin-top:12px">EU customers have the right to cancel or return within 14 days under the EU Cooling-Off Period, for any reason.</p>
+        </div>
+
+      </div>
+    </div>
+    <footer>
+      <div class="footer-bottom" style="padding-top:0;border-top:none">
+        <span>© 2026 Driven Co.</span>
+        <button class="btn btn-ghost" data-link="home">← Back to Home</button>
+      </div>
+    </footer>
+  </div><!-- /page-shipping -->
+
+  <!-- ================================================================
+       PAGE: PRIVACY POLICY
+       ================================================================ -->
+  <div class="page" id="page-privacy">
+    <div style="padding:calc(var(--nav-h) + clamp(60px,8vw,100px)) var(--gutter) clamp(60px,8vw,100px); max-width:800px; margin:0 auto">
+      <div class="section-label reveal">Legal</div>
+      <h1 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:12px" class="reveal delay-1">Privacy Policy</h1>
+      <p style="font-size:13px;color:var(--grey-400);margin-bottom:56px" class="reveal delay-2">Last updated: October 26, 2025</p>
+
+      <div style="display:flex;flex-direction:column;gap:40px;font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
+
+        <div class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">What we collect</div>
+          <p>We collect information you provide directly: name, address, billing and shipping address, phone number, and email. We also collect financial data, transaction history, device information, and usage analytics to provide and improve our services.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">How we use it</div>
+          <p>Your data is used to process orders, fulfil payments, send marketing communications (with consent), prevent fraud, provide customer support, and comply with legal obligations.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Third parties</div>
+          <p>We share information with Shopify (our hosting and commerce platform), payment processors, shipping carriers, and marketing partners only as necessary to operate our services. We do not sell your personal data.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Your rights</div>
+          <p>Depending on your location, you may request access, deletion, correction, or portability of your personal data. EU and UK residents have additional rights including the right to object to processing. To exercise these rights, contact us at <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a>.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Data security</div>
+          <p>We take reasonable measures to protect your data, though no security system is completely impenetrable. Retention periods vary based on business necessity and legal requirements.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Contact</div>
+          <p>Driven Co. · Ribetschi 2, 6405 Immensee, Switzerland · <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a></p>
+        </div>
+
+      </div>
+    </div>
+    <footer>
+      <div class="footer-bottom" style="padding-top:0;border-top:none">
+        <span>© 2026 Driven Co.</span>
+        <button class="btn btn-ghost" data-link="home">← Back to Home</button>
+      </div>
+    </footer>
+  </div><!-- /page-privacy -->
+
+  <!-- ================================================================
+       PAGE: TERMS OF SERVICE
+       ================================================================ -->
+  <div class="page" id="page-terms">
+    <div style="padding:calc(var(--nav-h) + clamp(60px,8vw,100px)) var(--gutter) clamp(60px,8vw,100px); max-width:800px; margin:0 auto">
+      <div class="section-label reveal">Legal</div>
+      <h1 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:56px" class="reveal delay-1">Terms of Service</h1>
+
+      <div style="display:flex;flex-direction:column;gap:40px;font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
+
+        <div class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Acceptance</div>
+          <p>By using our services, you agree to be bound by these terms and our Privacy Policy. You must be of legal age in your jurisdiction and provide accurate information.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Products &amp; orders</div>
+          <p>Product colours may differ from screen representation. Orders constitute purchase offers which we may accept or decline. Payment must be received before acceptance. Prices exclude taxes and shipping and may change without notice.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Shipping</div>
+          <p>All delivery times are estimates only and are not guaranteed. Driven Co. is not liable for delivery delays. Title and risk transfer to you once the carrier receives your order.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Intellectual property</div>
+          <p>All site content is protected. You may use our services for personal, non-commercial purposes only. You may not reproduce or distribute any materials without permission.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Prohibited use</div>
+          <p>You may not engage in unlawful conduct, harassment, malware transmission, or attempts to compromise site security. We may suspend accounts for violations.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Liability</div>
+          <p>Our service is provided "as is." We disclaim liability for damages including lost profits or data loss. We may terminate access at any time without notice.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Contact</div>
+          <p>Driven Co. · Ribetschi 2, 6405 Immensee, Switzerland · <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a></p>
+        </div>
+
+      </div>
+    </div>
+    <footer>
+      <div class="footer-bottom" style="padding-top:0;border-top:none">
+        <span>© 2026 Driven Co.</span>
+        <button class="btn btn-ghost" data-link="home">← Back to Home</button>
+      </div>
+    </footer>
+  </div><!-- /page-terms -->
+
+  <!-- ================================================================
+       PAGE: COOKIES
+       ================================================================ -->
+  <div class="page" id="page-cookies">
+    <div style="padding:calc(var(--nav-h) + clamp(60px,8vw,100px)) var(--gutter) clamp(60px,8vw,100px); max-width:800px; margin:0 auto">
+      <div class="section-label reveal">Legal</div>
+      <h1 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:56px" class="reveal delay-1">Cookie Policy</h1>
+
+      <div style="display:flex;flex-direction:column;gap:40px;font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
+
+        <div class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">What are cookies</div>
+          <p>Cookies are small text files placed on your device when you visit our website. They help us operate the site, remember your preferences, and understand how visitors use our pages.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Cookies we use</div>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div style="background:var(--grey-800);padding:20px 24px">
+              <div style="font-size:13px;font-weight:600;margin-bottom:6px;color:var(--white)">Essential cookies</div>
+              <p style="font-size:14px">Required for the website to function — cart, checkout session, security. These cannot be disabled.</p>
+            </div>
+            <div style="background:var(--grey-800);padding:20px 24px">
+              <div style="font-size:13px;font-weight:600;margin-bottom:6px;color:var(--white)">Analytics cookies</div>
+              <p style="font-size:14px">Help us understand how visitors interact with our site (pages visited, time spent). Data is anonymised.</p>
+            </div>
+            <div style="background:var(--grey-800);padding:20px 24px">
+              <div style="font-size:13px;font-weight:600;margin-bottom:6px;color:var(--white)">Marketing cookies</div>
+              <p style="font-size:14px">Used to show relevant advertisements and measure campaign effectiveness. You can opt out at any time.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Managing cookies</div>
+          <p>You can control cookies through your browser settings. Note that disabling certain cookies may affect site functionality. To opt out of analytics, adjust your browser or device settings.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Contact</div>
+          <p>Questions about our use of cookies: <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a></p>
+        </div>
+
+      </div>
+    </div>
+    <footer>
+      <div class="footer-bottom" style="padding-top:0;border-top:none">
+        <span>© 2026 Driven Co.</span>
+        <button class="btn btn-ghost" data-link="home">← Back to Home</button>
+      </div>
+    </footer>
+  </div><!-- /page-cookies -->
 
   <!-- ================================================================
        JAVASCRIPT
