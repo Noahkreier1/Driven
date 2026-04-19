@@ -92,7 +92,7 @@
     }
     .nav-cart-wrap { position: relative; }
     .hamburger { display: none; flex-direction: column; gap: 5px; padding: 4px; }
-    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: all .3s; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: transform .3s var(--ease-out), opacity .3s; }
 
     /* ── Utility ── */
     .sr-only { position: absolute; width: 1px; height: 1px; clip: rect(0,0,0,0); overflow: hidden; }
@@ -1066,22 +1066,41 @@
       position: fixed; inset: 0; z-index: 1100;
       background: var(--black);
       display: flex; flex-direction: column;
-      padding: var(--gutter);
-      padding-top: calc(var(--nav-h) + 20px);
+      padding: 0 var(--gutter) clamp(32px,5vw,56px);
+      padding-top: calc(var(--nav-h) + clamp(32px,6vw,56px));
       transform: translateX(100%); transition: transform .45s var(--ease-out);
+      border-left: 1px solid rgba(0,0,0,.07);
     }
     .mobile-nav.open { transform: none; }
+    .mobile-nav-close {
+      position: absolute; top: 0; right: 0;
+      width: var(--nav-h); height: var(--nav-h);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; color: var(--grey-400);
+      transition: color .2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .mobile-nav-close:hover { color: var(--white); }
     .mobile-nav-links {
-      display: flex; flex-direction: column; gap: 8px; list-style: none; flex: 1;
+      display: flex; flex-direction: column; gap: 0; list-style: none; flex: 1;
     }
+    .mobile-nav-links li { border-bottom: 1px solid rgba(0,0,0,.06); }
     .mobile-nav-links a {
-      font-size: clamp(32px, 8vw, 56px); font-weight: 900;
-      letter-spacing: -.03em; text-transform: uppercase; line-height: 1.15;
-      color: rgba(0,0,0,.2); transition: color .25s;
+      display: block;
+      font-size: clamp(26px, 7vw, 48px); font-weight: 900;
+      letter-spacing: -.03em; text-transform: uppercase; line-height: 1;
+      padding: clamp(14px,3vw,22px) 0;
+      color: rgba(0,0,0,.5); transition: color .2s, padding-left .2s;
+      -webkit-tap-highlight-color: transparent;
     }
-    .mobile-nav-links a:hover, .mobile-nav-links a.active { color: var(--white); }
+    .mobile-nav-links a:hover,
+    .mobile-nav-links a.active {
+      color: var(--white);
+      padding-left: 8px;
+    }
     .mobile-nav-bottom {
       font-size: 11px; color: var(--grey-400); letter-spacing: .12em; text-transform: uppercase;
+      margin-top: clamp(24px,4vw,40px);
     }
 
     /* ============================================================
@@ -1131,7 +1150,7 @@
     @media (max-width: 480px) {
       .collection-grid    { grid-template-columns: 1fr 1fr; }
       .hero-ctas          { flex-direction: column; width: 100%; }
-      .hero-ctas .btn     { width: 100%; text-align: center; }
+      .hero-ctas .btn     { width: 100%; text-align: center; justify-content: center; }
       .countdown-wrap     { gap: 8px; }
       .countdown-num      { font-size: clamp(28px, 8vw, 48px); }
       /* PDP: hide thumbs on phones, let image fill */
@@ -1154,6 +1173,13 @@
       .story-panel-text   { padding: clamp(32px,6vw,60px) clamp(24px,5vw,48px); }
       /* Hero headline smaller */
       .hero-headline      { font-size: clamp(48px, 13vw, 96px); }
+      /* Sticky CTA compact */
+      .sticky-cta         { flex-direction: column; align-items: stretch; gap: 10px; padding: 14px var(--gutter); }
+      .sticky-cta .btn    { width: 100%; justify-content: center; }
+      /* Drop hero info spacing after gallery */
+      .drop-hero .pdp-info { padding-top: clamp(28px,5vw,48px); }
+      /* Proof items smaller text */
+      .proof-label        { font-size: 9px; }
     }
 
     /* ── page transition wipe ── */
@@ -1748,15 +1774,16 @@
   </nav>
 
   <!-- Mobile nav -->
-  <nav class="mobile-nav" id="mobileNav">
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="Close menu">×</button>
     <ul class="mobile-nav-links">
       <li><a href="#" data-link="home"       onclick="closeMobileNav()">Home</a></li>
       <li><a href="#" data-link="drop"       onclick="closeMobileNav()">Drop 001</a></li>
       <li><a href="#" data-link="collection" onclick="closeMobileNav()">Collection</a></li>
-      <li><a href="#" data-link="pdp"        onclick="closeMobileNav()">Product</a></li>
       <li><a href="#" data-link="story"      onclick="closeMobileNav()">Our Story</a></li>
+      <li><a href="#" data-link="contact"    onclick="closeMobileNav()">Contact</a></li>
     </ul>
-    <div class="mobile-nav-bottom">No noise. Just drive.</div>
+    <div class="mobile-nav-bottom">© 2025 Driven Co. — No noise. Just drive.</div>
   </nav>
 
   <!-- ================================================================
@@ -3363,9 +3390,10 @@
     mobileNav.classList.toggle('open', state.mobileNavOpen);
     const spans = hamburger.querySelectorAll('span');
     if (state.mobileNavOpen) {
-      spans[0].style.transform = 'rotate(45deg) translate(4px,5px)';
+      spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
       spans[1].style.opacity   = '0';
-      spans[2].style.transform = 'rotate(-45deg) translate(4px,-5px)';
+      spans[1].style.transform = 'scaleX(0)';
+      spans[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
     } else {
       spans.forEach(s => { s.style.transform=''; s.style.opacity=''; });
     }
