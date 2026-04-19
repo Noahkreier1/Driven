@@ -69,8 +69,10 @@
       border-bottom: 1px solid rgba(0,0,0,.09);
     }
     .nav-logo {
-      font-size: 17px; font-weight: 800; letter-spacing: .18em;
-      text-transform: uppercase;
+      display: flex; align-items: center;
+    }
+    .nav-logo img {
+      height: 36px; width: auto; display: block;
     }
     .nav-links {
       display: flex; gap: 36px; list-style: none;
@@ -279,6 +281,8 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%; object-fit: cover;
       transition: transform .7s var(--ease-out);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
     .story-panel-img:hover img { transform: scale(1.04); }
     .story-panel-img-inner {
@@ -501,6 +505,37 @@
       position: absolute; inset: 0;
       background: radial-gradient(ellipse at 50% 40%, rgba(200,169,110,.07) 0%, transparent 60%);
     }
+    .drop-gallery-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      opacity: 0; transition: opacity .45s var(--ease-out);
+    }
+    .drop-gallery-img.active { opacity: .92; }
+    .drop-gallery-arrow {
+      position: absolute; top: 50%; z-index: 10;
+      transform: translateY(-50%);
+      width: 44px; height: 44px;
+      border: 1.5px solid rgba(0,0,0,.18);
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(8px);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background .2s, border-color .2s;
+      font-size: 18px; color: var(--white); line-height: 1;
+    }
+    .drop-gallery-arrow:hover { background: rgba(255,255,255,.95); border-color: rgba(0,0,0,.3); }
+    .drop-gallery-arrow.prev { left: 16px; }
+    .drop-gallery-arrow.next { right: 16px; }
+    .drop-gallery-dots {
+      position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 7px; z-index: 10;
+    }
+    .drop-gallery-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(0,0,0,.2); cursor: pointer;
+      transition: background .25s, transform .25s;
+    }
+    .drop-gallery-dot.active { background: var(--white); transform: scale(1.3); }
     .drop-product-mock {
       position: relative; z-index: 2;
       width: min(360px, 65%);
@@ -1652,7 +1687,7 @@
        NAVIGATION
        ================================================================ -->
   <nav id="mainNav">
-    <a href="#" class="nav-logo" data-link="home">DRIVEN</a>
+    <a href="#" class="nav-logo" data-link="home"><img src="images/logo.png" alt="Driven Co." /></a>
     <ul class="nav-links">
       <li><a href="#" data-link="drop" class="active-link">Drop 001</a></li>
       <li><a href="#" data-link="collection">Collection</a></li>
@@ -1792,7 +1827,7 @@
     <!-- Storytelling strip 1 -->
     <div class="story-strip">
       <div class="story-panel-img parallax" data-speed=".04">
-        <img src="images/tee-front.jpg" alt="Stay On Your Path Tee — Front" style="object-position:center top" />
+        <img src="images/story-craft.jpg" alt="Crafted With Intention" style="object-position:center top" />
         <div class="img-overlay"></div>
       </div>
       <div class="story-panel-text">
@@ -1811,7 +1846,7 @@
     <!-- Storytelling strip 2 -->
     <div class="story-strip reverse">
       <div class="story-panel-img parallax" data-speed=".04">
-        <img src="images/tee-back.jpg" alt="Stay On Your Path Tee — Back" style="object-position:center top" />
+        <img src="images/story-limited.jpg" alt="Limited By Design" style="object-fit:contain; object-position:center center; background:var(--grey-800)" />
         <div class="img-overlay"></div>
       </div>
       <div class="story-panel-text">
@@ -1877,7 +1912,7 @@
     <div class="drop-banner">
       <div class="drop-banner-visual">
         <div class="drop-banner-visual-inner"></div>
-        <img src="images/tee-front.jpg" alt="Stay On Your Path Tee — Front" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.85" />
+        <img src="images/home-drop-teaser.jpg" alt="Stay On Your Path Tee — Front" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.85" />
       </div>
       <div class="drop-banner-content">
         <div class="section-label reveal">Drop 001 — Stay On Your Path Tee</div>
@@ -1922,7 +1957,7 @@
     <!-- Storytelling strip 3 -->
     <div class="story-strip">
       <div class="story-panel-img parallax" data-speed=".04">
-        <img src="images/flatlay.jpg" alt="Driven Co. flatlay" style="object-position:center 40%" />
+        <img src="images/story-mindset.jpg" alt="Built on a Mindset" style="object-position:center 40%" />
         <div class="img-overlay"></div>
       </div>
       <div class="story-panel-text">
@@ -2021,7 +2056,7 @@
     <footer>
       <div class="footer-top">
         <div>
-          <div class="footer-brand-name">Driven</div>
+          <img src="images/logo.png" alt="Driven Co." style="height:40px;width:auto;margin-bottom:14px;display:block" />
           <div class="footer-brand-tagline">Premium streetwear built for those who move differently. No noise. Just drive.</div>
           <div class="footer-socials">
             <a class="footer-social-link" href="https://www.instagram.com/drivenco_" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
@@ -2067,9 +2102,18 @@
 
     <!-- Drop hero -->
     <div class="drop-hero">
-      <div class="drop-hero-visual">
+      <div class="drop-hero-visual" id="dropGallery">
         <div class="drop-hero-bg"></div>
-        <img src="images/tee-front.jpg" alt="Stay On Your Path Tee — Front" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;mix-blend-mode:normal;opacity:.92" />
+        <img class="drop-gallery-img active" src="images/drop-hero.png" alt="Stay On Your Path Tee" />
+        <img class="drop-gallery-img" src="images/drop-hero-2.jpg" alt="Stay On Your Path Tee — Back" />
+        <img class="drop-gallery-img" src="images/drop-hero-3.jpg" style="object-position:center 40%" alt="Campaign" />
+        <button class="drop-gallery-arrow prev" onclick="dropGalleryNav(-1)">&#8249;</button>
+        <button class="drop-gallery-arrow next" onclick="dropGalleryNav(1)">&#8250;</button>
+        <div class="drop-gallery-dots" id="dropGalleryDots">
+          <div class="drop-gallery-dot active" onclick="dropGalleryGo(0)"></div>
+          <div class="drop-gallery-dot" onclick="dropGalleryGo(1)"></div>
+          <div class="drop-gallery-dot" onclick="dropGalleryGo(2)"></div>
+        </div>
       </div>
       <div class="pdp-info">
         <div class="pdp-tag">Drop 001 — Limited to 100 Units</div>
@@ -2710,7 +2754,7 @@
     <footer>
       <div class="footer-top">
         <div>
-          <div class="footer-brand-name">Driven</div>
+          <img src="images/logo.png" alt="Driven Co." style="height:40px;width:auto;margin-bottom:14px;display:block" />
           <div class="footer-brand-tagline">Premium streetwear for those who move differently. No noise. Just drive.</div>
           <div class="footer-socials">
             <a class="footer-social-link" href="https://www.instagram.com/drivenco_" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
@@ -3309,6 +3353,19 @@
     setTimeout(() => { img.src = src; img.style.opacity = '1'; }, 200);
   }
 
+  /* ── Drop hero gallery ── */
+  var _dropGalleryIdx = 0;
+  function dropGalleryGo(idx) {
+    const imgs = document.querySelectorAll('#dropGallery .drop-gallery-img');
+    const dots = document.querySelectorAll('#dropGalleryDots .drop-gallery-dot');
+    imgs.forEach(i => i.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    _dropGalleryIdx = (idx + imgs.length) % imgs.length;
+    imgs[_dropGalleryIdx].classList.add('active');
+    dots[_dropGalleryIdx].classList.add('active');
+  }
+  function dropGalleryNav(dir) { dropGalleryGo(_dropGalleryIdx + dir); }
+
   /* ── PDP image switcher ── */
   function pdpSwitch(thumb, src) {
     document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
@@ -3489,7 +3546,7 @@
       const speed  = parseFloat(el.dataset.speed || .05);
       const rect   = el.getBoundingClientRect();
       const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-      el.style.transform = `translateY(${center * speed}px)`;
+      el.style.transform = `translateY(${Math.round(center * speed)}px)`;
     });
   }
   window.addEventListener('scroll', handleParallax, { passive: true });
