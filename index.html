@@ -400,6 +400,7 @@
       padding: 5px 10px;
     }
     .badge-drop { background: var(--accent); color: var(--black); }
+    .badge-core { background: var(--white); color: var(--black); }
     .badge-sold { background: var(--grey-800); color: var(--grey-400); border: 1px solid rgba(0,0,0,.1); }
     /* Card visual fills */
     .cv-1 { background: linear-gradient(140deg,#e8e8e8 0%,#f0f0f0 100%); }
@@ -484,12 +485,15 @@
        PAGE 2 — DROP
        ============================================================ */
     .drop-hero {
-      height: 100dvh; min-height: 600px;
       display: grid; grid-template-columns: 1fr 1fr;
-      overflow: hidden;
+      min-height: 100dvh;
+      padding-top: var(--nav-h);
+      align-items: start;
     }
     .drop-hero-visual {
-      position: relative; background: #eeeeee;
+      position: sticky; top: var(--nav-h);
+      height: calc(100dvh - var(--nav-h));
+      background: #eeeeee;
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
     }
@@ -514,7 +518,6 @@
       display: flex; flex-direction: column; justify-content: center;
       padding: clamp(40px, 5vw, 80px) clamp(32px, 4vw, 72px);
       background: var(--black);
-      padding-top: calc(var(--nav-h) + 40px);
     }
     .drop-name {
       font-size: clamp(40px, 6vw, 80px); font-weight: 900;
@@ -1050,9 +1053,9 @@
     @media (max-width: 1024px) {
       .story-strip     { grid-template-columns: 1fr; }
       .story-strip.reverse { direction: ltr; }
-      .drop-hero       { grid-template-columns: 1fr; }
+      .drop-hero       { grid-template-columns: 1fr; padding-top: 0; }
       .drop-hero-visual { display: none; }
-      .drop-hero-content { padding-top: calc(var(--nav-h) + 40px); }
+      .drop-hero       { min-height: unset; }
       .pdp-layout      { grid-template-columns: 1fr; }
       .pdp-gallery     { position: relative; top: auto; height: 60vw; max-height: 480px; }
       .footer-top      { grid-template-columns: 1fr 1fr; }
@@ -2422,6 +2425,214 @@
   </div><!-- /page-pdp -->
 
   <!-- ================================================================
+       PAGE: HOODIE — MIDNIGHT BLACK
+       ================================================================ -->
+  <div class="page" id="page-hoodie-black">
+    <div class="pdp-layout">
+      <!-- Gallery -->
+      <div class="pdp-gallery">
+        <div class="pdp-main-img">
+          <img id="hbMainImg" src="images/hoodie-black.jpg" alt="What If Hoodie Midnight Black" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;transition:opacity .4s;padding:12px" />
+        </div>
+        <div class="pdp-thumbs">
+          <div class="pdp-thumb active" onclick="hoodieSwitch('hbMainImg',this,'images/hoodie-black.jpg')">
+            <img src="images/hoodie-black.jpg" alt="Front" />
+          </div>
+          <div class="pdp-thumb" onclick="hoodieSwitch('hbMainImg',this,'images/hoodie-black-back.jpg')">
+            <img src="images/hoodie-black-back.jpg" alt="Back" />
+          </div>
+          <div class="pdp-thumb" onclick="hoodieSwitch('hbMainImg',this,'images/hoodie-hanger.jpg')">
+            <img src="images/hoodie-hanger.jpg" alt="Hanger" />
+          </div>
+        </div>
+      </div>
+      <!-- Info -->
+      <div class="pdp-info">
+        <div class="pdp-tag">Core Edition — Limited Drop</div>
+        <h1 class="pdp-title">What If<br>Hoodie<br>Midnight Black</h1>
+        <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:20px">CHF 74.–</div>
+        <div class="pdp-story reveal">
+          The What If Hoodie in Midnight Black. 330gsm, 70% cotton / 30% polyester,
+          front and back print with a special puffer printing method on the back.
+          Built for those who move with purpose — and look the part.
+        </div>
+        <div class="pdp-attrs reveal delay-1">
+          <div class="pdp-attr">
+            <div class="pdp-attr-label">Material</div>
+            <div class="pdp-attr-val">330gsm Cotton / Poly</div>
+          </div>
+          <div class="pdp-attr">
+            <div class="pdp-attr-label">Fit</div>
+            <div class="pdp-attr-val">Light Oversized Cropped</div>
+          </div>
+          <div class="pdp-attr">
+            <div class="pdp-attr-label">Created</div>
+            <div class="pdp-attr-val">in Switzerland</div>
+          </div>
+          <div class="pdp-attr">
+            <div class="pdp-attr-label">Drop</div>
+            <div class="pdp-attr-val">Core Edition</div>
+          </div>
+        </div>
+        <div class="size-configurator reveal delay-2">
+          <div class="size-label">
+            <span>Select Size</span>
+            <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide()">Size Guide →</button>
+          </div>
+          <div class="size-grid">
+            <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+            <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+            <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+            <button class="size-btn sold-out" disabled>L</button>
+            <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+            <button class="size-btn sold-out" disabled>XXL</button>
+          </div>
+        </div>
+        <div class="add-to-cart-section reveal delay-3">
+          <button class="btn-add-cart" onclick="addToCart()">Add to Cart — CHF 74.–</button>
+          <button class="btn-wishlist" aria-label="Wishlist" onclick="showToast('Saved to wishlist')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="drop-trust reveal delay-4">
+          <span>✓ Free shipping</span>
+          <span>✓ Free returns</span>
+          <span>✓ Ships in 2–3 days</span>
+        </div>
+        <div style="border-top:1px solid rgba(0,0,0,.07);margin-top:48px;padding-top:48px">
+          <div class="section-label" style="margin-bottom:16px">The Fabric</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
+            330gsm, 70% cotton / 30% polyester. Enzyme-washed for immediate softness.
+            Preshrunk. Built to hold its shape and colour wash after wash.
+          </p>
+          <div class="section-label" style="margin-bottom:16px">The Fit</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
+            Light oversized cropped silhouette. Relaxed through the chest, slightly cropped at the hem.
+            Designed to layer. Double-stitched cuffs and collar for longevity.
+          </p>
+          <div class="section-label" style="margin-bottom:16px">Care</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
+            Machine wash 30°C gentle cycle. Turn inside out before washing and ironing.
+            Do not tumble dry. Wash with similar colours.
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-bottom" style="padding-top:0;border-top:none">
+        <span>© 2026 Driven Co.</span>
+        <button class="btn btn-ghost" data-link="collection">← Back to Collection</button>
+      </div>
+    </footer>
+  </div><!-- /page-hoodie-black -->
+
+  <!-- ================================================================
+       PAGE: HOODIE — OCEAN BLUE
+       ================================================================ -->
+  <div class="page" id="page-hoodie-blue">
+    <div class="pdp-layout">
+      <!-- Gallery -->
+      <div class="pdp-gallery">
+        <div class="pdp-main-img">
+          <img id="hbluMainImg" src="images/hoodie-blue.jpg" alt="What If Hoodie Ocean Blue" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;transition:opacity .4s;padding:12px" />
+        </div>
+        <div class="pdp-thumbs">
+          <div class="pdp-thumb active" onclick="hoodieSwitch('hbluMainImg',this,'images/hoodie-blue.jpg')">
+            <img src="images/hoodie-blue.jpg" alt="Front" />
+          </div>
+          <div class="pdp-thumb" onclick="hoodieSwitch('hbluMainImg',this,'images/hoodie-blue-back.jpg')">
+            <img src="images/hoodie-blue-back.jpg" alt="Back" />
+          </div>
+          <div class="pdp-thumb" onclick="hoodieSwitch('hbluMainImg',this,'images/hoodie-hanger.jpg')">
+            <img src="images/hoodie-hanger.jpg" alt="Hanger" />
+          </div>
+        </div>
+      </div>
+      <!-- Info -->
+      <div class="pdp-info">
+        <div class="pdp-tag">Core Edition — Limited Drop</div>
+        <h1 class="pdp-title">What If<br>Hoodie<br>Ocean Blue</h1>
+        <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:20px">CHF 74.–</div>
+        <div class="pdp-story reveal">
+          The What If Hoodie in Ocean Blue. 330gsm, 70% cotton / 30% polyester,
+          front and back print with a special puffer printing method on the back.
+          The colour of intention. Worn by those who keep going.
+        </div>
+        <div class="pdp-attrs reveal delay-1">
+          <div class="pdp-attr">
+            <div class="pdp-attr-label">Material</div>
+            <div class="pdp-attr-val">330gsm Cotton / Poly</div>
+          </div>
+          <div class="pdp-attr">
+            <div class="pdp-attr-label">Fit</div>
+            <div class="pdp-attr-val">Light Oversized Cropped</div>
+          </div>
+          <div class="pdp-attr">
+            <div class="pdp-attr-label">Created</div>
+            <div class="pdp-attr-val">in Switzerland</div>
+          </div>
+          <div class="pdp-attr">
+            <div class="pdp-attr-label">Drop</div>
+            <div class="pdp-attr-val">Core Edition</div>
+          </div>
+        </div>
+        <div class="size-configurator reveal delay-2">
+          <div class="size-label">
+            <span>Select Size</span>
+            <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide()">Size Guide →</button>
+          </div>
+          <div class="size-grid">
+            <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+            <button class="size-btn sold-out" disabled>S</button>
+            <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+            <button class="size-btn" onclick="selectSize(this,'L')">L</button>
+            <button class="size-btn sold-out" disabled>XL</button>
+            <button class="size-btn sold-out" disabled>XXL</button>
+          </div>
+        </div>
+        <div class="add-to-cart-section reveal delay-3">
+          <button class="btn-add-cart" onclick="addToCart()">Add to Cart — CHF 74.–</button>
+          <button class="btn-wishlist" aria-label="Wishlist" onclick="showToast('Saved to wishlist')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="drop-trust reveal delay-4">
+          <span>✓ Free shipping</span>
+          <span>✓ Free returns</span>
+          <span>✓ Ships in 2–3 days</span>
+        </div>
+        <div style="border-top:1px solid rgba(0,0,0,.07);margin-top:48px;padding-top:48px">
+          <div class="section-label" style="margin-bottom:16px">The Fabric</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
+            330gsm, 70% cotton / 30% polyester. Enzyme-washed for immediate softness.
+            Preshrunk. Built to hold its shape and colour wash after wash.
+          </p>
+          <div class="section-label" style="margin-bottom:16px">The Fit</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
+            Light oversized cropped silhouette. Relaxed through the chest, slightly cropped at the hem.
+            Designed to layer. Double-stitched cuffs and collar for longevity.
+          </p>
+          <div class="section-label" style="margin-bottom:16px">Care</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
+            Machine wash 30°C gentle cycle. Turn inside out before washing and ironing.
+            Do not tumble dry. Wash with similar colours.
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-bottom" style="padding-top:0;border-top:none">
+        <span>© 2026 Driven Co.</span>
+        <button class="btn btn-ghost" data-link="collection">← Back to Collection</button>
+      </div>
+    </footer>
+  </div><!-- /page-hoodie-blue -->
+
+  <!-- ================================================================
        PAGE: BRAND STORY
        ================================================================ -->
   <div class="page" id="page-story">
@@ -2804,7 +3015,9 @@
 
   /* ── Products data ── */
   const products = [
-    { id:1, name:'Stay On Your Path Tee', price:37, cat:'tshirts', drop:true, sold:false, img:'images/tee-front.jpg', imgPos:'center top' },
+    { id:1, name:'Stay On Your Path Tee',           price:37, cat:'tshirts', drop:true,  sold:false, img:'images/tee-front.jpg',      imgPos:'center top', page:'pdp' },
+    { id:2, name:'What If Hoodie — Midnight Black', price:74, cat:'hoodies', core:true,  sold:false, img:'images/hoodie-black.jpg',    imgPos:'center top', page:'hoodie-black' },
+    { id:3, name:'What If Hoodie — Ocean Blue',     price:74, cat:'hoodies', core:true,  sold:false, img:'images/hoodie-blue.jpg',     imgPos:'center top', page:'hoodie-blue' },
   ];
 
   /* ── Custom cursor ── */
@@ -2900,7 +3113,6 @@
   /* ── Cart ── */
   function addToCart() {
     if (!state.selectedSize) {
-      // Wiggle size grid
       const grids = document.querySelectorAll('#page-'+state.currentPage+' .size-grid');
       grids.forEach(g => {
         g.style.animation = 'none';
@@ -2910,7 +3122,8 @@
       showToast('Please select a size');
       return;
     }
-    state.cart.push({ name:'Stay On Your Path Tee', size:state.selectedSize, price:37 });
+    const product = products.find(p => p.page === state.currentPage) || products[0];
+    state.cart.push({ name: product.name, size: state.selectedSize, price: product.price, img: product.img, page: product.page });
     updateCart();
     showToast('Added to cart ✓');
     openCart();
@@ -3086,6 +3299,16 @@
     renderCollection(filter);
   }
 
+  /* ── Hoodie image switcher ── */
+  function hoodieSwitch(imgId, thumb, src) {
+    thumb.closest('.pdp-thumbs').querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
+    const img = document.getElementById(imgId);
+    if (!img) return;
+    img.style.opacity = '0';
+    setTimeout(() => { img.src = src; img.style.opacity = '1'; }, 200);
+  }
+
   /* ── PDP image switcher ── */
   function pdpSwitch(thumb, src) {
     document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
@@ -3242,13 +3465,14 @@
     }
 
     grid.innerHTML = filtered.map((p,i) => `
-      <div class="full-product-card" onclick="${p.sold ? 'openNotify()' : "navigate('pdp')"}">
+      <div class="full-product-card" onclick="${p.sold ? 'openNotify()' : `navigate('${p.page||'pdp'}')`}">
         ${p.img
           ? `<img src="${p.img}" alt="${p.name}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${p.imgPos||'center'};transition:transform .7s var(--ease-out)" />`
           : `<div class="full-product-card-bg ${bgClasses[i%3]}"></div>`
         }
         <div class="full-product-overlay"></div>
         ${p.drop ? '<span class="product-badge badge-drop">Drop 001</span>' : ''}
+        ${p.core ? '<span class="product-badge badge-core">Core Edition</span>' : ''}
         ${p.sold ? '<span class="product-badge badge-sold" style="top:auto;bottom:70px">Sold Out</span>' : ''}
         <div class="full-product-info">
           <div class="full-product-name">${p.name}</div>
@@ -3300,7 +3524,11 @@
 
   /* ── Shopify Checkout ── */
   var _shopifyClient = null;
-  var _shopifyVariants = [];
+  var _shopifyProductVariants = {
+    'pdp':           { id: '15865888866685', variants: [] },  // Stay On Your Path Tee
+    'hoodie-blue':   { id: '15633560633725', variants: [] },  // What If Hoodie — Ocean Blue
+    'hoodie-black':  { id: '15633555849597', variants: [] },  // What If Hoodie — Midnight Black
+  };
 
   (function() {
     var script = document.createElement('script');
@@ -3311,12 +3539,40 @@
         domain: 'fwb21g-6r.myshopify.com',
         storefrontAccessToken: 'bad846b7ce03656330b4a44a23cd0630',
       });
-      _shopifyClient.product.fetch('gid://shopify/Product/15865888866685').then(function(product) {
-        if (product) _shopifyVariants = product.variants;
+      Object.keys(_shopifyProductVariants).forEach(function(key) {
+        var entry = _shopifyProductVariants[key];
+        _shopifyClient.product.fetch('gid://shopify/Product/' + entry.id).then(function(product) {
+          if (!product) return;
+          entry.variants = product.variants;
+          updateSizeAvailability(key, product.variants);
+        });
       });
     };
     document.head.appendChild(script);
   })();
+
+  function updateSizeAvailability(pageKey, variants) {
+    var pageMap = { 'pdp': 'page-pdp', 'hoodie-blue': 'page-hoodie-blue', 'hoodie-black': 'page-hoodie-black' };
+    var pageId = pageMap[pageKey];
+    if (!pageId) return;
+    var page = document.getElementById(pageId);
+    if (!page) return;
+    page.querySelectorAll('.size-btn').forEach(function(btn) {
+      var size = btn.textContent.trim().toUpperCase();
+      var variant = variants.find(function(v) {
+        return v.selectedOptions && v.selectedOptions.some(function(o) {
+          return o.name.toLowerCase() === 'size' && o.value.toUpperCase() === size;
+        });
+      });
+      if (variant && !variant.available) {
+        btn.classList.add('sold-out');
+        btn.title = 'Sold out';
+      } else {
+        btn.classList.remove('sold-out');
+        btn.title = '';
+      }
+    });
+  }
 
   function openCheckout() {
     if (state.cart.length === 0) { showToast('Your cart is empty'); return; }
@@ -3324,11 +3580,13 @@
     if (!_shopifyClient) { showToast('Connecting to store…'); return; }
 
     var lineItems = state.cart.map(function(item) {
-      var variant = _shopifyVariants.find(function(v) {
+      var productEntry = _shopifyProductVariants[item.page] || _shopifyProductVariants['pdp'];
+      var variants = productEntry.variants;
+      var variant = variants.find(function(v) {
         return v.selectedOptions && v.selectedOptions.some(function(o) {
           return o.name.toLowerCase() === 'size' && o.value.toUpperCase() === (item.size || '').toUpperCase();
         });
-      }) || _shopifyVariants[0];
+      }) || variants[0];
       return { variantId: variant ? variant.id : null, quantity: 1 };
     }).filter(function(li) { return li.variantId; });
 
