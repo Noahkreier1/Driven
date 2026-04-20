@@ -91,8 +91,8 @@
       display: flex; align-items: center; justify-content: center;
     }
     .nav-cart-wrap { position: relative; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; padding: 4px; }
-    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: transform .3s var(--ease-out), opacity .3s; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: transform .35s var(--ease-out), opacity .25s; }
 
     /* ── Utility ── */
     .sr-only { position: absolute; width: 1px; height: 1px; clip: rect(0,0,0,0); overflow: hidden; }
@@ -1060,47 +1060,81 @@
     .toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
 
     /* ============================================================
-       MOBILE NAV DRAWER
+       MOBILE NAV DRAWER  (mobile only — hidden on desktop)
        ============================================================ */
+    .nav-overlay { display: none; }
+
     .mobile-nav {
+      display: none;
       position: fixed; inset: 0; z-index: 1100;
-      background: var(--black);
-      display: flex; flex-direction: column;
-      padding: 0 var(--gutter) clamp(32px,5vw,56px);
-      padding-top: calc(var(--nav-h) + clamp(32px,6vw,56px));
-      transform: translateX(100%); transition: transform .45s var(--ease-out);
-      border-left: 1px solid rgba(0,0,0,.07);
+      width: 100%; height: 100dvh; /* override base nav { height: 64px } */
+      background: #0a0a0a;
+      flex-direction: column;
+      padding: 0 clamp(28px,8vw,52px) clamp(32px,6vw,52px);
+      padding-top: calc(var(--nav-h) + clamp(28px,6vw,48px));
+      transform: translateX(100%);
+      transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    @media (max-width: 768px) { .mobile-nav { display: flex; } }
     .mobile-nav.open { transform: none; }
-    .mobile-nav-close {
-      position: absolute; top: 0; right: 0;
-      width: var(--nav-h); height: var(--nav-h);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px; color: var(--grey-400);
-      transition: color .2s;
-      -webkit-tap-highlight-color: transparent;
+
+    .mobile-nav-header {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(28px,8vw,52px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: #0a0a0a;
     }
-    .mobile-nav-close:hover { color: var(--white); }
+    .mobile-nav-brand {
+      font-size: 13px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase;
+      color: rgba(255,255,255,.9);
+    }
+    .mobile-nav-close {
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; color: rgba(255,255,255,.5);
+      transition: color .2s, border-color .2s;
+      -webkit-tap-highlight-color: transparent;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 50%;
+    }
+    .mobile-nav-close:hover { color: #fff; border-color: rgba(255,255,255,.5); }
+
     .mobile-nav-links {
       display: flex; flex-direction: column; gap: 0; list-style: none; flex: 1;
     }
-    .mobile-nav-links li { border-bottom: 1px solid rgba(0,0,0,.06); }
+    .mobile-nav-links li { border-bottom: 1px solid rgba(255,255,255,.07); }
     .mobile-nav-links a {
-      display: block;
+      display: flex; align-items: center; justify-content: space-between;
       font-size: clamp(26px, 7vw, 48px); font-weight: 900;
       letter-spacing: -.03em; text-transform: uppercase; line-height: 1;
       padding: clamp(14px,3vw,22px) 0;
-      color: rgba(0,0,0,.5); transition: color .2s, padding-left .2s;
+      color: rgba(255,255,255,.45);
+      transition: color .2s, padding-left .3s cubic-bezier(0.16,1,0.3,1);
       -webkit-tap-highlight-color: transparent;
     }
-    .mobile-nav-links a:hover,
-    .mobile-nav-links a.active {
-      color: var(--white);
-      padding-left: 8px;
+    .mobile-nav-links a::after {
+      content: '→';
+      font-size: 16px; font-weight: 500;
+      opacity: 0; transform: translateX(-6px);
+      transition: opacity .2s, transform .25s cubic-bezier(0.16,1,0.3,1);
+      color: var(--accent);
     }
+    .mobile-nav-links a:hover,
+    .mobile-nav-links a.active { color: #ffffff; padding-left: 6px; }
+    .mobile-nav-links a:hover::after,
+    .mobile-nav-links a.active::after { opacity: 1; transform: none; }
+
     .mobile-nav-bottom {
-      font-size: 11px; color: var(--grey-400); letter-spacing: .12em; text-transform: uppercase;
-      margin-top: clamp(24px,4vw,40px);
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: clamp(20px,4vw,32px);
+      font-size: 10px; color: rgba(255,255,255,.25);
+      letter-spacing: .14em; text-transform: uppercase;
+    }
+    .mobile-nav-accent-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--accent); display: inline-block;
     }
 
     /* ============================================================
@@ -1128,6 +1162,13 @@
     @media (max-width: 768px) {
       .nav-links          { display: none; }
       .hamburger          { display: flex; }
+      /* Always show nav background on mobile so hamburger is readable */
+      nav {
+        background: rgba(248,248,248,.96);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(0,0,0,.08);
+      }
       .collection-grid    { grid-template-columns: 1fr 1fr; }
       .footer-top         { grid-template-columns: 1fr; }
       .social-proof       { grid-template-columns: 1fr 1fr; }
@@ -1201,8 +1242,8 @@
       width: 0; transition: width .1s linear;
     }
 
-    /* ── scroll-triggered parallax helper ── */
-    .parallax { will-change: transform; }
+    /* ── scroll-triggered parallax helper (desktop only) ── */
+    @media (min-width: 1025px) { .parallax { will-change: transform; } }
 
     /* ── Animate numbers ── */
     .count-up { display: inline-block; }
@@ -1775,7 +1816,10 @@
 
   <!-- Mobile nav -->
   <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-    <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="Close menu">×</button>
+    <div class="mobile-nav-header">
+      <span class="mobile-nav-brand">Driven Co.</span>
+      <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="Close menu">×</button>
+    </div>
     <ul class="mobile-nav-links">
       <li><a href="#" data-link="home"       onclick="closeMobileNav()">Home</a></li>
       <li><a href="#" data-link="drop"       onclick="closeMobileNav()">Drop 001</a></li>
@@ -1783,7 +1827,11 @@
       <li><a href="#" data-link="story"      onclick="closeMobileNav()">Our Story</a></li>
       <li><a href="#" data-link="contact"    onclick="closeMobileNav()">Contact</a></li>
     </ul>
-    <div class="mobile-nav-bottom">© 2025 Driven Co. — No noise. Just drive.</div>
+    <div class="mobile-nav-bottom">
+      <span>© 2026 Driven Co.</span>
+      <span class="mobile-nav-accent-dot"></span>
+      <span>Wear the Drive</span>
+    </div>
   </nav>
 
   <!-- ================================================================
@@ -1913,7 +1961,7 @@
     <!-- Storytelling strip 2 -->
     <div class="story-strip reverse">
       <div class="story-panel-img parallax" data-speed=".04">
-        <img src="images/story-limited.jpg" alt="Limited By Design" style="object-fit:contain; object-position:center center; background:var(--grey-800)" />
+        <img src="images/story-limited.jpg" alt="Limited By Design" style="object-position:center center" />
         <div class="img-overlay"></div>
       </div>
       <div class="story-panel-text">
@@ -3385,25 +3433,32 @@
   /* ── Mobile nav ── */
   const hamburger  = document.getElementById('hamburger');
   const mobileNav  = document.getElementById('mobileNav');
-  hamburger.addEventListener('click', () => {
-    state.mobileNavOpen = !state.mobileNavOpen;
-    mobileNav.classList.toggle('open', state.mobileNavOpen);
+  function openMobileNav() {
+    state.mobileNavOpen = true;
+    mobileNav.classList.add('open');
+    document.body.style.overflow = 'hidden';
     const spans = hamburger.querySelectorAll('span');
-    if (state.mobileNavOpen) {
-      spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
-      spans[1].style.opacity   = '0';
-      spans[1].style.transform = 'scaleX(0)';
-      spans[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
-    } else {
-      spans.forEach(s => { s.style.transform=''; s.style.opacity=''; });
-    }
-  });
+    spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
+    spans[1].style.opacity   = '0';
+    spans[1].style.transform = 'scaleX(0)';
+    spans[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
+  }
   function closeMobileNav() {
     state.mobileNavOpen = false;
     mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
     const spans = hamburger.querySelectorAll('span');
     spans.forEach(s => { s.style.transform=''; s.style.opacity=''; });
   }
+  hamburger.addEventListener('click', () => {
+    state.mobileNavOpen ? closeMobileNav() : openMobileNav();
+  });
+  /* Swipe right to close */
+  let _touchStartX = 0;
+  mobileNav.addEventListener('touchstart', e => { _touchStartX = e.touches[0].clientX; }, { passive: true });
+  mobileNav.addEventListener('touchend', e => {
+    if (e.changedTouches[0].clientX - _touchStartX > 60) closeMobileNav();
+  }, { passive: true });
 
   function setFilter(btn, filter) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -3608,8 +3663,13 @@
     `).join('');
   }
 
-  /* ── Fixed parallax ── */
+  /* ── Fixed parallax (desktop only) ── */
   function handleParallax() {
+    if (window.innerWidth <= 1024) {
+      // Clear any stale transforms on mobile so stacked layout isn't broken
+      document.querySelectorAll('.parallax').forEach(el => { el.style.transform = ''; });
+      return;
+    }
     document.querySelectorAll('.parallax').forEach(el => {
       const speed  = parseFloat(el.dataset.speed || .05);
       const rect   = el.getBoundingClientRect();
@@ -3618,6 +3678,7 @@
     });
   }
   window.addEventListener('scroll', handleParallax, { passive: true });
+  window.addEventListener('resize', handleParallax, { passive: true });
 
   /* ── Keyboard shortcuts ── */
   document.addEventListener('keydown', e => {
