@@ -734,8 +734,8 @@
     }
     .pdp-main-img:hover .pdp-img-mock { transform: scale(1.02) rotate(-.5deg); }
     .pdp-thumbs {
-      display: flex; gap: 6px; padding: 12px; background: var(--black);
-      height: 130px;
+      display: flex; gap: 10px; padding: 12px; background: var(--black);
+      height: 180px;
     }
     .pdp-thumb {
       flex: 1; background: #e4e4e4; cursor: pointer;
@@ -1179,7 +1179,7 @@
       .email-form         { flex-direction: column; }
       .email-input        { border-right: 1px solid rgba(0,0,0,.12); border-bottom: none; }
       /* PDP thumbs: smaller on tablet */
-      .pdp-thumbs         { height: 90px; }
+      .pdp-thumbs         { height: 140px; }
       /* Collection: always show product info on touch */
       .product-card-overlay { opacity: 1; }
       .product-card-info  { transform: none; opacity: 1; }
@@ -1761,7 +1761,7 @@
               <div class="co-total-row grand"><span>Total</span><span id="co-total">CHF 47.85</span></div>
             </div>
             <div style="margin-top:24px;padding:16px;background:rgba(200,169,110,.05);border-left:2px solid var(--accent)">
-              <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:6px">Drop 001</div>
+              <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:6px">Drop 002</div>
               <div style="font-size:12px;color:var(--grey-400);line-height:1.7">100 units left. Your order holds your unit for 10 minutes.</div>
             </div>
           </div>
@@ -1796,7 +1796,7 @@
   <nav id="mainNav">
     <a href="#" class="nav-logo" data-link="home"><img src="images/logo.png" alt="Driven Co." /></a>
     <ul class="nav-links">
-      <li><a href="#" data-link="drop" class="active-link">Drop 001</a></li>
+      <li><a href="#" data-link="drop" class="active-link">Drop 002</a></li>
       <li><a href="#" data-link="collection">Collection</a></li>
       <li><a href="#" data-link="story">Our Story</a></li>
     </ul>
@@ -1817,20 +1817,18 @@
   <!-- Mobile nav -->
   <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
     <div class="mobile-nav-header">
-      <span class="mobile-nav-brand">Driven Co.</span>
+      <img src="images/logo.png" alt="Driven Co." style="height:32px;width:auto;display:block;filter:invert(1)" />
       <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="Close menu">×</button>
     </div>
     <ul class="mobile-nav-links">
       <li><a href="#" data-link="home"       onclick="closeMobileNav()">Home</a></li>
-      <li><a href="#" data-link="drop"       onclick="closeMobileNav()">Drop 001</a></li>
+      <li><a href="#" data-link="drop"       onclick="closeMobileNav()">Drop 002</a></li>
       <li><a href="#" data-link="collection" onclick="closeMobileNav()">Collection</a></li>
       <li><a href="#" data-link="story"      onclick="closeMobileNav()">Our Story</a></li>
       <li><a href="#" data-link="contact"    onclick="closeMobileNav()">Contact</a></li>
     </ul>
     <div class="mobile-nav-bottom">
       <span>© 2026 Driven Co.</span>
-      <span class="mobile-nav-accent-dot"></span>
-      <span>Wear the Drive</span>
     </div>
   </nav>
 
@@ -1866,7 +1864,7 @@
     <div class="exit-modal">
       <button class="exit-close" id="exitClose">×</button>
       <div class="exit-eyebrow">Wait — One More Thing</div>
-      <div class="exit-title">Get Early Access to Drop 001</div>
+      <div class="exit-title">Get Early Access to Drop 002</div>
       <div class="exit-sub">100 units. No restock. Be the first in line before it sells out.</div>
       <div class="exit-form">
         <input class="exit-input" type="email" placeholder="your@email.com" />
@@ -1886,7 +1884,7 @@
   <!-- Sticky CTA (drop page) -->
   <div class="sticky-cta" id="stickyCta">
     <div>
-      <div class="sticky-cta-info">Stay On Your Path Tee — Drop 001</div>
+      <div class="sticky-cta-info">Stay On Your Path Tee — Drop 002</div>
       <div class="sticky-cta-sub">Only 100 units remaining</div>
     </div>
     <button class="btn btn-primary" onclick="addToCart()">Add to Cart — CHF 37.–</button>
@@ -1905,13 +1903,13 @@
       <div class="hero-geo"></div>
       <div class="hero-lines"></div>
       <div class="hero-content">
-        <div class="hero-eyebrow reveal">Drop 001 — Now Live</div>
+        <div class="hero-eyebrow reveal">Drop 002 — Now Live</div>
         <h1 class="hero-headline reveal delay-1">
           Wear<br><em>the</em><br>Drive.
         </h1>
 
         <div class="hero-ctas reveal delay-3">
-          <button class="btn btn-primary" data-link="drop">Shop Drop 001 →</button>
+          <button class="btn btn-primary" data-link="drop">Shop Drop 002 →</button>
           <button class="btn btn-outline" data-link="collection">Explore Collection</button>
         </div>
       </div>
@@ -1924,12 +1922,12 @@
     <!-- Marquee -->
     <div class="marquee-bar">
       <div class="marquee-track">
-        <span class="marquee-item">Drop 001 <span>·</span></span>
+        <span class="marquee-item">Drop 002 <span>·</span></span>
         <span class="marquee-item">Limited to 100 Units <span>·</span></span>
         <span class="marquee-item">No Restock <span>·</span></span>
         <span class="marquee-item">Free Shipping <span>·</span></span>
         <span class="marquee-item">Wear the Drive <span>·</span></span>
-        <span class="marquee-item">Drop 001 <span>·</span></span>
+        <span class="marquee-item">Drop 002 <span>·</span></span>
         <span class="marquee-item">Limited to 100 Units <span>·</span></span>
         <span class="marquee-item">No Restock <span>·</span></span>
         <span class="marquee-item">Free Shipping <span>·</span></span>
@@ -1968,7 +1966,7 @@
         <div class="story-panel-num reveal">02</div>
         <h2 class="story-panel-title reveal delay-1">Limited.<br>By Design.</h2>
         <p class="story-panel-body reveal delay-2">
-          Drop 001 is 100 units. No second run. No archive. When it's gone,
+          Drop 002 is 100 units. No second run. No archive. When it's gone,
           it's gone — and that's exactly the point.
         </p>
         <button class="btn btn-ghost reveal delay-3" data-link="drop">
@@ -1981,7 +1979,7 @@
     <div class="social-proof">
       <div class="proof-item">
         <div class="proof-num count-up" data-target="100">0</div>
-        <div class="proof-label">Units — Drop 001</div>
+        <div class="proof-label">Units — Drop 002</div>
       </div>
       <div class="proof-item">
         <div class="proof-num count-up" data-target="100">0</div>
@@ -2013,7 +2011,7 @@
           <div class="product-card-img">
             <img src="images/tee-front.jpg" alt="Stay On Your Path Tee" style="object-position:center top" />
           </div>
-          <span class="product-badge badge-drop">Drop 001</span>
+          <span class="product-badge badge-drop">Drop 002</span>
           <div class="product-card-overlay"></div>
           <div class="product-card-info">
             <div class="product-card-name">Stay On Your Path Tee</div>
@@ -2030,7 +2028,7 @@
         <img src="images/home-drop-teaser.jpg" alt="Stay On Your Path Tee — Front" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.85" />
       </div>
       <div class="drop-banner-content">
-        <div class="section-label reveal">Drop 001 — Stay On Your Path Tee</div>
+        <div class="section-label reveal">Drop 002 — Stay On Your Path Tee</div>
         <h2 class="section-title reveal delay-1">Drops in:</h2>
         <div class="countdown-wrap reveal delay-2">
           <div class="countdown-unit">
@@ -2180,7 +2178,7 @@
         <div>
           <div class="footer-col-title">Shop</div>
           <div class="footer-links">
-            <a class="footer-link" href="#" data-link="drop">Drop 001</a>
+            <a class="footer-link" href="#" data-link="drop">Drop 002</a>
             <a class="footer-link" href="#" data-link="collection">Collection</a>
           </div>
         </div>
@@ -2231,12 +2229,12 @@
         </div>
       </div>
       <div class="pdp-info">
-        <div class="pdp-tag">Drop 001 — Limited to 100 Units</div>
+        <div class="pdp-tag">Drop 002 — Limited to 100 Units</div>
         <h1 class="pdp-title">Stay On<br>Your Path<br>Tee</h1>
         <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:20px">CHF 37.–</div>
         <div class="pdp-story reveal">
-          Three words on the back. A message you carry everywhere you go.
-          The "Stay On Your Path" Tee is Drop 001 from Driven Co. — heavyweight
+          Four words on the back. A message you carry everywhere you go.
+          The "Stay On Your Path" Tee is Drop 002 from Driven Co. — heavyweight
           340gsm cotton, dropped shoulder, built for those who already know the answer.
         </div>
         <div class="pdp-attrs reveal delay-1">
@@ -2282,27 +2280,25 @@
         <div class="drop-trust reveal delay-4">
           <span>✓ Free shipping</span>
           <span>✓ Free returns</span>
-          <span>✓ Ships in 2–3 days</span>
+          <span>✓ Ships in 3–5 days</span>
         </div>
 
         <!-- Story continued -->
         <div style="border-top:1px solid rgba(0,0,0,.07);margin-top:48px;padding-top:48px">
           <div class="section-label" style="margin-bottom:16px">The Fabric</div>
           <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
-            340gsm heavyweight cotton. Preshrunk, enzyme-washed for an immediate broken-in feel.
-            No synthetic blends. The kind of quality that improves with every wash, every wear.
-            Built for years — not seasons.
+            340gsm heavyweight cotton. Washed soft from day one, gets better with every wear.
+            Pure cotton, no blends, no shortcuts.
           </p>
           <div class="section-label" style="margin-bottom:16px">The Fit</div>
           <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
             Dropped shoulder, relaxed through the chest, slightly cropped at the hem.
-            Designed to layer. Double-stitched cuffs and collar for longevity. One colourway.
-            One size run. Zero compromises.
+            Easy to layer. Double-stitched cuffs and collar so it holds up long-term.
           </p>
           <div class="section-label" style="margin-bottom:16px">The Intention</div>
           <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
-            No logo on the outside. The label is inside. What's on the outside is you.
-            Driven is for people who don't need a brand to tell them who they are.
+            Logo on the front, logo on the back. We put our name on it because we mean it.
+            Driven is for people who show up — and now it shows.
           </p>
         </div>
       </div>
@@ -2337,22 +2333,19 @@
       <div class="spec-item reveal">
         <div class="spec-title">Material</div>
         <div class="spec-body">
-          <strong>340gsm heavyweight cotton.</strong> Preshrunk, enzyme-washed for an immediate broken-in feel.
-          No synthetic blends. No shortcuts.
+          <strong>340gsm heavyweight cotton.</strong> Washed for a soft feel from day one. Pure cotton, nothing added.
         </div>
       </div>
       <div class="spec-item reveal delay-1">
         <div class="spec-title">Fit &amp; Construction</div>
         <div class="spec-body">
-          <strong>Dropped shoulder.</strong> Relaxed through the chest. Cropped slightly at the hem.
-          Double-stitched at cuffs and collar for longevity.
+          <strong>Dropped shoulder.</strong> Relaxed fit, slightly cropped. Built to last — double-stitched at cuffs and collar.
         </div>
       </div>
       <div class="spec-item reveal delay-2">
         <div class="spec-title">Intention</div>
         <div class="spec-body">
-          <strong>No logo. No noise.</strong> A clean canvas for those who already know.
-          The label is inside. The message is how you carry it.
+          <strong>Logo front and back.</strong> Simple, clean, intentional. Driven on the outside because we stand behind it.
         </div>
       </div>
     </div>
@@ -2364,7 +2357,7 @@
         "Built for the version of you<br>that doesn't need proof."
       </h2>
       <p class="reveal delay-2" style="font-size:16px;font-weight:300;line-height:1.9;color:var(--grey-400)">
-        Drop 001 started with a single question: what would you wear if you had nothing to prove?
+        Drop 002 started with a single question: what would you wear if you had nothing to prove?
         Not a logo to hide behind. Not a trend to follow. Just intention, material, and movement.
         Stay On Your Path Tee is that answer. Heavy enough to mean something. Clean enough to say nothing.
       </p>
@@ -2379,35 +2372,35 @@
       <div class="collection-grid">
         <div class="product-card" onclick="navigate('pdp')">
           <div class="product-card-img">
-            <img src="images/tee-front.jpg" alt="Front view" style="object-position:center top" />
+            <img src="images/drop-view-1.jpg" alt="View 1" />
           </div>
-          <span class="product-badge badge-drop">Drop 001</span>
+          <span class="product-badge badge-drop">Drop 002</span>
           <div class="product-card-overlay"></div>
           <div class="product-card-info">
             <div class="product-card-name">Stay On Your Path Tee</div>
-            <div class="product-card-price">Front View — CHF 37.–</div>
+            <div class="product-card-price">View 01 — CHF 37.–</div>
           </div>
         </div>
         <div class="product-card" onclick="navigate('pdp')">
           <div class="product-card-img">
-            <img src="images/tee-back.jpg" alt="Back view" style="object-position:center top" />
+            <img src="images/drop-view-2.jpg" alt="View 2" />
           </div>
-          <span class="product-badge badge-drop">Drop 001</span>
+          <span class="product-badge badge-drop">Drop 002</span>
           <div class="product-card-overlay"></div>
           <div class="product-card-info">
             <div class="product-card-name">Stay On Your Path Tee</div>
-            <div class="product-card-price">Back View — CHF 37.–</div>
+            <div class="product-card-price">View 02 — CHF 37.–</div>
           </div>
         </div>
         <div class="product-card" onclick="navigate('pdp')">
           <div class="product-card-img">
-            <img src="images/flatlay.jpg" alt="Flatlay" style="object-position:center 25%" />
+            <img src="images/drop-view-3.jpg" alt="View 3" />
           </div>
-          <span class="product-badge badge-drop">Drop 001</span>
+          <span class="product-badge badge-drop">Drop 002</span>
           <div class="product-card-overlay"></div>
           <div class="product-card-info">
             <div class="product-card-name">Stay On Your Path Tee</div>
-            <div class="product-card-price">Campaign Shot — CHF 37.–</div>
+            <div class="product-card-price">View 03 — CHF 37.–</div>
           </div>
         </div>
       </div>
@@ -2434,7 +2427,7 @@
         <button class="filter-btn" onclick="setFilter(this,'tshirts')">T-Shirts</button>
         <button class="filter-btn" onclick="setFilter(this,'hoodies')">Hoodies</button>
         <button class="filter-btn" onclick="setFilter(this,'core')">Core Edition</button>
-        <button class="filter-btn" onclick="setFilter(this,'drop')">Drop 001</button>
+        <button class="filter-btn" onclick="setFilter(this,'drop')">Drop 002</button>
       </div>
     </section>
 
@@ -2483,12 +2476,12 @@
       </div>
       <!-- Info -->
       <div class="pdp-info">
-        <div class="pdp-tag">Drop 001 — Limited to 100 Units</div>
+        <div class="pdp-tag">Drop 002 — Limited to 100 Units</div>
         <h1 class="pdp-title">Stay On<br>Your Path<br>Tee</h1>
         <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:20px">CHF 37.–</div>
         <div class="pdp-story reveal">
-          Three words on the back. A message you carry everywhere you go.
-          The "Stay On Your Path" Tee is Drop 001 from Driven Co. — heavyweight
+          Four words on the back. A message you carry everywhere you go.
+          The "Stay On Your Path" Tee is Drop 002 from Driven Co. — heavyweight
           340gsm cotton, dropped shoulder, built for those who already know the answer.
         </div>
         <div class="pdp-attrs reveal delay-1">
@@ -2534,27 +2527,25 @@
         <div class="drop-trust reveal delay-4">
           <span>✓ Free shipping</span>
           <span>✓ Free returns</span>
-          <span>✓ Ships in 2–3 days</span>
+          <span>✓ Ships in 3–5 days</span>
         </div>
 
         <!-- Story continued -->
         <div style="border-top:1px solid rgba(0,0,0,.07);margin-top:48px;padding-top:48px">
           <div class="section-label" style="margin-bottom:16px">The Fabric</div>
           <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
-            340gsm heavyweight cotton. Preshrunk, enzyme-washed for an immediate broken-in feel.
-            No synthetic blends. The kind of quality that improves with every wash, every wear.
-            Built for years — not seasons.
+            340gsm heavyweight cotton. Washed soft from day one, gets better with every wear.
+            Pure cotton, no blends, no shortcuts.
           </p>
           <div class="section-label" style="margin-bottom:16px">The Fit</div>
           <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
             Dropped shoulder, relaxed through the chest, slightly cropped at the hem.
-            Designed to layer. Double-stitched cuffs and collar for longevity. One colourway.
-            One size run. Zero compromises.
+            Easy to layer. Double-stitched cuffs and collar so it holds up long-term.
           </p>
           <div class="section-label" style="margin-bottom:16px">The Intention</div>
           <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
-            No logo on the outside. The label is inside. What's on the outside is you.
-            Driven is for people who don't need a brand to tell them who they are.
+            Logo on the front, logo on the back. We put our name on it because we mean it.
+            Driven is for people who show up — and now it shows.
           </p>
         </div>
       </div>
@@ -2658,7 +2649,7 @@
         <div class="drop-trust reveal delay-4">
           <span>✓ Free shipping</span>
           <span>✓ Free returns</span>
-          <span>✓ Ships in 2–3 days</span>
+          <span>✓ Ships in 3–5 days</span>
         </div>
         <div style="border-top:1px solid rgba(0,0,0,.07);margin-top:48px;padding-top:48px">
           <div class="section-label" style="margin-bottom:16px">The Fabric</div>
@@ -2762,7 +2753,7 @@
         <div class="drop-trust reveal delay-4">
           <span>✓ Free shipping</span>
           <span>✓ Free returns</span>
-          <span>✓ Ships in 2–3 days</span>
+          <span>✓ Ships in 3–5 days</span>
         </div>
         <div style="border-top:1px solid rgba(0,0,0,.07);margin-top:48px;padding-top:48px">
           <div class="section-label" style="margin-bottom:16px">The Fabric</div>
@@ -2832,7 +2823,7 @@
         it doesn't get made.
       </p>
       <p class="reveal delay-3" style="font-size:16px;font-weight:300;line-height:1.9;color:var(--grey-400)">
-        Drop 001 is our first answer. Stay On Your Path Tee. The place we start from.
+        Drop 002 is our first answer. Stay On Your Path Tee. The place we start from.
         And the place every piece we ever make will return to.
       </p>
     </section>
@@ -2851,17 +2842,17 @@
       </div>
       <div class="value-card reveal delay-2">
         <div class="value-num">03</div>
-        <div class="value-title">No Logo Required</div>
-        <div class="value-body">The people who get it don't need it explained. Our brand lives in the details — the weight of the fabric, the cut, the care. Not on the chest.</div>
+        <div class="value-title">Wear the Mark</div>
+        <div class="value-body">Front. Back. Intentional. The Driven logo isn't decoration — it's a statement. Every piece carries the mark because we stand behind what we build.</div>
       </div>
     </div>
 
     <!-- CTA strip -->
     <section class="section" style="text-align:center">
       <div class="section-label reveal">Ready to Move?</div>
-      <h2 class="section-title reveal delay-1" style="margin-bottom:36px">Shop Drop 001.</h2>
+      <h2 class="section-title reveal delay-1" style="margin-bottom:36px">Shop Drop 002.</h2>
       <div class="reveal delay-2" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-        <button class="btn btn-primary" data-link="drop">Enter Drop 001 →</button>
+        <button class="btn btn-primary" data-link="drop">Enter Drop 002 →</button>
         <button class="btn btn-outline" data-link="collection">View Collection</button>
       </div>
     </section>
@@ -2878,7 +2869,7 @@
         <div>
           <div class="footer-col-title">Shop</div>
           <div class="footer-links">
-            <a class="footer-link" href="#" data-link="drop">Drop 001</a>
+            <a class="footer-link" href="#" data-link="drop">Drop 002</a>
             <a class="footer-link" href="#" data-link="collection">Collection</a>
           </div>
         </div>
@@ -3651,7 +3642,7 @@
           : `<div class="full-product-card-bg ${bgClasses[i%3]}"></div>`
         }
         <div class="full-product-overlay"></div>
-        ${p.drop ? '<span class="product-badge badge-drop">Drop 001</span>' : ''}
+        ${p.drop ? '<span class="product-badge badge-drop">Drop 002</span>' : ''}
         ${p.core ? '<span class="product-badge badge-core">Core Edition</span>' : ''}
         ${p.sold ? '<span class="product-badge badge-sold" style="top:auto;bottom:70px">Sold Out</span>' : ''}
         <div class="full-product-info">
