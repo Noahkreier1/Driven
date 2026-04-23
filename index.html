@@ -214,6 +214,9 @@
       font-size: 10px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase;
       color: var(--accent); margin-bottom: 24px;
       display: flex; align-items: center; gap: 12px;
+      position: relative; z-index: 11;
+      padding: 0 var(--gutter);
+      max-width: var(--max-w); margin-left: auto; margin-right: auto; width: 100%;
     }
     .hero-eyebrow::before {
       content: ''; display: block; width: 32px; height: 1px; background: var(--accent);
@@ -1220,9 +1223,9 @@
       .hero-eyebrow        {
         position: absolute;
         top: calc(var(--nav-h) + 20px);
-        left: var(--gutter);
-        z-index: 11;
+        left: 0; right: 0;
         margin-bottom: 0;
+        width: 100%;
       }
       /* Sticky CTA compact */
       .sticky-cta         { flex-direction: column; align-items: stretch; gap: 10px; padding: 14px var(--gutter); }
@@ -1912,8 +1915,8 @@
       </div>
       <div class="hero-geo"></div>
       <div class="hero-lines"></div>
+      <div class="hero-eyebrow reveal">Drop 002 — Now Live</div>
       <div class="hero-content">
-        <div class="hero-eyebrow reveal">Drop 002 — Now Live</div>
         <h1 class="hero-headline reveal delay-1">
           Wear<br><em>the</em><br>Drive.
         </h1>
