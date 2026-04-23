@@ -1147,8 +1147,9 @@
       .drop-hero-visual   {
         display: block;           /* show gallery on mobile */
         position: relative; top: auto;
-        height: 62vw; max-height: 520px;
+        height: 115vw; max-height: 600px;
       }
+      .drop-gallery-img   { object-fit: contain; background: #eeeeee; }
       .pdp-layout         { grid-template-columns: 1fr; }
       .pdp-gallery        { position: relative; top: auto; height: 72vw; max-height: 540px; }
       .footer-top         { grid-template-columns: 1fr 1fr; }
@@ -1198,7 +1199,7 @@
       .pdp-thumbs         { display: none; }
       .pdp-gallery        { height: 88vw; max-height: 480px; }
       /* Drop gallery on phones */
-      .drop-hero-visual   { height: 75vw; }
+      .drop-hero-visual   { height: 115vw; max-height: 600px; }
       /* Testimonials single column */
       .testimonial-grid   { grid-template-columns: 1fr; }
       /* Footer bottom stacks */
@@ -1214,9 +1215,15 @@
       .story-panel-text   { padding: clamp(32px,6vw,60px) clamp(24px,5vw,48px); }
       /* Hero headline smaller */
       .hero-headline      { font-size: clamp(48px, 13vw, 96px); }
-      /* Push eyebrow to top on mobile */
-      .hero                { justify-content: space-between; }
-      .hero-eyebrow        { padding-top: calc(var(--nav-h) + 24px); }
+      /* Pin eyebrow near top of hero on mobile */
+      .hero                { justify-content: flex-end; }
+      .hero-eyebrow        {
+        position: absolute;
+        top: calc(var(--nav-h) + 20px);
+        left: var(--gutter);
+        z-index: 11;
+        margin-bottom: 0;
+      }
       /* Sticky CTA compact */
       .sticky-cta         { flex-direction: column; align-items: stretch; gap: 10px; padding: 14px var(--gutter); }
       .sticky-cta .btn    { width: 100%; justify-content: center; }
@@ -3756,6 +3763,119 @@
       window.location.href = checkout.webUrl;
     }).catch(function() { showToast('Checkout error — please try again'); });
   }
+  </script>
+
+  <!-- ================================================================
+       COOKIE BANNER
+       ================================================================ -->
+  <div id="cookieBanner" style="display:none">
+    <div class="cookie-inner">
+      <div class="cookie-text">
+        <p class="cookie-title">We use cookies</p>
+        <p class="cookie-body">We use cookies to improve your experience on our site. By continuing, you agree to our <a href="#" onclick="navigate('privacy');closeCookieBanner();return false;" class="cookie-link">Privacy Policy</a>.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn-accept" onclick="acceptCookies()">Accept</button>
+        <button class="cookie-btn-decline" onclick="declineCookies()">Decline</button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #cookieBanner {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      z-index: 9999;
+      width: calc(100% - 40px);
+      max-width: 640px;
+      background: #0a0a0a;
+      color: #f8f8f8;
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 24px 60px rgba(0,0,0,.35);
+      transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1), opacity .5s;
+      opacity: 0;
+    }
+    #cookieBanner.visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    .cookie-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 20px 24px;
+    }
+    .cookie-text { flex: 1; min-width: 0; }
+    .cookie-title {
+      font-size: 12px; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #f8f8f8; margin-bottom: 6px;
+    }
+    .cookie-body {
+      font-size: 13px; font-weight: 300; line-height: 1.6;
+      color: rgba(248,248,248,.6);
+    }
+    .cookie-link {
+      color: #c8a96e; text-decoration: underline; text-underline-offset: 3px;
+    }
+    .cookie-actions {
+      display: flex; gap: 10px; flex-shrink: 0;
+    }
+    .cookie-btn-accept {
+      padding: 11px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      background: #f8f8f8; color: #0a0a0a;
+      border: none; cursor: pointer;
+      transition: opacity .2s, transform .2s;
+    }
+    .cookie-btn-accept:hover { opacity: .85; transform: translateY(-1px); }
+    .cookie-btn-decline {
+      padding: 11px 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+      background: none; color: rgba(248,248,248,.5);
+      border: 1px solid rgba(255,255,255,.15); cursor: pointer;
+      transition: color .2s, border-color .2s;
+    }
+    .cookie-btn-decline:hover { color: #f8f8f8; border-color: rgba(255,255,255,.4); }
+
+    @media (max-width: 540px) {
+      #cookieBanner { bottom: 16px; width: calc(100% - 24px); }
+      .cookie-inner { flex-direction: column; align-items: flex-start; gap: 16px; padding: 20px 20px; }
+      .cookie-actions { width: 100%; }
+      .cookie-btn-accept { flex: 1; }
+      .cookie-btn-decline { flex: 1; }
+    }
+  </style>
+
+  <script>
+    (function() {
+      var consent = localStorage.getItem('driven_cookie_consent');
+      if (!consent) {
+        var banner = document.getElementById('cookieBanner');
+        banner.style.display = 'block';
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() { banner.classList.add('visible'); });
+        });
+      }
+    })();
+
+    function acceptCookies() {
+      localStorage.setItem('driven_cookie_consent', 'accepted');
+      closeCookieBanner();
+    }
+    function declineCookies() {
+      localStorage.setItem('driven_cookie_consent', 'declined');
+      closeCookieBanner();
+    }
+    function closeCookieBanner() {
+      var banner = document.getElementById('cookieBanner');
+      banner.classList.remove('visible');
+      setTimeout(function() { banner.style.display = 'none'; }, 500);
+    }
   </script>
 </body>
 </html>
