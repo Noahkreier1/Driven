@@ -719,7 +719,7 @@
       height: calc(100dvh - var(--nav-h));
       overflow: hidden;
       background: #eeeeee;
-      display: flex; flex-direction: column;
+      display: flex; align-items: center; justify-content: center;
     }
     .pdp-main-img {
       flex: 1; position: relative;
@@ -2033,7 +2033,7 @@
       <div style="max-width:560px;margin:0 auto">
         <div class="product-card" onclick="navigate('pdp')" style="aspect-ratio:3/4">
           <div class="product-card-img">
-            <img src="images/tee-front.jpg" alt="Stay On Your Path Tee" style="object-position:center top" />
+            <img src="images/drop-hero.png" alt="Stay On Your Path Tee" />
           </div>
           <span class="product-badge badge-drop">Drop 002</span>
           <div class="product-card-overlay"></div>
@@ -2216,7 +2216,6 @@
           <div class="footer-col-title">Support</div>
           <div class="footer-links">
             <a class="footer-link" href="#" data-link="shipping">Shipping &amp; Returns</a>
-            <a class="footer-link" href="#">FAQ</a>
             <a class="footer-link" href="#" data-link="contact">Contact</a>
           </div>
         </div>
@@ -2477,20 +2476,17 @@
   <div class="page" id="page-pdp">
     <div class="pdp-layout">
       <!-- Gallery -->
-      <div class="pdp-gallery">
-        <div class="pdp-main-img" id="pdpMainImg">
-          <img id="pdpMainImgEl" src="images/tee-front.jpg" alt="Stay On Your Path Tee" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;transition:opacity .4s;padding:12px" />
-        </div>
-        <div class="pdp-thumbs">
-          <div class="pdp-thumb active" onclick="pdpSwitch(this,'images/tee-front.jpg')">
-            <img src="images/tee-front.jpg" style="object-position:center 30%" alt="Front view" />
-          </div>
-          <div class="pdp-thumb" onclick="pdpSwitch(this,'images/tee-back.jpg')">
-            <img src="images/tee-back.jpg" style="object-position:center 30%" alt="Back view" />
-          </div>
-          <div class="pdp-thumb" onclick="pdpSwitch(this,'images/flatlay.jpg')">
-            <img src="images/flatlay.jpg" style="object-position:center 40%" alt="Campaign" />
-          </div>
+      <div class="pdp-gallery" id="pdpGallery">
+        <div class="drop-hero-bg"></div>
+        <img class="drop-gallery-img active" src="images/drop-hero.png" alt="Stay On Your Path Tee" />
+        <img class="drop-gallery-img" src="images/drop-hero-2.jpg" alt="Stay On Your Path Tee — Back" />
+        <img class="drop-gallery-img" src="images/drop-hero-3.jpg" style="object-position:center 40%" alt="Stay On Your Path Tee — Campaign" />
+        <button class="drop-gallery-arrow prev" onclick="pdpGalleryNav(-1)">&#8249;</button>
+        <button class="drop-gallery-arrow next" onclick="pdpGalleryNav(1)">&#8250;</button>
+        <div class="drop-gallery-dots" id="pdpGalleryDots">
+          <div class="drop-gallery-dot active" onclick="pdpGalleryGo(0)"></div>
+          <div class="drop-gallery-dot" onclick="pdpGalleryGo(1)"></div>
+          <div class="drop-gallery-dot" onclick="pdpGalleryGo(2)"></div>
         </div>
       </div>
       <!-- Info -->
@@ -2594,20 +2590,17 @@
   <div class="page" id="page-hoodie-black">
     <div class="pdp-layout">
       <!-- Gallery -->
-      <div class="pdp-gallery">
-        <div class="pdp-main-img">
-          <img id="hbMainImg" src="images/hoodie-black.jpg" alt="What If Hoodie Midnight Black" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;transition:opacity .4s;padding:12px" />
-        </div>
-        <div class="pdp-thumbs">
-          <div class="pdp-thumb active" onclick="hoodieSwitch('hbMainImg',this,'images/hoodie-black.jpg')">
-            <img src="images/hoodie-black.jpg" alt="Front" />
-          </div>
-          <div class="pdp-thumb" onclick="hoodieSwitch('hbMainImg',this,'images/hoodie-black-back.jpg')">
-            <img src="images/hoodie-black-back.jpg" alt="Back" />
-          </div>
-          <div class="pdp-thumb" onclick="hoodieSwitch('hbMainImg',this,'images/hoodie-hanger.jpg')">
-            <img src="images/hoodie-hanger.jpg" alt="Hanger" />
-          </div>
+      <div class="pdp-gallery" id="hbGallery">
+        <div class="drop-hero-bg"></div>
+        <img class="drop-gallery-img active" src="images/hoodie-black.jpg" alt="What If Hoodie Midnight Black — Front" />
+        <img class="drop-gallery-img" src="images/hoodie-black-back.jpg" alt="What If Hoodie Midnight Black — Back" />
+        <img class="drop-gallery-img" src="images/hoodie-hanger.jpg" alt="What If Hoodie Midnight Black — Hanger" />
+        <button class="drop-gallery-arrow prev" onclick="hbGalleryNav(-1)">&#8249;</button>
+        <button class="drop-gallery-arrow next" onclick="hbGalleryNav(1)">&#8250;</button>
+        <div class="drop-gallery-dots" id="hbGalleryDots">
+          <div class="drop-gallery-dot active" onclick="hbGalleryGo(0)"></div>
+          <div class="drop-gallery-dot" onclick="hbGalleryGo(1)"></div>
+          <div class="drop-gallery-dot" onclick="hbGalleryGo(2)"></div>
         </div>
       </div>
       <!-- Info -->
@@ -2693,20 +2686,17 @@
   <div class="page" id="page-hoodie-blue">
     <div class="pdp-layout">
       <!-- Gallery -->
-      <div class="pdp-gallery">
-        <div class="pdp-main-img">
-          <img id="hbluMainImg" src="images/hoodie-blue.jpg" alt="What If Hoodie Ocean Blue" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;transition:opacity .4s;padding:12px" />
-        </div>
-        <div class="pdp-thumbs">
-          <div class="pdp-thumb active" onclick="hoodieSwitch('hbluMainImg',this,'images/hoodie-blue.jpg')">
-            <img src="images/hoodie-blue.jpg" alt="Front" />
-          </div>
-          <div class="pdp-thumb" onclick="hoodieSwitch('hbluMainImg',this,'images/hoodie-blue-back.jpg')">
-            <img src="images/hoodie-blue-back.jpg" alt="Back" />
-          </div>
-          <div class="pdp-thumb" onclick="hoodieSwitch('hbluMainImg',this,'images/hoodie-hanger.jpg')">
-            <img src="images/hoodie-hanger.jpg" alt="Hanger" />
-          </div>
+      <div class="pdp-gallery" id="hbluGallery">
+        <div class="drop-hero-bg"></div>
+        <img class="drop-gallery-img active" src="images/hoodie-blue.jpg" alt="What If Hoodie Ocean Blue — Front" />
+        <img class="drop-gallery-img" src="images/hoodie-blue-back.jpg" alt="What If Hoodie Ocean Blue — Back" />
+        <img class="drop-gallery-img" src="images/hoodie-hanger.jpg" alt="What If Hoodie Ocean Blue — Hanger" />
+        <button class="drop-gallery-arrow prev" onclick="hbluGalleryNav(-1)">&#8249;</button>
+        <button class="drop-gallery-arrow next" onclick="hbluGalleryNav(1)">&#8250;</button>
+        <div class="drop-gallery-dots" id="hbluGalleryDots">
+          <div class="drop-gallery-dot active" onclick="hbluGalleryGo(0)"></div>
+          <div class="drop-gallery-dot" onclick="hbluGalleryGo(1)"></div>
+          <div class="drop-gallery-dot" onclick="hbluGalleryGo(2)"></div>
         </div>
       </div>
       <!-- Info -->
@@ -2922,15 +2912,15 @@
 
       <div class="reveal delay-3">
         <div class="section-label" style="margin-bottom:24px">Send a message</div>
-        <div style="display:flex;flex-direction:column;gap:14px">
+        <form id="contactForm" onsubmit="handleContactSubmit(event)" style="display:flex;flex-direction:column;gap:14px">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-            <input type="text" placeholder="Name" style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;width:100%" />
-            <input type="email" placeholder="Email" style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;width:100%" />
+            <input type="text" name="name" placeholder="Name" required style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;width:100%" />
+            <input type="email" name="email" placeholder="Email" required style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;width:100%" />
           </div>
-          <input type="tel" placeholder="Phone (optional)" style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;width:100%" />
-          <textarea placeholder="Your message" rows="5" style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;resize:vertical;width:100%"></textarea>
-          <button class="btn btn-primary" style="align-self:flex-start" onclick="showToast('Message sent — we\'ll get back to you shortly')">Send Message</button>
-        </div>
+          <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;width:100%" />
+          <textarea name="message" placeholder="Your message" rows="5" required style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;resize:vertical;width:100%"></textarea>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start">Send Message</button>
+        </form>
       </div>
     </div>
     <footer>
@@ -3169,7 +3159,7 @@
 
   /* ── Products data ── */
   const products = [
-    { id:1, name:'Stay On Your Path Tee',           price:37, cat:'tshirts', drop:true,  sold:false, img:'images/tee-front.jpg',      imgPos:'center top', page:'pdp' },
+    { id:1, name:'Stay On Your Path Tee',           price:37, cat:'tshirts', drop:true,  sold:false, img:'images/drop-hero.png',      imgPos:'center top', page:'pdp' },
     { id:2, name:'What If Hoodie — Midnight Black', price:74, cat:'hoodies', core:true,  sold:false, img:'images/hoodie-black.jpg',    imgPos:'center top', page:'hoodie-black' },
     { id:3, name:'What If Hoodie — Ocean Blue',     price:74, cat:'hoodies', core:true,  sold:false, img:'images/hoodie-blue.jpg',     imgPos:'center top', page:'hoodie-blue' },
   ];
@@ -3304,7 +3294,7 @@
     itemsEl.innerHTML = state.cart.map((item,i) => {
       total += item.price;
       return `<div class="cart-item">
-        <div class="cart-item-img"><img src="${item.img || 'images/tee-front.jpg'}" alt="${item.name}" /></div>
+        <div class="cart-item-img"><img src="${item.img || 'images/drop-hero.png'}" alt="${item.name}" /></div>
         <div class="cart-item-info">
           <div class="cart-item-name">${item.name}</div>
           <div class="cart-item-size">Size: ${item.size}</div>
@@ -3400,6 +3390,12 @@
   /* ── Email submit ── */
   function handleEmailSubmit(e) {
     e.preventDefault();
+    const email = e.target.querySelector('input[type="email"]').value;
+    fetch('https://formsubmit.co/ajax/hello@driven-co.ch', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email: email, _subject: 'New Email Sign-Up — Driven Co.' })
+    });
     showToast("You're on the list ✓");
     e.target.reset();
   }
@@ -3417,6 +3413,14 @@
   });
   function closeExit() { document.getElementById('exitOverlay').classList.remove('visible'); }
   function handleExitSubmit() {
+    const input = document.querySelector('#exitOverlay input[type="email"]');
+    if (input && input.value) {
+      fetch('https://formsubmit.co/ajax/hello@driven-co.ch', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email: input.value, _subject: 'Early Access Sign-Up — Driven Co.' })
+      });
+    }
     showToast("You're locked in ✓");
     closeExit();
   }
@@ -3484,6 +3488,42 @@
   }
   function dropGalleryNav(dir) { dropGalleryGo(_dropGalleryIdx + dir); }
 
+  var _pdpGalleryIdx = 0;
+  function pdpGalleryGo(idx) {
+    const imgs = document.querySelectorAll('#pdpGallery .drop-gallery-img');
+    const dots = document.querySelectorAll('#pdpGalleryDots .drop-gallery-dot');
+    imgs.forEach(i => i.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    _pdpGalleryIdx = (idx + imgs.length) % imgs.length;
+    imgs[_pdpGalleryIdx].classList.add('active');
+    dots[_pdpGalleryIdx].classList.add('active');
+  }
+  function pdpGalleryNav(dir) { pdpGalleryGo(_pdpGalleryIdx + dir); }
+
+  var _hbIdx = 0;
+  function hbGalleryGo(idx) {
+    const imgs = document.querySelectorAll('#hbGallery .drop-gallery-img');
+    const dots = document.querySelectorAll('#hbGalleryDots .drop-gallery-dot');
+    imgs.forEach(i => i.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    _hbIdx = (idx + imgs.length) % imgs.length;
+    imgs[_hbIdx].classList.add('active');
+    dots[_hbIdx].classList.add('active');
+  }
+  function hbGalleryNav(dir) { hbGalleryGo(_hbIdx + dir); }
+
+  var _hbluIdx = 0;
+  function hbluGalleryGo(idx) {
+    const imgs = document.querySelectorAll('#hbluGallery .drop-gallery-img');
+    const dots = document.querySelectorAll('#hbluGalleryDots .drop-gallery-dot');
+    imgs.forEach(i => i.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    _hbluIdx = (idx + imgs.length) % imgs.length;
+    imgs[_hbluIdx].classList.add('active');
+    dots[_hbluIdx].classList.add('active');
+  }
+  function hbluGalleryNav(dir) { hbluGalleryGo(_hbluIdx + dir); }
+
   /* ── PDP image switcher ── */
   function pdpSwitch(thumb, src) {
     document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
@@ -3542,8 +3582,27 @@
   function closeNotify() {
     document.getElementById('notifyOverlay').classList.remove('visible');
   }
+  function handleContactSubmit(e) {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target));
+    data._subject = 'New Message — Driven Co. Contact Form';
+    fetch('https://formsubmit.co/ajax/hello@driven-co.ch', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    showToast('Message sent — we\'ll get back to you shortly');
+    e.target.reset();
+  }
+
   function handleNotifySubmit(e) {
     e.preventDefault();
+    const email = e.target.querySelector('input[type="email"]').value;
+    fetch('https://formsubmit.co/ajax/hello@driven-co.ch', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email: email, _subject: 'Drop Notification Sign-Up — Driven Co.' })
+    });
     showToast("We'll notify you first ✓");
     closeNotify();
   }
