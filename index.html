@@ -1198,8 +1198,19 @@
       .hero-ctas .btn     { width: 100%; text-align: center; justify-content: center; }
       .countdown-wrap     { gap: 8px; }
       .countdown-num      { font-size: clamp(28px, 8vw, 48px); }
-      /* PDP: hide thumbs on phones, let image fill */
-      .pdp-thumbs         { display: none; }
+      /* PDP: compact thumb row on phones */
+      .pdp-thumbs         {
+        display: flex;
+        height: 80px;
+        gap: 8px;
+        padding: 8px 12px;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .pdp-thumbs::-webkit-scrollbar { display: none; }
+      .pdp-thumb          { flex: 0 0 72px; min-width: 72px; }
       .pdp-gallery        { height: 88vw; max-height: 480px; }
       /* Drop gallery on phones */
       .drop-hero-visual   { height: 115vw; max-height: 600px; }
