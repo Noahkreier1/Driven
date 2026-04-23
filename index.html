@@ -283,10 +283,12 @@
     .story-panel-img img {
       position: absolute; inset: 0;
       width: 100%; height: 100%; object-fit: cover;
+      object-position: center center;
       transition: transform .7s var(--ease-out);
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
     }
+    #storyLimitedImg { object-position: center center; }
     .story-panel-img:hover img { transform: scale(1.04); }
     .story-panel-img-inner {
       position: absolute; inset: 0;
@@ -1177,7 +1179,7 @@
       .footer-top         { grid-template-columns: 1fr; }
       .social-proof       { grid-template-columns: 1fr 1fr; }
       .story-panel-img    { min-height: 55vw; }
-      #storyLimitedImg    { object-position: center 65%; }
+      #storyLimitedImg    { object-position: center 80% !important; }
       .story-panel-num    { font-size: 52px; }
       #cursor             { display: none; }
       /* Email form: stack on mobile */
@@ -1965,7 +1967,7 @@
     <!-- Storytelling strip 1 -->
     <div class="story-strip">
       <div class="story-panel-img parallax" data-speed=".04">
-        <img src="images/story-craft.jpg" alt="Crafted With Intention" style="object-position:center top" />
+        <img src="images/story-craft.jpg" alt="Crafted With Intention" style="object-position:center 55%" />
         <div class="img-overlay"></div>
       </div>
       <div class="story-panel-text">
@@ -1984,7 +1986,7 @@
     <!-- Storytelling strip 2 -->
     <div class="story-strip reverse">
       <div class="story-panel-img parallax" data-speed=".04">
-        <img src="images/story-limited.jpg" alt="Limited By Design" id="storyLimitedImg" style="object-position:center center" />
+        <img src="images/story-limited.jpg" alt="Limited By Design" id="storyLimitedImg" />
         <div class="img-overlay"></div>
       </div>
       <div class="story-panel-text">
