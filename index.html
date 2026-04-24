@@ -506,6 +506,9 @@
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
     }
+    .drop-hero:has(.shirt-gallery) {
+      grid-template-columns: 42% 1fr;
+    }
     .drop-hero-bg {
       position: absolute; inset: 0;
       background: radial-gradient(ellipse at 50% 40%, rgba(200,169,110,.07) 0%, transparent 60%);
@@ -1981,10 +1984,7 @@
 
     <!-- Storytelling strip 1 -->
     <div class="story-strip">
-      <div class="story-panel-img parallax" data-speed=".04">
-        <img src="images/story-craft.jpg" alt="Crafted With Intention" id="storyCraftImg" style="object-position:center 55%" />
-        <div class="img-overlay"></div>
-      </div>
+      <div class="story-panel-img" style="background:var(--black)"></div>
       <div class="story-panel-text">
         <div class="story-panel-num reveal">01</div>
         <h2 class="story-panel-title reveal delay-1">Crafted With<br>Intention</h2>
@@ -2256,10 +2256,10 @@
 
     <!-- Drop hero -->
     <div class="drop-hero">
-      <div class="drop-hero-visual" id="dropGallery">
+      <div class="drop-hero-visual shirt-gallery" id="dropGallery">
         <div class="drop-hero-bg"></div>
-        <img class="drop-gallery-img active" src="images/drop-hero.png" alt="Stay On Your Path Tee" />
-        <img class="drop-gallery-img" src="images/drop-hero-2.jpg" alt="Stay On Your Path Tee — Back" />
+        <img class="drop-gallery-img active" src="images/drop-hero.png" alt="Stay On Your Path Tee" style="object-fit:cover;object-position:center 8%" />
+        <img class="drop-gallery-img" src="images/drop-hero-2.jpg" alt="Stay On Your Path Tee — Back" style="object-fit:cover;object-position:center 15%" />
         <img class="drop-gallery-img" src="images/drop-hero-3.jpg" style="object-position:center 40%" alt="Campaign" />
         <button class="drop-gallery-arrow prev" onclick="dropGalleryNav(-1)">&#8249;</button>
         <button class="drop-gallery-arrow next" onclick="dropGalleryNav(1)">&#8250;</button>
@@ -2462,10 +2462,10 @@
 
     <!-- Drop hero -->
     <div class="drop-hero">
-      <div class="drop-hero-visual" id="pdpGallery">
+      <div class="drop-hero-visual shirt-gallery" id="pdpGallery">
         <div class="drop-hero-bg"></div>
-        <img class="drop-gallery-img active" src="images/drop-hero.png" alt="Stay On Your Path Tee" />
-        <img class="drop-gallery-img" src="images/drop-hero-2.jpg" alt="Stay On Your Path Tee — Back" />
+        <img class="drop-gallery-img active" src="images/drop-hero.png" alt="Stay On Your Path Tee" style="object-fit:cover;object-position:center 8%" />
+        <img class="drop-gallery-img" src="images/drop-hero-2.jpg" alt="Stay On Your Path Tee — Back" style="object-fit:cover;object-position:center 15%" />
         <img class="drop-gallery-img" src="images/drop-hero-3.jpg" style="object-position:center 40%" alt="Campaign" />
         <button class="drop-gallery-arrow prev" onclick="pdpGalleryNav(-1)">&#8249;</button>
         <button class="drop-gallery-arrow next" onclick="pdpGalleryNav(1)">&#8250;</button>
