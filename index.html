@@ -2313,6 +2313,11 @@
             Dropped shoulder, relaxed through the chest, slightly cropped at the hem.
             Easy to layer. Double-stitched cuffs and collar so it holds up long-term.
           </p>
+          <div class="section-label" style="margin-bottom:16px">Care</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
+            Machine wash 30°C gentle cycle. Turn inside out before washing and ironing.
+            Do not tumble dry. Wash with similar colours.
+          </p>
         </div>
       </div>
     </div>
@@ -2451,13 +2456,14 @@
        PAGE: PRODUCT DETAIL
        ================================================================ -->
   <div class="page" id="page-pdp">
-    <div class="pdp-layout">
-      <!-- Gallery -->
-      <div class="pdp-gallery" id="pdpGallery">
+
+    <!-- Drop hero -->
+    <div class="drop-hero">
+      <div class="drop-hero-visual" id="pdpGallery">
         <div class="drop-hero-bg"></div>
         <img class="drop-gallery-img active" src="images/drop-hero.png" alt="Stay On Your Path Tee" />
         <img class="drop-gallery-img" src="images/drop-hero-2.jpg" alt="Stay On Your Path Tee — Back" />
-        <img class="drop-gallery-img" src="images/drop-hero-3.jpg" style="object-position:center 40%" alt="Stay On Your Path Tee — Campaign" />
+        <img class="drop-gallery-img" src="images/drop-hero-3.jpg" style="object-position:center 40%" alt="Campaign" />
         <button class="drop-gallery-arrow prev" onclick="pdpGalleryNav(-1)">&#8249;</button>
         <button class="drop-gallery-arrow next" onclick="pdpGalleryNav(1)">&#8250;</button>
         <div class="drop-gallery-dots" id="pdpGalleryDots">
@@ -2466,7 +2472,6 @@
           <div class="drop-gallery-dot" onclick="pdpGalleryGo(2)"></div>
         </div>
       </div>
-      <!-- Info -->
       <div class="pdp-info">
         <div class="pdp-tag">Drop 002 — Limited to 100 Units</div>
         <h1 class="pdp-title">Stay On<br>Your Path<br>Tee</h1>
@@ -2511,8 +2516,6 @@
           <span>✓ Free returns</span>
           <span>✓ Ships in 3–5 days</span>
         </div>
-
-        <!-- Story continued -->
         <div style="border-top:1px solid rgba(0,0,0,.07);margin-top:48px;padding-top:48px">
           <div class="section-label" style="margin-bottom:16px">The Fabric</div>
           <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
@@ -2524,21 +2527,94 @@
             Dropped shoulder, relaxed through the chest, slightly cropped at the hem.
             Easy to layer. Double-stitched cuffs and collar so it holds up long-term.
           </p>
+          <div class="section-label" style="margin-bottom:16px">Care</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
+            Machine wash 30°C gentle cycle. Turn inside out before washing and ironing.
+            Do not tumble dry. Wash with similar colours.
+          </p>
         </div>
       </div>
     </div>
 
-    <!-- Also like -->
-    <section style="padding:clamp(60px,8vw,100px) 0">
-      <div style="padding:0 var(--gutter) clamp(24px,3vw,40px)">
-        <div class="section-label">The Drop in Real Life</div>
+    <!-- Drop countdown -->
+    <div style="background:var(--grey-800);padding:clamp(32px,4vw,52px) var(--gutter);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;border-bottom:1px solid rgba(0,0,0,.07)">
+      <div>
+        <div class="section-label" style="margin-bottom:8px">Drop closes in</div>
+        <div class="countdown-wrap" style="margin:0">
+          <div class="countdown-unit"><span class="countdown-num" id="pdp-d">00</span><div class="countdown-label">Days</div></div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit"><span class="countdown-num" id="pdp-h">00</span><div class="countdown-label">Hours</div></div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit"><span class="countdown-num" id="pdp-m">00</span><div class="countdown-label">Mins</div></div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit"><span class="countdown-num" id="pdp-s">00</span><div class="countdown-label">Secs</div></div>
+        </div>
       </div>
-      <div style="max-width:700px;margin:0 auto">
-        <div class="product-card" style="aspect-ratio:4/3">
+      <div style="text-align:right">
+        <div class="stock-label" style="justify-content:flex-end;margin-bottom:10px">
+          <span style="color:var(--accent);font-size:13px;font-weight:700">100 units left</span>
+        </div>
+        <div class="stock-bar" style="width:200px">
+          <div class="stock-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product specs -->
+    <div class="drop-specs">
+      <div class="spec-item reveal">
+        <div class="spec-title">Material</div>
+        <div class="spec-body">
+          <strong>340gsm heavyweight cotton.</strong> Washed for a soft feel from day one. Pure cotton, nothing added.
+        </div>
+      </div>
+      <div class="spec-item reveal delay-1">
+        <div class="spec-title">Fit &amp; Construction</div>
+        <div class="spec-body">
+          <strong>Dropped shoulder.</strong> Relaxed fit, slightly cropped. Built to last — double-stitched at cuffs and collar.
+        </div>
+      </div>
+      <div class="spec-item reveal delay-2">
+        <div class="spec-title">Intention</div>
+        <div class="spec-body">
+          <strong>Logo front and back.</strong> Simple, clean, intentional. Driven on the outside because we stand behind it.
+        </div>
+      </div>
+    </div>
+
+    <!-- Story section -->
+    <section class="section" style="max-width:800px;margin:0 auto;text-align:center">
+      <div class="section-label reveal">The Story Behind It</div>
+      <h2 class="reveal delay-1" style="font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-.025em;line-height:1.15;margin-bottom:24px">
+        "Built for the version of you<br>that doesn't need proof."
+      </h2>
+      <p class="reveal delay-2" style="font-size:16px;font-weight:300;line-height:1.9;color:var(--grey-400)">
+        Drop 002 started with a single question: what would you wear if you had nothing to prove?
+        Not a logo to hide behind. Not a trend to follow. Just intention, material, and movement.
+        Stay On Your Path Tee is that answer. Heavy enough to mean something. Clean enough to say nothing.
+      </p>
+    </section>
+
+    <!-- More Views -->
+    <section style="padding:0 0 clamp(60px,8vw,100px)">
+      <div style="padding:0 var(--gutter) clamp(24px,3vw,40px);display:flex;justify-content:space-between;align-items:center">
+        <div class="section-label">More Views</div>
+      </div>
+      <div class="collection-grid">
+        <div class="product-card">
           <div class="product-card-img">
-            <img src="images/pdp-campaign.jpg" alt="Stay On Your Path Tee — Drop 002" style="object-position:center center;opacity:.8" />
+            <img src="images/drop-view-1.jpg" alt="View 1" />
           </div>
-          <div class="product-card-overlay"></div>
+        </div>
+        <div class="product-card">
+          <div class="product-card-img">
+            <img src="images/drop-view-2.jpg" alt="View 2" />
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card-img">
+            <img src="images/drop-view-3.jpg" alt="View 3" />
+          </div>
         </div>
       </div>
     </section>
@@ -3296,7 +3372,7 @@
     const m = Math.floor((diff%3600000)/60000);
     const s = Math.floor((diff%60000)/1000);
     const pad = n => String(n).padStart(2,'0');
-    ['home','drop'].forEach(prefix => {
+    ['home','drop','pdp'].forEach(prefix => {
       const dEl = document.getElementById(prefix+'-d');
       const hEl = document.getElementById(prefix+'-h');
       const mEl = document.getElementById(prefix+'-m');
