@@ -506,10 +506,8 @@
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
     }
-    @media (min-width: 1025px) {
-      .drop-hero:has(.shirt-gallery) {
-        grid-template-columns: 42% 1fr;
-      }
+    .drop-hero:has(.shirt-gallery) {
+      grid-template-columns: 42% 1fr;
     }
     .drop-hero-bg {
       position: absolute; inset: 0;
@@ -884,58 +882,6 @@
       position: relative; z-index: 2;
     }
 
-    /* ============================================================
-       EXIT INTENT POPUP
-       ============================================================ */
-    .exit-overlay {
-      position: fixed; inset: 0; z-index: 9000;
-      background: rgba(0,0,0,.8);
-      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; pointer-events: none;
-      transition: opacity .4s;
-    }
-    .exit-overlay.visible { opacity: 1; pointer-events: all; }
-    .exit-modal {
-      background: var(--grey-800); border: 1px solid rgba(0,0,0,.09);
-      max-width: 500px; width: 90%;
-      padding: clamp(40px, 5vw, 64px);
-      text-align: center; position: relative;
-      transform: scale(.96);
-      transition: transform .4s var(--ease-out);
-    }
-    .exit-overlay.visible .exit-modal { transform: scale(1); }
-    .exit-close {
-      position: absolute; top: 16px; right: 16px;
-      font-size: 22px; color: var(--grey-400); line-height: 1;
-      transition: color .2s;
-    }
-    .exit-close:hover { color: var(--white); }
-    .exit-eyebrow {
-      font-size: 9px; font-weight: 700; letter-spacing: .26em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 16px;
-    }
-    .exit-title {
-      font-size: clamp(26px, 4vw, 38px); font-weight: 900;
-      letter-spacing: -.03em; line-height: 1.05; margin-bottom: 12px;
-    }
-    .exit-sub {
-      font-size: 14px; color: var(--grey-400); line-height: 1.7; margin-bottom: 28px;
-    }
-    .exit-form { display: flex; flex-direction: column; gap: 10px; }
-    .exit-input {
-      padding: 15px 18px;
-      background: rgba(0,0,0,.07); border: 1px solid rgba(0,0,0,.12);
-      color: var(--white); font-size: 14px;
-      outline: none; transition: border-color .25s;
-    }
-    .exit-input:focus { border-color: rgba(0,0,0,.3); }
-    .exit-skip {
-      margin-top: 16px; font-size: 11px; color: var(--grey-600);
-      letter-spacing: .08em; text-transform: uppercase;
-      transition: color .2s; text-decoration: underline; text-underline-offset: 3px;
-    }
-    .exit-skip:hover { color: var(--grey-400); }
 
     /* ============================================================
        CART DRAWER
@@ -1907,21 +1853,6 @@
   <!-- ================================================================
        EXIT INTENT POPUP
        ================================================================ -->
-  <div class="exit-overlay" id="exitOverlay">
-    <div class="exit-modal">
-      <button class="exit-close" id="exitClose">×</button>
-      <div class="exit-eyebrow">Wait — One More Thing</div>
-      <div class="exit-title">Get Early Access to Drop 002</div>
-      <div class="exit-sub">100 units. No restock. Be the first in line before it sells out.</div>
-      <div class="exit-form">
-        <input class="exit-input" type="email" placeholder="your@email.com" />
-        <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="handleExitSubmit()">
-          Secure My Spot →
-        </button>
-      </div>
-      <button class="exit-skip" onclick="closeExit()">No thanks, I'll miss out</button>
-    </div>
-  </div>
 
   <!-- ================================================================
        TOAST
@@ -2338,7 +2269,7 @@
     <!-- Drop countdown -->
     <div style="background:var(--grey-800);padding:clamp(32px,4vw,52px) var(--gutter);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;border-bottom:1px solid rgba(0,0,0,.07)">
       <div>
-        <div class="section-label" style="margin-bottom:8px">Drop closes in</div>
+        <div class="section-label" style="margin-bottom:8px">Drops in</div>
         <div class="countdown-wrap" style="margin:0">
           <div class="countdown-unit"><span class="countdown-num" id="drop-d">00</span><div class="countdown-label">Days</div></div>
           <div class="countdown-sep">:</div>
@@ -2361,9 +2292,7 @@
 
     <!-- More Views -->
     <section style="padding:0 0 clamp(60px,8vw,100px)">
-      <div style="padding:0 var(--gutter) clamp(24px,3vw,40px);display:flex;justify-content:space-between;align-items:center">
-        <div class="section-label">More Views</div>
-      </div>
+
       <div class="collection-grid">
         <div class="product-card">
           <div class="product-card-img">
@@ -2542,7 +2471,7 @@
     <!-- Drop countdown -->
     <div style="background:var(--grey-800);padding:clamp(32px,4vw,52px) var(--gutter);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;border-bottom:1px solid rgba(0,0,0,.07)">
       <div>
-        <div class="section-label" style="margin-bottom:8px">Drop closes in</div>
+        <div class="section-label" style="margin-bottom:8px">Drops in</div>
         <div class="countdown-wrap" style="margin:0">
           <div class="countdown-unit"><span class="countdown-num" id="pdp-d">00</span><div class="countdown-label">Days</div></div>
           <div class="countdown-sep">:</div>
@@ -2565,9 +2494,7 @@
 
     <!-- More Views -->
     <section style="padding:0 0 clamp(60px,8vw,100px)">
-      <div style="padding:0 var(--gutter) clamp(24px,3vw,40px);display:flex;justify-content:space-between;align-items:center">
-        <div class="section-label">More Views</div>
-      </div>
+
       <div class="collection-grid">
         <div class="product-card">
           <div class="product-card-img">
@@ -3175,7 +3102,6 @@
     currentPage: 'home',
     selectedSize: null,
     cart: [],
-    exitShown: false,
     mobileNavOpen: false,
   };
 
@@ -3352,7 +3278,7 @@
   }
 
   /* ── Countdown timer ── */
-  const DROP_DATE = new Date('2026-04-26T18:00:00');
+  const DROP_DATE = new Date('2026-05-02T18:00:00');
   function updateCountdowns() {
     const now  = new Date();
     const diff = Math.max(0, DROP_DATE - now);
@@ -3422,34 +3348,6 @@
     e.target.reset();
   }
 
-  /* ── Exit intent ── */
-  let exitTriggered = false;
-  document.addEventListener('mouseleave', e => {
-    if (e.clientY < 20 && !exitTriggered && !state.exitShown) {
-      setTimeout(() => {
-        document.getElementById('exitOverlay').classList.add('visible');
-        state.exitShown = true;
-        exitTriggered = true;
-      }, 400);
-    }
-  });
-  function closeExit() { document.getElementById('exitOverlay').classList.remove('visible'); }
-  function handleExitSubmit() {
-    const input = document.querySelector('#exitOverlay input[type="email"]');
-    if (input && input.value) {
-      fetch('https://formsubmit.co/ajax/hello@driven-co.ch', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ email: input.value, _subject: 'Early Access Sign-Up — Driven Co.' })
-      });
-    }
-    showToast("You're locked in ✓");
-    closeExit();
-  }
-  document.getElementById('exitClose').addEventListener('click', closeExit);
-  document.getElementById('exitOverlay').addEventListener('click', e => {
-    if (e.target === e.currentTarget) closeExit();
-  });
 
   /* ── Mobile nav ── */
   const hamburger  = document.getElementById('hamburger');
@@ -3762,7 +3660,6 @@
       closeNotify();
       closeCheckout();
       closeCart();
-      closeExit();
     }
   });
 
