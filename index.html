@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DRIVEN — Wear the Drive</title>
   <meta name="description" content="Premium streetwear for those who move differently. Limited drops. No noise. Just drive." />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <meta property="og:title" content="DRIVEN — Wear the Drive" />
+  <meta property="og:description" content="Premium streetwear for those who move differently. Limited drops. No noise. Just drive." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DRIVEN — Wear the Drive" />
+  <meta name="twitter:description" content="Premium streetwear for those who move differently. Limited drops. No noise. Just drive." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -609,12 +616,6 @@
     }
     .btn-add-cart:hover { transform: translateY(-2px); box-shadow: 0 16px 50px rgba(0,0,0,.5); }
     .btn-add-cart:active { transform: translateY(0); }
-    .btn-wishlist {
-      width: 56px; height: 56px; border: 1px solid rgba(0,0,0,.14);
-      display: flex; align-items: center; justify-content: center;
-      transition: all .25s;
-    }
-    .btn-wishlist:hover { border-color: var(--white); }
     .drop-trust {
       display: flex; gap: 24px; flex-wrap: wrap;
       font-size: 11px; color: var(--grey-400); letter-spacing: .06em;
@@ -1236,7 +1237,6 @@
       .pdp-attrs          { grid-template-columns: 1fr; }
       /* Add to cart section */
       .add-to-cart-section { flex-direction: column; }
-      .btn-wishlist       { width: 100%; }
       /* Story panel tighter */
       .story-panel-text   { padding: clamp(32px,6vw,60px) clamp(24px,5vw,48px); }
       /* Hero headline smaller */
@@ -1284,8 +1284,6 @@
     /* ── Animate numbers ── */
     .count-up { display: inline-block; }
 
-    /* ── Active nav link highlight ── */
-    nav [data-page].active-link { opacity: 1; }
 
     /* ============================================================
        INTRO LOADER
@@ -2021,7 +2019,7 @@
     <!-- Storytelling strip 2 -->
     <div class="story-strip reverse">
       <div class="story-panel-img parallax" data-speed=".04">
-        <img src="images/story-limited.jpg" alt="Limited By Design" id="storyLimitedImg" />
+        <img src="images/story-limited.jpg" alt="Limited By Design" id="storyLimitedImg" loading="lazy" />
         <div class="img-overlay"></div>
       </div>
       <div class="story-panel-text">
@@ -2132,7 +2130,7 @@
     <!-- Storytelling strip 3 -->
     <div class="story-strip">
       <div class="story-panel-img parallax" data-speed=".04">
-        <img src="images/story-mindset.jpg" alt="Built on a Mindset" style="object-position:center 40%" />
+        <img src="images/story-mindset.jpg" alt="Built on a Mindset" style="object-position:center 40%" loading="lazy" />
         <div class="img-overlay"></div>
       </div>
       <div class="story-panel-text">
@@ -2279,8 +2277,8 @@
       <div class="drop-hero-visual shirt-gallery" id="dropGallery">
         <div class="drop-hero-bg"></div>
         <img class="drop-gallery-img active" src="images/drop-hero.png" alt="Stay On Your Path Tee" style="object-fit:cover;object-position:center 8%" />
-        <img class="drop-gallery-img" src="images/drop-hero-2.jpg" alt="Stay On Your Path Tee — Back" style="object-fit:cover;object-position:center 15%" />
-        <img class="drop-gallery-img" src="images/drop-hero-3.jpg" style="object-position:center 40%" alt="Campaign" />
+        <img class="drop-gallery-img" src="images/drop-hero-2.jpg" alt="Stay On Your Path Tee — Back" style="object-fit:cover;object-position:center 15%" loading="lazy" />
+        <img class="drop-gallery-img" src="images/drop-hero-3.jpg" style="object-position:center 40%" alt="Campaign" loading="lazy" />
         <button class="drop-gallery-arrow prev" onclick="dropGalleryNav(-1)">&#8249;</button>
         <button class="drop-gallery-arrow next" onclick="dropGalleryNav(1)">&#8250;</button>
         <div class="drop-gallery-dots" id="dropGalleryDots">
@@ -2383,32 +2381,32 @@
       <div class="collection-grid">
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-1.jpg" alt="View 1" />
+            <img src="images/drop-view-1.jpg" alt="View 1" loading="lazy" />
           </div>
         </div>
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-2.jpg" alt="View 2" />
+            <img src="images/drop-view-2.jpg" alt="View 2" loading="lazy" />
           </div>
         </div>
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-3.jpg" alt="View 3" />
+            <img src="images/drop-view-3.jpg" alt="View 3" loading="lazy" />
           </div>
         </div>
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-4.jpg" alt="View 4" />
+            <img src="images/drop-view-4.jpg" alt="View 4" loading="lazy" />
           </div>
         </div>
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-5.jpg" alt="View 5" />
+            <img src="images/drop-view-5.jpg" alt="View 5" loading="lazy" />
           </div>
         </div>
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-6.jpg" alt="View 6" />
+            <img src="images/drop-view-6.jpg" alt="View 6" loading="lazy" />
           </div>
         </div>
       </div>
@@ -2483,8 +2481,8 @@
       <div class="drop-hero-visual shirt-gallery" id="pdpGallery">
         <div class="drop-hero-bg"></div>
         <img class="drop-gallery-img active" src="images/drop-hero.png" alt="Stay On Your Path Tee" style="object-fit:cover;object-position:center 8%" />
-        <img class="drop-gallery-img" src="images/drop-hero-2.jpg" alt="Stay On Your Path Tee — Back" style="object-fit:cover;object-position:center 15%" />
-        <img class="drop-gallery-img" src="images/drop-hero-3.jpg" style="object-position:center 40%" alt="Campaign" />
+        <img class="drop-gallery-img" src="images/drop-hero-2.jpg" alt="Stay On Your Path Tee — Back" style="object-fit:cover;object-position:center 15%" loading="lazy" />
+        <img class="drop-gallery-img" src="images/drop-hero-3.jpg" style="object-position:center 40%" alt="Campaign" loading="lazy" />
         <button class="drop-gallery-arrow prev" onclick="pdpGalleryNav(-1)">&#8249;</button>
         <button class="drop-gallery-arrow next" onclick="pdpGalleryNav(1)">&#8250;</button>
         <div class="drop-gallery-dots" id="pdpGalleryDots">
@@ -2585,32 +2583,32 @@
       <div class="collection-grid">
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-1.jpg" alt="View 1" />
+            <img src="images/drop-view-1.jpg" alt="View 1" loading="lazy" />
           </div>
         </div>
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-2.jpg" alt="View 2" />
+            <img src="images/drop-view-2.jpg" alt="View 2" loading="lazy" />
           </div>
         </div>
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-3.jpg" alt="View 3" />
+            <img src="images/drop-view-3.jpg" alt="View 3" loading="lazy" />
           </div>
         </div>
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-4.jpg" alt="View 4" />
+            <img src="images/drop-view-4.jpg" alt="View 4" loading="lazy" />
           </div>
         </div>
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-5.jpg" alt="View 5" />
+            <img src="images/drop-view-5.jpg" alt="View 5" loading="lazy" />
           </div>
         </div>
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-6.jpg" alt="View 6" />
+            <img src="images/drop-view-6.jpg" alt="View 6" loading="lazy" />
           </div>
         </div>
       </div>
@@ -2646,8 +2644,8 @@
       <div class="pdp-gallery" id="hbGallery">
         <div class="drop-hero-bg"></div>
         <img class="drop-gallery-img active" src="images/hoodie-black.jpg" alt="What If Hoodie Midnight Black — Front" />
-        <img class="drop-gallery-img" src="images/hoodie-black-back.jpg" alt="What If Hoodie Midnight Black — Back" />
-        <img class="drop-gallery-img" src="images/hoodie-hanger.jpg" alt="What If Hoodie Midnight Black — Hanger" />
+        <img class="drop-gallery-img" src="images/hoodie-black-back.jpg" alt="What If Hoodie Midnight Black — Back" loading="lazy" />
+        <img class="drop-gallery-img" src="images/hoodie-hanger.jpg" alt="What If Hoodie Midnight Black — Hanger" loading="lazy" />
         <button class="drop-gallery-arrow prev" onclick="hbGalleryNav(-1)">&#8249;</button>
         <button class="drop-gallery-arrow next" onclick="hbGalleryNav(1)">&#8250;</button>
         <div class="drop-gallery-dots" id="hbGalleryDots">
@@ -2735,8 +2733,8 @@
       <div class="pdp-gallery" id="hbluGallery">
         <div class="drop-hero-bg"></div>
         <img class="drop-gallery-img active" src="images/hoodie-blue.jpg" alt="What If Hoodie Ocean Blue — Front" />
-        <img class="drop-gallery-img" src="images/hoodie-blue-back.jpg" alt="What If Hoodie Ocean Blue — Back" />
-        <img class="drop-gallery-img" src="images/hoodie-hanger.jpg" alt="What If Hoodie Ocean Blue — Hanger" />
+        <img class="drop-gallery-img" src="images/hoodie-blue-back.jpg" alt="What If Hoodie Ocean Blue — Back" loading="lazy" />
+        <img class="drop-gallery-img" src="images/hoodie-hanger.jpg" alt="What If Hoodie Ocean Blue — Hanger" loading="lazy" />
         <button class="drop-gallery-arrow prev" onclick="hbluGalleryNav(-1)">&#8249;</button>
         <button class="drop-gallery-arrow next" onclick="hbluGalleryNav(1)">&#8250;</button>
         <div class="drop-gallery-dots" id="hbluGalleryDots">
@@ -2882,32 +2880,32 @@
       <div class="collection-grid">
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-1.jpg" alt="View 1" />
+            <img src="images/drop-view-1.jpg" alt="View 1" loading="lazy" />
           </div>
         </div>
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-2.jpg" alt="View 2" />
+            <img src="images/drop-view-2.jpg" alt="View 2" loading="lazy" />
           </div>
         </div>
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-3.jpg" alt="View 3" />
+            <img src="images/drop-view-3.jpg" alt="View 3" loading="lazy" />
           </div>
         </div>
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-4.jpg" alt="View 4" />
+            <img src="images/drop-view-4.jpg" alt="View 4" loading="lazy" />
           </div>
         </div>
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-5.jpg" alt="View 5" />
+            <img src="images/drop-view-5.jpg" alt="View 5" loading="lazy" />
           </div>
         </div>
         <div class="product-card">
           <div class="product-card-img">
-            <img src="images/drop-view-6.jpg" alt="View 6" />
+            <img src="images/drop-view-6.jpg" alt="View 6" loading="lazy" />
           </div>
         </div>
       </div>
@@ -3567,18 +3565,6 @@
   }
   function hbluGalleryNav(dir) { hbluGalleryGo(_hbluIdx + dir); }
 
-  /* ── PDP image switcher ── */
-  function pdpSwitch(thumb, src) {
-    document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
-    thumb.classList.add('active');
-    const img = document.getElementById('pdpMainImgEl');
-    if (!img) return;
-    img.style.opacity = '0';
-    setTimeout(() => {
-      img.src = src;
-      img.style.opacity = '1';
-    }, 200);
-  }
 
   /* ── Wiggle keyframe (add dynamically) ── */
   const wiggleStyle = document.createElement('style');
@@ -3700,27 +3686,6 @@
 
   function coBack() {
     if (coStep > 1) { coStep--; renderCoSteps(); }
-  }
-
-  function renderCoSummary() {
-    const wrap = document.getElementById('co-summary-items');
-    let sub = 0;
-    wrap.innerHTML = state.cart.map(item => {
-      sub += item.price;
-      return `<div class="co-summary-item">
-        <div class="co-summary-thumb">D</div>
-        <div>
-          <div class="co-summary-name">${item.name}</div>
-          <div class="co-summary-detail">Size: ${item.size} · Qty: 1</div>
-          <div style="font-size:14px;font-weight:700;margin-top:6px">CHF ${item.price}.–</div>
-        </div>
-      </div>`;
-    }).join('');
-    const tax = (sub * 0.077).toFixed(2);
-    const total = (sub + 8 + parseFloat(tax)).toFixed(2);
-    document.getElementById('co-sub').textContent   = 'CHF ' + sub + '.–';
-    document.getElementById('co-tax').textContent   = 'CHF ' + tax;
-    document.getElementById('co-total').textContent = 'CHF ' + total;
   }
 
   document.getElementById('checkoutOverlay').addEventListener('click', e => {
