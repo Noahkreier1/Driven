@@ -1,0 +1,47 @@
+/* ── Reveal animation classes ── */
+.reveal {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity .9s var(--ease-out), transform .9s var(--ease-out);
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-left  { opacity: 0; transform: translateX(-32px); transition: opacity .9s var(--ease-out), transform .9s var(--ease-out); }
+.reveal-left.visible  { opacity: 1; transform: none; }
+.reveal-right { opacity: 0; transform: translateX(32px);  transition: opacity .9s var(--ease-out), transform .9s var(--ease-out); }
+.reveal-right.visible { opacity: 1; transform: none; }
+.delay-1 { transition-delay: .1s; }
+.delay-2 { transition-delay: .2s; }
+.delay-3 { transition-delay: .3s; }
+.delay-4 { transition-delay: .4s; }
+.delay-5 { transition-delay: .5s; }
+
+/* ── Keyframes ── */
+@keyframes geo-rotate { to { transform: rotate(360deg); } }
+@keyframes scroll-pulse { 0%,100%{opacity:.3} 50%{opacity:1} }
+@keyframes marquee-scroll { to { transform: translateX(-50%); } }
+@keyframes stock-fill-anim { to { width: 100%; } }
+@keyframes wipe-in  { to   { transform: scaleX(1); transform-origin: left;  } }
+@keyframes wipe-out { from { transform: scaleX(1); transform-origin: right; } to { transform: scaleX(0); transform-origin: right; } }
+@keyframes loader-rise { from { transform: translateY(100%); opacity: 0; } }
+@keyframes loader-progress { to { width: 100%; } }
+@keyframes word-rise { from { transform: translateY(110%); } }
+@keyframes success-pop { from { transform: scale(0); opacity: 0; } }
+
+/* ── Page transition wipe ── */
+.page-wipe {
+  position: fixed; inset: 0; z-index: 5000;
+  background: var(--black);
+  transform: scaleX(0); transform-origin: left;
+  pointer-events: none;
+}
+.page-wipe.wipe-in  { animation: wipe-in  .45s var(--ease-in-out) forwards; }
+.page-wipe.wipe-out { animation: wipe-out .45s var(--ease-in-out) forwards; }
+
+/* ── Hero word split ── */
+.hero-headline .word { display: inline-block; overflow: hidden; vertical-align: top; }
+.hero-headline .word-inner {
+  display: inline-block;
+  animation: word-rise .9s var(--ease-out) both;
+}
+
+/* ── Scroll-triggered parallax helper (desktop only) ── */
+@media (min-width: 1025px) { .parallax { will-change: transform; } }
