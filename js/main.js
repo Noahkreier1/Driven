@@ -49,28 +49,48 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// navigate — performs a wipe transition to the given page name
+// showPage — swaps the visible page without a history push (used internally)
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  state.currentPage = page;
+  window.scrollTo({top:0,behavior:'instant'});
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('active', a.dataset.link === page);
+  });
+  document.querySelectorAll('.mobile-nav-links a').forEach(a => {
+    a.classList.toggle('active', a.dataset.link === page);
+  });
+  setupReveal();
+  if (page==='collection') renderCollection('all');
+  document.getElementById('stickyCta').classList.remove('visible');
+}
+
+// navigate — performs a wipe transition and pushes a history entry so back/forward work
 function navigate(page) {
   if (page === state.currentPage) { window.scrollTo({top:0,behavior:'smooth'}); return; }
   const wipe = document.getElementById('pageWipe');
   wipe.className = 'page-wipe wipe-in';
   setTimeout(() => {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-'+page).classList.add('active');
-    state.currentPage = page;
-    window.scrollTo({top:0,behavior:'instant'});
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.classList.toggle('active', a.dataset.link === page);
-    });
-    document.querySelectorAll('.mobile-nav-links a').forEach(a => {
-      a.classList.toggle('active', a.dataset.link === page);
-    });
-    setupReveal();
-    if (page==='collection') renderCollection('all');
-    document.getElementById('stickyCta').classList.remove('visible');
+    showPage(page);
+    history.pushState({ page }, '', '#' + page);
     wipe.className = 'page-wipe wipe-out';
   }, 440);
 }
+
+// handle browser back/forward buttons
+window.addEventListener('popstate', e => {
+  const page = (e.state && e.state.page) || 'home';
+  const wipe = document.getElementById('pageWipe');
+  wipe.className = 'page-wipe wipe-in';
+  setTimeout(() => {
+    showPage(page);
+    wipe.className = 'page-wipe wipe-out';
+  }, 440);
+});
+
+// set initial history entry so the first back press returns to home
+history.replaceState({ page: 'home' }, '', '#home');
 
 // data-link click delegation — intercepts all [data-link] clicks and calls navigate
 document.addEventListener('click', e => {
