@@ -114,13 +114,13 @@ function addToCart() {
       g.offsetHeight;
       g.style.animation = 'wiggle .4s ease-in-out';
     });
-    showToast('Please select a size');
+    showToast(window._t ? window._t('selectSize') : 'Please select a size');
     return;
   }
   const product = products.find(p => p.page === state.currentPage) || products[0];
   state.cart.push({ name: product.name, size: state.selectedSize, price: product.price, img: product.img, page: product.page });
   updateCart();
-  showToast('Added to cart ✓');
+  showToast(window._t ? window._t('addedToCart') : 'Added to cart ✓');
   openCart();
 }
 
@@ -136,7 +136,8 @@ function updateCart() {
   const totalEl  = document.getElementById('cartTotal');
 
   if (count === 0) {
-    itemsEl.innerHTML = `<div class="cart-empty"><div class="cart-empty-icon">◻</div><div class="cart-empty-text">Your cart is empty.<br>Add something worth wearing.</div></div>`;
+    var _emptyHtml = window._t ? window._t('cartEmptyHtml') : 'Your cart is empty.<br>Add something worth wearing.';
+    itemsEl.innerHTML = `<div class="cart-empty"><div class="cart-empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px;height:48px;opacity:.3"><path d="M6 2 3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div><div class="cart-empty-text">${_emptyHtml}</div></div>`;
     footerEl.style.display = 'none';
     return;
   }
@@ -145,13 +146,15 @@ function updateCart() {
   let total = 0;
   itemsEl.innerHTML = state.cart.map((item,i) => {
     total += item.price;
+    var _size   = window._t ? window._t('size')   : 'Size:';
+    var _remove = window._t ? window._t('remove') : 'Remove';
     return `<div class="cart-item">
       <div class="cart-item-img"><img src="${item.img || 'assets/images/drop-hero.png'}" alt="${item.name}" /></div>
       <div class="cart-item-info">
         <div class="cart-item-name">${item.name}</div>
-        <div class="cart-item-size">Size: ${item.size}</div>
+        <div class="cart-item-size">${_size} ${item.size}</div>
         <div class="cart-item-price">CHF ${item.price}.–</div>
-        <div class="cart-item-remove" onclick="removeFromCart(${i})">Remove</div>
+        <div class="cart-item-remove" onclick="removeFromCart(${i})">${_remove}</div>
       </div>
     </div>`;
   }).join('');
@@ -216,7 +219,7 @@ function handleEmailSubmit(e) {
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({ email: email, _subject: 'New Email Sign-Up — Driven Co.' })
   });
-  showToast("You're on the list ✓");
+  showToast(window._t ? window._t('onList') : "You're on the list ✓");
   e.target.reset();
 }
 
@@ -357,7 +360,7 @@ function handleContactSubmit(e) {
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify(data)
   });
-  showToast('Message sent — we\'ll get back to you shortly');
+  showToast(window._t ? window._t('msgSent') : "Message sent — we'll get back to you shortly");
   e.target.reset();
 }
 
@@ -370,7 +373,7 @@ function handleNotifySubmit(e) {
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({ email: email, _subject: 'Drop Notification Sign-Up — Driven Co.' })
   });
-  showToast("We'll notify you first ✓");
+  showToast(window._t ? window._t('notifyFirst') : "We'll notify you first ✓");
   closeNotify();
 }
 document.getElementById('notifyOverlay').addEventListener('click', e => {
@@ -379,7 +382,7 @@ document.getElementById('notifyOverlay').addEventListener('click', e => {
 
 // closeCheckout — hides the checkout overlay and resets the step counter
 let coStep = 1;
-const coLabels = ['Continue to Shipping →', 'Continue to Payment →', 'Place Order →'];
+var coLabels = ['Continue to Shipping →', 'Continue to Payment →', 'Place Order →'];
 
 function closeCheckout() {
   document.getElementById('checkoutOverlay').classList.remove('visible');
@@ -437,10 +440,13 @@ function renderCollection(filter) {
     : products.filter(p=>p.cat===filter);
 
   if (filtered.length === 0) {
-    grid.innerHTML = `<div style="grid-column:1/-1;padding:80px;text-align:center;color:var(--grey-400);font-size:14px">Nothing here yet. Check back soon.</div>`;
+    const _nothing = window._t ? window._t('nothingHere') : 'Nothing here yet. Check back soon.';
+    grid.innerHTML = `<div style="grid-column:1/-1;padding:80px;text-align:center;color:var(--grey-400);font-size:14px">${_nothing}</div>`;
     return;
   }
 
+  const _quickAdd  = window._t ? window._t('quickAdd')  : 'Quick Add';
+  const _notifyMe  = window._t ? window._t('notifyMe')  : 'Notify Me';
   grid.innerHTML = filtered.map((p,i) => `
     <div class="full-product-card" onclick="${p.sold ? 'openNotify()' : `navigate('${p.page||'pdp'}')`}">
       <div class="full-product-card-bg ${p.img ? '' : bgClasses[i%3]}" style="${p.img ? 'background:none' : ''}">
@@ -449,7 +455,7 @@ function renderCollection(filter) {
         ${p.drop ? '<span class="product-badge badge-drop">Drop 002</span>' : ''}
         ${p.core ? '<span class="product-badge badge-core">Core Edition</span>' : ''}
         ${p.sold ? '<span class="product-badge badge-sold" style="top:auto;bottom:70px">Sold Out</span>' : ''}
-        <div class="quick-add">${p.sold ? 'Notify Me' : 'Quick Add'}</div>
+        <div class="quick-add">${p.sold ? _notifyMe : _quickAdd}</div>
       </div>
       <div class="full-product-info">
         <div class="full-product-name">${p.name}</div>
@@ -547,7 +553,7 @@ function updateSizeAvailability(pageKey, variants) {
 
 // openCheckout — creates a Shopify checkout with current cart items and redirects to it
 function openCheckout() {
-  if (state.cart.length === 0) { showToast('Your cart is empty'); return; }
+  if (state.cart.length === 0) { showToast(window._t ? window._t('cartEmpty') : 'Your cart is empty'); return; }
   closeCart();
   if (!_shopifyClient) { showToast('Connecting to store…'); return; }
 

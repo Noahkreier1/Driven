@@ -37,14 +37,14 @@
   <div class="modal-overlay" id="sizeGuideOverlay">
     <div class="modal-box">
       <div class="modal-header">
-        <div class="modal-title">Size Guide</div>
+        <div class="modal-title" data-en="Size Guide" data-de="Größentabelle">Size Guide</div>
         <button class="modal-close" onclick="closeSizeGuide()">×</button>
       </div>
       <div class="modal-body">
         <div style="font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px">Stay On Your Path Tee</div>
         <table class="size-table">
           <thead>
-            <tr><th>Size</th><th>Chest (in)</th><th>Length (in)</th><th>Shoulder (in)</th></tr>
+            <tr><th data-en="Size" data-de="Größe">Size</th><th data-en="Chest (in)" data-de="Brust (Zoll)">Chest (in)</th><th data-en="Length (in)" data-de="Länge (Zoll)">Length (in)</th><th data-en="Shoulder (in)" data-de="Schulter (Zoll)">Shoulder (in)</th></tr>
           </thead>
           <tbody>
             <tr><td>XS</td><td>34–36</td><td>27</td><td>16.5</td></tr>
@@ -55,7 +55,7 @@
             <tr><td>XXL</td><td>44–46</td><td>29.5</td><td>21.5</td></tr>
           </tbody>
         </table>
-        <div class="size-tip">
+        <div class="size-tip" data-en="&lt;strong&gt;Our recommendation:&lt;/strong&gt; Stay On Your Path Tee has a dropped-shoulder, relaxed fit. If you prefer a closer fit, size down. All measurements are of the garment, not the body." data-de="&lt;strong&gt;Unsere Empfehlung:&lt;/strong&gt; Das Stay On Your Path Tee hat einen Drop-Shoulder-Schnitt mit entspannter Passform. Wenn du eine engere Passform bevorzugst, wähle eine Größe kleiner. Alle Maße beziehen sich auf das Kleidungsstück, nicht auf den Körper.">
           <strong>Our recommendation:</strong> Stay On Your Path Tee has a dropped-shoulder, relaxed fit.
           If you prefer a closer fit, size down. All measurements are of the garment, not the body.
         </div>
@@ -69,23 +69,23 @@
   <div class="modal-overlay notify-modal" id="notifyOverlay">
     <div class="modal-box" style="max-width:460px">
       <div class="modal-header">
-        <div class="modal-title">Get Notified</div>
+        <div class="modal-title" data-en="Get Notified" data-de="Benachrichtigt werden">Get Notified</div>
         <button class="modal-close" onclick="closeNotify()">×</button>
       </div>
       <div class="modal-body" style="text-align:center;padding:40px 32px">
         <div class="notify-icon">◻</div>
-        <div class="notify-title">This one sold out fast.</div>
-        <div class="notify-sub">
+        <div class="notify-title" data-en="This one sold out fast." data-de="Dieses Teil war schnell vergriffen.">This one sold out fast.</div>
+        <div class="notify-sub" data-en="Drop your email and we'll hit you first when it comes back — or when a new drop hits." data-de="Trag deine E-Mail ein und du erfährst es als Erster, wenn es zurückkommt – oder wenn ein neuer Drop erscheint.">
           Drop your email and we'll hit you first when it comes back —
           or when a new drop hits.
         </div>
         <form class="notify-form" onsubmit="handleNotifySubmit(event)">
-          <input class="notify-input" type="email" placeholder="your@email.com" required />
+          <input class="notify-input" type="email" placeholder="your@email.com" required data-en-placeholder="your@email.com" data-de-placeholder="deine@email.de" />
           <select class="notify-input" style="appearance:none;-webkit-appearance:none">
-            <option value="" disabled selected>Which size are you waiting for?</option>
+            <option value="" disabled selected data-en="Which size are you waiting for?" data-de="Auf welche Größe wartest du?">Which size are you waiting for?</option>
             <option>XS</option><option>S</option>
           </select>
-          <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;padding:16px">
+          <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;padding:16px" data-en="Notify Me When It's Back →" data-de="Benachrichtige mich, wenn es zurück ist →">
             Notify Me When It's Back →
           </button>
         </form>
@@ -102,15 +102,15 @@
       <div class="checkout-header">
         <div class="checkout-steps" id="coSteps">
           <div class="checkout-step active" data-step="1">
-            <span class="checkout-step-num">1</span> Information
+            <span class="checkout-step-num">1</span> <span data-en="Information" data-de="Informationen">Information</span>
           </div>
           <span class="checkout-step-sep">›</span>
           <div class="checkout-step" data-step="2">
-            <span class="checkout-step-num">2</span> Shipping
+            <span class="checkout-step-num">2</span> <span data-en="Shipping" data-de="Versand">Shipping</span>
           </div>
           <span class="checkout-step-sep">›</span>
           <div class="checkout-step" data-step="3">
-            <span class="checkout-step-num">3</span> Payment
+            <span class="checkout-step-num">3</span> <span data-en="Payment" data-de="Zahlung">Payment</span>
           </div>
         </div>
         <button class="modal-close" onclick="closeCheckout()">×</button>
@@ -119,13 +119,13 @@
       <!-- Success screen (hidden initially) -->
       <div class="checkout-success" id="coSuccess" style="display:none">
         <div class="success-check">✓</div>
-        <div class="success-title">Order Confirmed.</div>
-        <div class="success-sub">
+        <div class="success-title" data-en="Order Confirmed." data-de="Bestellung bestätigt.">Order Confirmed.</div>
+        <div class="success-sub" data-en="You're in. Your Foundation Tee is being prepared.<br>Expect it in 2–3 business days." data-de="Du bist dabei. Dein Foundation Tee wird vorbereitet.<br>Erwarte ihn in 2–3 Werktagen.">
           You're in. Your Foundation Tee is being prepared.<br>
           Expect it in 2–3 business days.
         </div>
         <div class="success-order" id="coOrderNum">Order #DRV-001-0041</div>
-        <button class="btn btn-outline" style="margin-top:32px" onclick="closeCheckout()">Continue Shopping</button>
+        <button class="btn btn-outline" style="margin-top:32px" onclick="closeCheckout()" data-en="Continue Shopping" data-de="Weiter einkaufen">Continue Shopping</button>
       </div>
 
       <!-- Form area (hidden after success) -->
@@ -136,23 +136,23 @@
 
             <!-- Step 1: Info -->
             <div class="co-page active" id="co-step-1">
-              <div class="co-section-label">Contact</div>
+              <div class="co-section-label" data-en="Contact" data-de="Kontakt">Contact</div>
               <div class="co-field">
-                <label>Email</label>
-                <input class="co-input" type="email" placeholder="you@example.com" />
+                <label data-en="Email" data-de="E-Mail">Email</label>
+                <input class="co-input" type="email" placeholder="you@example.com" data-en-placeholder="you@example.com" data-de-placeholder="du@beispiel.de" />
               </div>
-              <div class="co-section-label" style="margin-top:28px">Shipping Address</div>
+              <div class="co-section-label" style="margin-top:28px" data-en="Shipping Address" data-de="Lieferadresse">Shipping Address</div>
               <div class="co-row">
-                <div class="co-field"><label>First Name</label><input class="co-input" placeholder="Alex" /></div>
-                <div class="co-field"><label>Last Name</label><input class="co-input" placeholder="Jordan" /></div>
+                <div class="co-field"><label data-en="First Name" data-de="Vorname">First Name</label><input class="co-input" placeholder="Alex" data-en-placeholder="Alex" data-de-placeholder="Max" /></div>
+                <div class="co-field"><label data-en="Last Name" data-de="Nachname">Last Name</label><input class="co-input" placeholder="Jordan" data-en-placeholder="Jordan" data-de-placeholder="Mustermann" /></div>
               </div>
-              <div class="co-field"><label>Address</label><input class="co-input" placeholder="123 Main St" /></div>
+              <div class="co-field"><label data-en="Address" data-de="Adresse">Address</label><input class="co-input" placeholder="123 Main St" data-en-placeholder="123 Main St" data-de-placeholder="Musterstraße 1" /></div>
               <div class="co-row">
-                <div class="co-field"><label>City</label><input class="co-input" placeholder="New York" /></div>
-                <div class="co-field"><label>ZIP</label><input class="co-input" placeholder="10001" /></div>
+                <div class="co-field"><label data-en="City" data-de="Stadt">City</label><input class="co-input" placeholder="New York" data-en-placeholder="New York" data-de-placeholder="Berlin" /></div>
+                <div class="co-field"><label data-en="ZIP" data-de="PLZ">ZIP</label><input class="co-input" placeholder="10001" /></div>
               </div>
               <div class="co-field">
-                <label>Country</label>
+                <label data-en="Country" data-de="Land">Country</label>
                 <select class="co-input" style="appearance:none;-webkit-appearance:none">
                   <option>United States</option><option>Canada</option>
                   <option>United Kingdom</option><option>Australia</option>
@@ -162,14 +162,14 @@
 
             <!-- Step 2: Shipping -->
             <div class="co-page" id="co-step-2">
-              <div class="co-section-label">Shipping Method</div>
+              <div class="co-section-label" data-en="Shipping Method" data-de="Versandmethode">Shipping Method</div>
               <div id="shipping-options" style="display:flex;flex-direction:column;gap:12px">
                 <label style="display:flex;align-items:center;justify-content:space-between;padding:16px;border:1px solid rgba(0,0,0,.3);cursor:pointer">
                   <div style="display:flex;align-items:center;gap:12px">
                     <input type="radio" name="shipping" value="standard" checked style="accent-color:var(--accent)" />
                     <div>
-                      <div style="font-size:13px;font-weight:600">Standard Shipping</div>
-                      <div style="font-size:11px;color:var(--grey-400);margin-top:2px">3–5 business days</div>
+                      <div style="font-size:13px;font-weight:600" data-en="Standard Shipping" data-de="Standardversand">Standard Shipping</div>
+                      <div style="font-size:11px;color:var(--grey-400);margin-top:2px" data-en="3–5 business days" data-de="3–5 Werktage">3–5 business days</div>
                     </div>
                   </div>
                   <span style="font-weight:700">CHF 8.–</span>
@@ -178,8 +178,8 @@
                   <div style="display:flex;align-items:center;gap:12px">
                     <input type="radio" name="shipping" value="express" style="accent-color:var(--accent)" />
                     <div>
-                      <div style="font-size:13px;font-weight:600">Express Shipping</div>
-                      <div style="font-size:11px;color:var(--grey-400);margin-top:2px">1–2 business days</div>
+                      <div style="font-size:13px;font-weight:600" data-en="Express Shipping" data-de="Expressversand">Express Shipping</div>
+                      <div style="font-size:11px;color:var(--grey-400);margin-top:2px" data-en="1–2 business days" data-de="1–2 Werktage">1–2 business days</div>
                     </div>
                   </div>
                   <span style="font-weight:700">CHF 18.–</span>
@@ -188,31 +188,31 @@
                   <div style="display:flex;align-items:center;gap:12px">
                     <input type="radio" name="shipping" value="free" style="accent-color:var(--accent)" />
                     <div>
-                      <div style="font-size:13px;font-weight:600">Free Shipping</div>
-                      <div style="font-size:11px;color:var(--grey-400);margin-top:2px">5–7 business days — always free</div>
+                      <div style="font-size:13px;font-weight:600" data-en="Free Shipping" data-de="Kostenloser Versand">Free Shipping</div>
+                      <div style="font-size:11px;color:var(--grey-400);margin-top:2px" data-en="5–7 business days — always free" data-de="5–7 Werktage – immer kostenlos">5–7 business days — always free</div>
                     </div>
                   </div>
-                  <span style="font-weight:700;color:var(--accent)">Free</span>
+                  <span style="font-weight:700;color:var(--accent)" data-en="Free" data-de="Kostenlos">Free</span>
                 </label>
               </div>
             </div>
 
             <!-- Step 3: Payment -->
             <div class="co-page" id="co-step-3">
-              <div class="co-section-label">Payment</div>
-              <div class="co-field"><label>Card Number</label><input class="co-input" placeholder="1234 5678 9012 3456" maxlength="19" /></div>
+              <div class="co-section-label" data-en="Payment" data-de="Zahlung">Payment</div>
+              <div class="co-field"><label data-en="Card Number" data-de="Kartennummer">Card Number</label><input class="co-input" placeholder="1234 5678 9012 3456" maxlength="19" /></div>
               <div class="co-row">
-                <div class="co-field"><label>Expiry</label><input class="co-input" placeholder="MM / YY" maxlength="7" /></div>
+                <div class="co-field"><label data-en="Expiry" data-de="Ablaufdatum">Expiry</label><input class="co-input" placeholder="MM / YY" maxlength="7" /></div>
                 <div class="co-field"><label>CVV</label><input class="co-input" placeholder="123" maxlength="4" /></div>
               </div>
-              <div class="co-field"><label>Name on Card</label><input class="co-input" placeholder="Alex Jordan" /></div>
+              <div class="co-field"><label data-en="Name on Card" data-de="Name auf der Karte">Name on Card</label><input class="co-input" placeholder="Alex Jordan" data-en-placeholder="Alex Jordan" data-de-placeholder="Max Mustermann" /></div>
               <div class="co-card-icons">
                 <div class="co-card-icon">VISA</div>
                 <div class="co-card-icon">MC</div>
                 <div class="co-card-icon">AMEX</div>
                 <div class="co-card-icon">APPLE PAY</div>
               </div>
-              <div style="margin-top:20px;font-size:11px;color:var(--grey-600);line-height:1.7">
+              <div style="margin-top:20px;font-size:11px;color:var(--grey-600);line-height:1.7" data-en="🔒 256-bit SSL encryption. Your payment information is never stored." data-de="🔒 256-Bit-SSL-Verschlüsselung. Deine Zahlungsdaten werden nie gespeichert.">
                 🔒 256-bit SSL encryption. Your payment information is never stored.
               </div>
             </div>
@@ -220,24 +220,24 @@
 
           <!-- Right: order summary -->
           <div class="checkout-summary">
-            <div class="co-section-label">Order Summary</div>
+            <div class="co-section-label" data-en="Order Summary" data-de="Bestellübersicht">Order Summary</div>
             <div id="co-summary-items"></div>
             <div class="co-totals">
-              <div class="co-total-row"><span>Subtotal</span><span id="co-sub">CHF 37.–</span></div>
-              <div class="co-total-row"><span>Shipping</span><span>CHF 8.–</span></div>
-              <div class="co-total-row"><span>Tax (7.7%)</span><span id="co-tax">CHF 2.85</span></div>
-              <div class="co-total-row grand"><span>Total</span><span id="co-total">CHF 47.85</span></div>
+              <div class="co-total-row"><span data-en="Subtotal" data-de="Zwischensumme">Subtotal</span><span id="co-sub">CHF 37.–</span></div>
+              <div class="co-total-row"><span data-en="Shipping" data-de="Versand">Shipping</span><span>CHF 8.–</span></div>
+              <div class="co-total-row"><span data-en="Tax (7.7%)" data-de="MwSt. (7.7%)">Tax (7.7%)</span><span id="co-tax">CHF 2.85</span></div>
+              <div class="co-total-row grand"><span data-en="Total" data-de="Gesamt">Total</span><span id="co-total">CHF 47.85</span></div>
             </div>
             <div style="margin-top:24px;padding:16px;background:rgba(200,169,110,.05);border-left:2px solid var(--accent)">
               <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:6px">Drop 002</div>
-              <div style="font-size:12px;color:var(--grey-400);line-height:1.7">100 units left. Your order holds your unit for 10 minutes.</div>
+              <div style="font-size:12px;color:var(--grey-400);line-height:1.7" data-en="100 units left. Your order holds your unit for 10 minutes." data-de="Noch 100 Einheiten verfügbar. Deine Bestellung reserviert deine Einheit für 10 Minuten.">100 units left. Your order holds your unit for 10 minutes.</div>
             </div>
           </div>
         </div>
 
         <!-- Footer actions -->
         <div class="checkout-actions">
-          <button class="btn-co-back" id="coBackBtn" onclick="coBack()" style="visibility:hidden">← Back</button>
+          <button class="btn-co-back" id="coBackBtn" onclick="coBack()" style="visibility:hidden" data-en="← Back" data-de="← Zurück">← Back</button>
           <button class="btn btn-primary" id="coNextBtn" onclick="coNext()">
             Continue to Shipping →
           </button>
@@ -270,13 +270,14 @@
   ">
     <div style="width:100%;max-width:380px;padding:0 24px;text-align:center">
       <img src="assets/images/logo.png" alt="Driven Co." style="height:52px;width:auto;display:block;margin:0 auto 32px;filter:invert(1)" />
-      <div style="font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:#c8a96e;margin-bottom:24px">Private Access</div>
+      <div style="font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:#c8a96e;margin-bottom:24px" data-en="Private Access" data-de="Privater Zugang">Private Access</div>
       <div style="font-size:clamp(32px,8vw,48px);font-weight:900;letter-spacing:-.02em;text-transform:uppercase;color:#f8f8f8;line-height:1;margin-bottom:8px">Drop 002</div>
       <div style="font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#c8a96e;margin-bottom:40px">03.05.2026</div>
       <input
         id="pwInput"
         type="password"
         placeholder="Enter password"
+        data-en-placeholder="Enter password" data-de-placeholder="Passwort eingeben"
         onkeydown="if(event.key==='Enter')checkPassword()"
         style="
           width:100%;box-sizing:border-box;
@@ -297,7 +298,7 @@
           font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
           font-family:inherit;cursor:pointer;
         "
-      >Enter</button>
+      data-en="Enter" data-de="Weiter">Enter</button>
       <div id="pwError" style="margin-top:12px;font-size:12px;color:#e05555;min-height:16px"></div>
     </div>
   </div>
@@ -309,8 +310,8 @@
     <a href="#" class="nav-logo" data-link="home"><img src="assets/images/logo.png" alt="Driven Co." /></a>
     <ul class="nav-links">
       <li><a href="#" data-link="drop" class="active-link">Drop 002</a></li>
-      <li><a href="#" data-link="collection">Collection</a></li>
-      <li><a href="#" data-link="story">Our Story</a></li>
+      <li><a href="#" data-link="collection" data-en="Collection" data-de="Kollektion">Collection</a></li>
+      <li><a href="#" data-link="story" data-en="Our Story" data-de="Unsere Geschichte">Our Story</a></li>
     </ul>
     <div class="nav-right">
       <button class="nav-cart-wrap" id="cartToggle" aria-label="Cart">
@@ -320,6 +321,11 @@
         </svg>
         <span class="nav-cart-count" id="cartCount" style="display:none">0</span>
       </button>
+      <div class="nav-lang-toggle">
+        <button class="lang-btn" data-lang="en" onclick="toggleLanguage('en')" style="opacity:1;font-weight:700;color:var(--white)">EN</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="de" onclick="toggleLanguage('de')" style="opacity:.35;font-weight:400;color:var(--grey-400)">DE</button>
+      </div>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -333,11 +339,11 @@
       <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="Close menu">×</button>
     </div>
     <ul class="mobile-nav-links">
-      <li><a href="#" data-link="home"       onclick="closeMobileNav()">Home</a></li>
+      <li><a href="#" data-link="home"       onclick="closeMobileNav()" data-en="Home"           data-de="Startseite">Home</a></li>
       <li><a href="#" data-link="drop"       onclick="closeMobileNav()">Drop 002</a></li>
-      <li><a href="#" data-link="collection" onclick="closeMobileNav()">Collection</a></li>
-      <li><a href="#" data-link="story"      onclick="closeMobileNav()">Our Story</a></li>
-      <li><a href="#" data-link="contact"    onclick="closeMobileNav()">Contact</a></li>
+      <li><a href="#" data-link="collection" onclick="closeMobileNav()" data-en="Collection"     data-de="Kollektion">Collection</a></li>
+      <li><a href="#" data-link="story"      onclick="closeMobileNav()" data-en="Our Story"      data-de="Unsere Geschichte">Our Story</a></li>
+      <li><a href="#" data-link="contact"    onclick="closeMobileNav()" data-en="Contact"        data-de="Kontakt">Contact</a></li>
     </ul>
     <div class="mobile-nav-bottom">
       <span>© 2026 Driven Co.</span>
@@ -350,7 +356,7 @@
   <div class="cart-overlay" id="cartOverlay">
     <div class="cart-drawer">
       <div class="cart-header">
-        <div class="cart-title">Your Cart</div>
+        <div class="cart-title" data-en="Your Cart" data-de="Dein Warenkorb">Your Cart</div>
         <button class="cart-close" id="cartClose">×</button>
       </div>
       <div class="cart-items" id="cartItems">
@@ -361,15 +367,15 @@
               <path d="M16 10a4 4 0 01-8 0"/>
             </svg>
           </div>
-          <div class="cart-empty-text">Your cart is empty.<br>Add something worth wearing.</div>
+          <div class="cart-empty-text" data-en="Your cart is empty.<br>Add something worth wearing." data-de="Dein Warenkorb ist leer.<br>Füge etwas Wertvolles hinzu.">Your cart is empty.<br>Add something worth wearing.</div>
         </div>
       </div>
       <div class="cart-footer" id="cartFooter" style="display:none">
         <div class="cart-subtotal">
-          <span class="cart-subtotal-label">Subtotal</span>
+          <span class="cart-subtotal-label" data-en="Subtotal" data-de="Zwischensumme">Subtotal</span>
           <span class="cart-subtotal-val" id="cartTotal">CHF 0.–</span>
         </div>
-        <button class="btn-checkout" onclick="openCheckout()">Checkout →</button>
+        <button class="btn-checkout" onclick="openCheckout()" data-en="Checkout →" data-de="Zur Kasse →">Checkout →</button>
       </div>
     </div>
   </div>
@@ -387,9 +393,9 @@
   <div class="sticky-cta" id="stickyCta">
     <div>
       <div class="sticky-cta-info">Stay On Your Path Tee — Drop 002</div>
-      <div class="sticky-cta-sub">Only 100 units remaining</div>
+      <div class="sticky-cta-sub" data-en="Only 100 units remaining" data-de="Nur noch 100 Stück verfügbar">Only 100 units remaining</div>
     </div>
-    <button class="btn btn-primary" onclick="addToCart()">Add to Cart — CHF 37.–</button>
+    <button class="btn btn-primary" onclick="addToCart()" data-en="Add to Cart — CHF 37.–" data-de="In den Warenkorb — CHF 37.–">Add to Cart — CHF 37.–</button>
   </div>
 
   <!-- ================================================================
@@ -404,20 +410,20 @@
       </div>
       <div class="hero-geo"></div>
       <div class="hero-lines"></div>
-      <div class="hero-eyebrow reveal">Drop 002 — Now Live</div>
+      <div class="hero-eyebrow reveal" data-en="Drop 002 — Now Live" data-de="Drop 002 — Jetzt Live">Drop 002 — Now Live</div>
       <div class="hero-content">
         <h1 class="hero-headline reveal delay-1">
           Wear<br><em>the</em><br>Drive.
         </h1>
 
         <div class="hero-ctas reveal delay-3">
-          <button class="btn btn-primary" data-link="drop">Shop Drop 002 →</button>
-          <button class="btn btn-outline hero-explore-btn" data-link="collection">Explore Collection</button>
+          <button class="btn btn-primary" data-link="drop" data-en="Shop Drop 002 →" data-de="Zum Drop 002 →">Shop Drop 002 →</button>
+          <button class="btn btn-outline hero-explore-btn" data-link="collection" data-en="Explore Collection" data-de="Kollektion erkunden">Explore Collection</button>
         </div>
       </div>
       <div class="hero-scroll">
         <div class="hero-scroll-line"></div>
-        Scroll
+        <span data-en="Scroll" data-de="Scrollen">Scroll</span>
       </div>
     </section>
 
@@ -430,14 +436,14 @@
     <div class="marquee-bar">
       <div class="marquee-track">
         <span class="marquee-item">Drop 002 <span>·</span></span>
-        <span class="marquee-item">Limited to 100 Units <span>·</span></span>
-        <span class="marquee-item">No Restock <span>·</span></span>
-        <span class="marquee-item">Free Shipping <span>·</span></span>
+        <span class="marquee-item"><span data-en="Limited to 100 Units" data-de="Limitiert auf 100 Stück">Limited to 100 Units</span> <span>·</span></span>
+        <span class="marquee-item"><span data-en="No Restock" data-de="Kein Nachschub">No Restock</span> <span>·</span></span>
+        <span class="marquee-item"><span data-en="Free Shipping" data-de="Kostenloser Versand">Free Shipping</span> <span>·</span></span>
         <span class="marquee-item">Wear the Drive <span>·</span></span>
         <span class="marquee-item">Drop 002 <span>·</span></span>
-        <span class="marquee-item">Limited to 100 Units <span>·</span></span>
-        <span class="marquee-item">No Restock <span>·</span></span>
-        <span class="marquee-item">Free Shipping <span>·</span></span>
+        <span class="marquee-item"><span data-en="Limited to 100 Units" data-de="Limitiert auf 100 Stück">Limited to 100 Units</span> <span>·</span></span>
+        <span class="marquee-item"><span data-en="No Restock" data-de="Kein Nachschub">No Restock</span> <span>·</span></span>
+        <span class="marquee-item"><span data-en="Free Shipping" data-de="Kostenloser Versand">Free Shipping</span> <span>·</span></span>
         <span class="marquee-item">Wear the Drive <span>·</span></span>
       </div>
     </div>
@@ -445,13 +451,13 @@
     <!-- Crafted With Intention -->
     <div class="story-panel-text reveal" style="max-width:600px;padding:clamp(60px,8vw,100px) var(--gutter)">
       <div class="story-panel-num reveal">01</div>
-      <h2 class="story-panel-title reveal delay-1">Crafted With<br>Intention</h2>
-      <p class="story-panel-body reveal delay-2">
+      <h2 class="story-panel-title reveal delay-1" data-en="Crafted With<br>Intention" data-de="Mit Absicht<br>gefertigt">Crafted With<br>Intention</h2>
+      <p class="story-panel-body reveal delay-2" data-en="Every piece is engineered for those who refuse to settle. Premium materials, considered construction, and a fit that moves the way you do." data-de="Jedes Stück ist für diejenigen entwickelt, die sich nicht mit weniger zufriedengeben. Hochwertige Materialien, durchdachte Verarbeitung und eine Passform, die sich mit dir bewegt.">
         Every piece is engineered for those who refuse to settle. Premium materials,
         considered construction, and a fit that moves the way you do.
       </p>
       <button class="btn btn-ghost reveal delay-3" data-link="pdp">
-        See the details <span class="arrow">→</span>
+        <span data-en="See the details" data-de="Details ansehen">See the details</span> <span class="arrow">→</span>
       </button>
     </div>
 
@@ -463,13 +469,13 @@
       </div>
       <div class="story-panel-text">
         <div class="story-panel-num reveal">02</div>
-        <h2 class="story-panel-title reveal delay-1">Limited.<br>By Design.</h2>
-        <p class="story-panel-body reveal delay-2">
+        <h2 class="story-panel-title reveal delay-1" data-en="Limited.<br>By Design." data-de="Limitiert.<br>Durch Design.">Limited.<br>By Design.</h2>
+        <p class="story-panel-body reveal delay-2" data-en="Drop 002 is 100 units. No second run. No archive. When it's gone, it's gone — and that's exactly the point." data-de="Drop 002 umfasst 100 Einheiten. Keine zweite Auflage. Kein Archiv. Wenn er weg ist, ist er weg – und genau das ist der Punkt.">
           Drop 002 is 100 units. No second run. No archive. When it's gone,
           it's gone — and that's exactly the point.
         </p>
         <button class="btn btn-ghost reveal delay-3" data-link="drop">
-          Enter the drop <span class="arrow">→</span>
+          <span data-en="Enter the drop" data-de="Zum Drop">Enter the drop</span> <span class="arrow">→</span>
         </button>
       </div>
     </div>
@@ -478,19 +484,19 @@
     <div class="social-proof">
       <div class="proof-item">
         <div class="proof-num count-up" data-target="100">0</div>
-        <div class="proof-label">Units — Drop 002</div>
+        <div class="proof-label" data-en="Units — Drop 002" data-de="Einheiten — Drop 002">Units — Drop 002</div>
       </div>
       <div class="proof-item">
         <div class="proof-num count-up" data-target="100">0</div>
-        <div class="proof-label">Remaining</div>
+        <div class="proof-label" data-en="Remaining" data-de="Verbleibend">Remaining</div>
       </div>
       <div class="proof-item">
         <div class="proof-num">72<span style="font-size:.5em;font-weight:400">hr</span></div>
-        <div class="proof-label">Avg. Sell-Out</div>
+        <div class="proof-label" data-en="Avg. Sell-Out" data-de="Ø Ausverkauft">Avg. Sell-Out</div>
       </div>
       <div class="proof-item">
         <div class="proof-num count-up" data-target="203">0</div>
-        <div class="proof-label">On the Waitlist</div>
+        <div class="proof-label" data-en="On the Waitlist" data-de="Auf der Warteliste">On the Waitlist</div>
       </div>
     </div>
 
@@ -498,11 +504,11 @@
     <section class="section">
       <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:clamp(32px,4vw,52px);flex-wrap:wrap;gap:16px;">
         <div>
-          <div class="section-label reveal">Current Collection</div>
-          <h2 class="section-title reveal delay-1">The Drop.</h2>
+          <div class="section-label reveal" data-en="Current Collection" data-de="Aktuelle Kollektion">Current Collection</div>
+          <h2 class="section-title reveal delay-1" data-en="The Drop." data-de="Der Drop.">The Drop.</h2>
         </div>
         <button class="btn btn-ghost reveal delay-2" data-link="collection">
-          View all <span class="arrow">→</span>
+          <span data-en="View all" data-de="Alle ansehen">View all</span> <span class="arrow">→</span>
         </button>
       </div>
       <div style="max-width:560px;margin:0 auto">
@@ -528,39 +534,39 @@
       </div>
       <div class="drop-banner-content">
         <div class="section-label reveal">Drop 002 — Stay On Your Path Tee</div>
-        <h2 class="section-title reveal delay-1">Drops in:</h2>
+        <h2 class="section-title reveal delay-1" data-en="Drops in:" data-de="Erscheint in:">Drops in:</h2>
         <div class="countdown-wrap reveal delay-2">
           <div class="countdown-unit">
             <span class="countdown-num" id="home-d">00</span>
-            <div class="countdown-label">Days</div>
+            <div class="countdown-label" data-en="Days" data-de="Tage">Days</div>
           </div>
           <div class="countdown-sep">:</div>
           <div class="countdown-unit">
             <span class="countdown-num" id="home-h">00</span>
-            <div class="countdown-label">Hours</div>
+            <div class="countdown-label" data-en="Hours" data-de="Stunden">Hours</div>
           </div>
           <div class="countdown-sep">:</div>
           <div class="countdown-unit">
             <span class="countdown-num" id="home-m">00</span>
-            <div class="countdown-label">Mins</div>
+            <div class="countdown-label" data-en="Mins" data-de="Min.">Mins</div>
           </div>
           <div class="countdown-sep">:</div>
           <div class="countdown-unit">
             <span class="countdown-num" id="home-s">00</span>
-            <div class="countdown-label">Secs</div>
+            <div class="countdown-label" data-en="Secs" data-de="Sek.">Secs</div>
           </div>
         </div>
         <div class="stock-bar-wrap reveal delay-3">
           <div class="stock-label">
-            <span>Stock remaining</span>
+            <span data-en="Stock remaining" data-de="Lagerbestand">Stock remaining</span>
             <span style="color:var(--accent)">100 / 100</span>
           </div>
           <div class="stock-bar"><div class="stock-fill" id="stockFill"></div></div>
         </div>
         <div class="reveal delay-4">
-          <button class="btn btn-primary" data-link="drop" style="margin-right:12px">Enter Drop →</button>
+          <button class="btn btn-primary" data-link="drop" style="margin-right:12px" data-en="Enter Drop →" data-de="Zum Drop →">Enter Drop →</button>
           <button class="btn btn-ghost" data-link="drop">
-            Notify me <span class="arrow">→</span>
+            <span data-en="Notify me" data-de="Benachrichtige mich">Notify me</span> <span class="arrow">→</span>
           </button>
         </div>
       </div>
@@ -574,13 +580,13 @@
       </div>
       <div class="story-panel-text">
         <div class="story-panel-num reveal">03</div>
-        <h2 class="story-panel-title reveal delay-1">Built on a<br>Mindset.</h2>
-        <p class="story-panel-body reveal delay-2">
+        <h2 class="story-panel-title reveal delay-1" data-en="Built on a<br>Mindset." data-de="Auf einer<br>Einstellung aufgebaut.">Built on a<br>Mindset.</h2>
+        <p class="story-panel-body reveal delay-2" data-en="Driven isn't a brand. It's a commitment. To the early mornings, the late nights, the reps no one sees. We make clothes for that version of you." data-de="Driven ist keine Marke. Es ist ein Versprechen. An die frühen Morgen, die späten Nächte, die Wiederholungen, die niemand sieht. Wir machen Kleidung für diese Version von dir.">
           Driven isn't a brand. It's a commitment. To the early mornings,
           the late nights, the reps no one sees. We make clothes for that version of you.
         </p>
         <button class="btn btn-ghost reveal delay-3" data-link="story">
-          Our story <span class="arrow">→</span>
+          <span data-en="Our story" data-de="Unsere Geschichte">Our story</span> <span class="arrow">→</span>
         </button>
       </div>
     </div>
@@ -589,10 +595,10 @@
     <section class="testimonials">
       <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">
         <div>
-          <div class="section-label reveal">What They're Saying</div>
-          <h2 class="section-title reveal delay-1">The people<br>who get it.</h2>
+          <div class="section-label reveal" data-en="What They're Saying" data-de="Was sie sagen">What They're Saying</div>
+          <h2 class="section-title reveal delay-1" data-en="The people<br>who get it." data-de="Die Menschen,<br>die es verstehen.">The people<br>who get it.</h2>
         </div>
-        <div class="reveal delay-2" style="font-size:12px;color:var(--grey-400)">
+        <div class="reveal delay-2" style="font-size:12px;color:var(--grey-400)" data-en="4.9 / 5 · 30+ reviews" data-de="4.9 / 5 · 30+ Bewertungen">
           4.9 / 5 · 30+ reviews
         </div>
       </div>
@@ -602,14 +608,14 @@
             <div class="star"></div><div class="star"></div><div class="star"></div>
             <div class="star"></div><div class="star"></div>
           </div>
-          <div class="testimonial-quote">
+          <div class="testimonial-quote" data-en='"The Midnight Black hoodie is on another level. The weight, the cut, the feel — you can tell no corners were cut."' data-de='"Der Midnight Black Hoodie ist auf einem anderen Level. Das Gewicht, der Schnitt, das Gefühl – man merkt, dass keine Kompromisse eingegangen wurden."'>
             "The Midnight Black hoodie is on another level. The weight, the cut, the feel — you can tell no corners were cut."
           </div>
           <div class="testimonial-author">
             <div class="testimonial-avatar">L</div>
             <div>
               <div class="testimonial-name">Lukas B.</div>
-              <div class="testimonial-handle">@lukasb · Core Edition customer</div>
+              <div class="testimonial-handle" data-en="@lukasb · Core Edition customer" data-de="@lukasb · Core Edition Kunde">@lukasb · Core Edition customer</div>
             </div>
           </div>
         </div>
@@ -618,7 +624,7 @@
             <div class="star"></div><div class="star"></div><div class="star"></div>
             <div class="star"></div><div class="star"></div>
           </div>
-          <div class="testimonial-quote">
+          <div class="testimonial-quote" data-en='"Been wearing the Ocean Blue hoodie almost every day for weeks. Holds its shape, holds its colour. Can&#39;t wait to see what the next drop brings."' data-de='"Ich trage den Ocean Blue Hoodie seit Wochen fast jeden Tag. Er behält seine Form, er behält seine Farbe. Ich kann den nächsten Drop kaum erwarten."'>
             "Been wearing the Ocean Blue hoodie almost every day for weeks. Holds its shape, holds its colour. Can't wait to see what the next drop brings."
           </div>
           <div class="testimonial-author">
@@ -634,7 +640,7 @@
             <div class="star"></div><div class="star"></div><div class="star"></div>
             <div class="star"></div><div class="star"></div>
           </div>
-          <div class="testimonial-quote">
+          <div class="testimonial-quote" data-en='"Ordered both Core Edition hoodies. Delivered in two days, packaging clean, quality exactly as promised. Midnight Black is my go-to."' data-de='"Beide Core Edition Hoodies bestellt. In zwei Tagen geliefert, saubere Verpackung, Qualität genau wie versprochen. Midnight Black ist mein Go-to."'>
             "Ordered both Core Edition hoodies. Delivered in two days, packaging clean, quality exactly as promised. Midnight Black is my go-to."
           </div>
           <div class="testimonial-author">
@@ -650,18 +656,18 @@
 
     <!-- Email capture -->
     <section class="email-section">
-      <div class="section-label reveal" style="color:var(--grey-600)">Early Access</div>
-      <h2 class="section-title reveal delay-1" style="position:relative;z-index:2">
+      <div class="section-label reveal" style="color:var(--grey-600)" data-en="Early Access" data-de="Früher Zugang">Early Access</div>
+      <h2 class="section-title reveal delay-1" style="position:relative;z-index:2" data-en="Get in<br>before<br>the drop." data-de="Sei dabei<br>vor dem Drop.">
         Get in<br>before<br>the drop.
       </h2>
-      <p class="section-sub reveal delay-2" style="margin:20px auto 0;text-align:center;position:relative;z-index:2">
+      <p class="section-sub reveal delay-2" style="margin:20px auto 0;text-align:center;position:relative;z-index:2" data-en="Join 203+ on the list. First access. No spam. Ever." data-de="Schließe dich 203+ auf der Liste an. Erster Zugang. Kein Spam. Nie.">
         Join 203+ on the list. First access. No spam. Ever.
       </p>
       <form class="email-form reveal delay-3" onsubmit="handleEmailSubmit(event)">
-        <input class="email-input" type="email" placeholder="Enter your email" required />
-        <button type="submit" class="email-submit">Get Access</button>
+        <input class="email-input" type="email" placeholder="Enter your email" required data-en-placeholder="Enter your email" data-de-placeholder="Deine E-Mail-Adresse" />
+        <button type="submit" class="email-submit" data-en="Get Access" data-de="Zugang sichern">Get Access</button>
       </form>
-      <div class="email-note reveal delay-4">Unsubscribe anytime. We only email when it matters.</div>
+      <div class="email-note reveal delay-4" data-en="Unsubscribe anytime. We only email when it matters." data-de="Jederzeit abmelden. Wir schreiben nur, wenn es wichtig ist.">Unsubscribe anytime. We only email when it matters.</div>
     </section>
 
     <!-- Footer -->
@@ -669,37 +675,37 @@
       <div class="footer-top">
         <div>
           <img src="assets/images/logo.png" alt="Driven Co." style="height:40px;width:auto;margin-bottom:14px;display:block" />
-          <div class="footer-brand-tagline">Premium streetwear built for those who move differently. No noise. Just drive.</div>
+          <div class="footer-brand-tagline" data-en="Premium streetwear built for those who move differently. No noise. Just drive." data-de="Premium Streetwear für alle, die sich anders bewegen. Kein Lärm. Nur Antrieb.">Premium streetwear built for those who move differently. No noise. Just drive.</div>
           <div class="footer-socials">
             <a class="footer-social-link" href="https://www.instagram.com/drivenco_" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
           </div>
         </div>
         <div>
-          <div class="footer-col-title">Shop</div>
+          <div class="footer-col-title" data-en="Shop" data-de="Shop">Shop</div>
           <div class="footer-links">
             <a class="footer-link" href="#" data-link="drop">Drop 002</a>
-            <a class="footer-link" href="#" data-link="collection">Collection</a>
+            <a class="footer-link" href="#" data-link="collection" data-en="Collection" data-de="Kollektion">Collection</a>
           </div>
         </div>
         <div>
-          <div class="footer-col-title">Info</div>
+          <div class="footer-col-title" data-en="Info" data-de="Info">Info</div>
           <div class="footer-links">
-            <a class="footer-link" href="#" data-link="story">Our Story</a>
+            <a class="footer-link" href="#" data-link="story" data-en="Our Story" data-de="Unsere Geschichte">Our Story</a>
           </div>
         </div>
         <div>
-          <div class="footer-col-title">Support</div>
+          <div class="footer-col-title" data-en="Support" data-de="Support">Support</div>
           <div class="footer-links">
-            <a class="footer-link" href="#" data-link="shipping">Shipping &amp; Returns</a>
-            <a class="footer-link" href="#" data-link="contact">Contact</a>
+            <a class="footer-link" href="#" data-link="shipping" data-en="Shipping &amp; Returns" data-de="Versand &amp; Rückgabe">Shipping &amp; Returns</a>
+            <a class="footer-link" href="#" data-link="contact" data-en="Contact" data-de="Kontakt">Contact</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Driven Co. All rights reserved.</span>
+        <span data-en="© 2026 Driven Co. All rights reserved." data-de="© 2026 Driven Co. Alle Rechte vorbehalten.">© 2026 Driven Co. All rights reserved.</span>
         <span>
-          <a href="#" data-link="privacy" style="color:inherit">Privacy</a> ·
-          <a href="#" data-link="terms" style="color:inherit">Terms</a> ·
+          <a href="#" data-link="privacy" style="color:inherit" data-en="Privacy" data-de="Datenschutz">Privacy</a> ·
+          <a href="#" data-link="terms" style="color:inherit" data-en="Terms" data-de="AGB">Terms</a> ·
           <a href="#" data-link="cookies" style="color:inherit">Cookies</a>
         </span>
       </div>
@@ -727,31 +733,31 @@
         </div>
       </div>
       <div class="pdp-info">
-        <div class="pdp-tag">Drop 002 — Limited to 100 Units</div>
+        <div class="pdp-tag" data-en="Drop 002 — Limited to 100 Units" data-de="Drop 002 — Limitiert auf 100 Stück">Drop 002 — Limited to 100 Units</div>
         <h1 class="pdp-title">Stay On<br>Your Path<br>Tee</h1>
         <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:20px">CHF 37.–</div>
         <div class="pdp-attrs reveal delay-1">
           <div class="pdp-attr">
-            <div class="pdp-attr-label">Material</div>
-            <div class="pdp-attr-val">340gsm Cotton</div>
+            <div class="pdp-attr-label" data-en="Material" data-de="Material">Material</div>
+            <div class="pdp-attr-val" data-en="340gsm Cotton" data-de="340gsm Baumwolle">340gsm Cotton</div>
           </div>
           <div class="pdp-attr">
-            <div class="pdp-attr-label">Fit</div>
-            <div class="pdp-attr-val">Light Oversized Cropped</div>
+            <div class="pdp-attr-label" data-en="Fit" data-de="Schnitt">Fit</div>
+            <div class="pdp-attr-val" data-en="Light Oversized Cropped" data-de="Leicht Oversized, Cropped">Light Oversized Cropped</div>
           </div>
           <div class="pdp-attr">
-            <div class="pdp-attr-label">Created</div>
-            <div class="pdp-attr-val">in Switzerland</div>
+            <div class="pdp-attr-label" data-en="Created" data-de="Hergestellt">Created</div>
+            <div class="pdp-attr-val" data-en="in Switzerland" data-de="in der Schweiz">in Switzerland</div>
           </div>
           <div class="pdp-attr">
             <div class="pdp-attr-label">Drop</div>
-            <div class="pdp-attr-val">100 Units</div>
+            <div class="pdp-attr-val" data-en="100 Units" data-de="100 Stück">100 Units</div>
           </div>
         </div>
         <div class="size-configurator reveal delay-2">
           <div class="size-label">
-            <span>Select Size</span>
-            <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide()">Size Guide →</button>
+            <span data-en="Select Size" data-de="Größe wählen">Select Size</span>
+            <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide()" data-en="Size Guide →" data-de="Größentabelle →">Size Guide →</button>
           </div>
           <div class="size-grid">
             <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
@@ -763,26 +769,26 @@
           </div>
         </div>
         <div class="add-to-cart-section reveal delay-3">
-          <button class="btn-add-cart" onclick="addToCart()">Add to Cart — CHF 37.–</button>
+          <button class="btn-add-cart" onclick="addToCart()" data-en="Add to Cart — CHF 37.–" data-de="In den Warenkorb — CHF 37.–">Add to Cart — CHF 37.–</button>
         </div>
         <div class="drop-trust reveal delay-4">
-          <span>✓ Free shipping</span>
-          <span>✓ Ships in 3–5 days</span>
+          <span data-en="✓ Free shipping" data-de="✓ Kostenloser Versand">✓ Free shipping</span>
+          <span data-en="✓ Ships in 3–5 days" data-de="✓ Lieferung in 3–5 Tagen">✓ Ships in 3–5 days</span>
         </div>
 
         <!-- Story continued -->
         <div style="border-top:1px solid rgba(0,0,0,.07);margin-top:48px;padding-top:48px">
-          <div class="section-label" style="margin-bottom:16px">The Fabric</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
+          <div class="section-label" style="margin-bottom:16px" data-en="The Fabric" data-de="Das Material">The Fabric</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px" data-en="340gsm heavyweight cotton." data-de="340gsm schwere Baumwolle.">
             340gsm heavyweight cotton.
           </p>
-          <div class="section-label" style="margin-bottom:16px">The Fit</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
+          <div class="section-label" style="margin-bottom:16px" data-en="The Fit" data-de="Der Schnitt">The Fit</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px" data-en="Dropped shoulder, relaxed through the chest, slightly cropped at the hem. Easy to layer. Double-stitched cuffs and collar so it holds up long-term." data-de="Dropped Shoulder, entspannt durch die Brust, am Saum leicht gecroppt. Einfach zu layern. Doppelt genähte Bündchen und Kragen für langfristige Haltbarkeit.">
             Dropped shoulder, relaxed through the chest, slightly cropped at the hem.
             Easy to layer. Double-stitched cuffs and collar so it holds up long-term.
           </p>
-          <div class="section-label" style="margin-bottom:16px">Care</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
+          <div class="section-label" style="margin-bottom:16px" data-en="Care" data-de="Pflege">Care</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)" data-en="Machine wash 30°C gentle cycle. Turn inside out before washing and ironing. Do not tumble dry. Wash with similar colours." data-de="Maschinenwäsche 30°C Schongang. Vor dem Waschen und Bügeln auf links drehen. Nicht im Trockner trocknen. Mit ähnlichen Farben waschen.">
             Machine wash 30°C gentle cycle. Turn inside out before washing and ironing.
             Do not tumble dry. Wash with similar colours.
           </p>
@@ -793,20 +799,20 @@
     <!-- Drop countdown -->
     <div style="background:var(--grey-800);padding:clamp(32px,4vw,52px) var(--gutter);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;border-bottom:1px solid rgba(0,0,0,.07)">
       <div>
-        <div class="section-label" style="margin-bottom:8px">Drops in</div>
+        <div class="section-label" style="margin-bottom:8px" data-en="Drops in" data-de="Erscheint in">Drops in</div>
         <div class="countdown-wrap" style="margin:0">
-          <div class="countdown-unit"><span class="countdown-num" id="drop-d">00</span><div class="countdown-label">Days</div></div>
+          <div class="countdown-unit"><span class="countdown-num" id="drop-d">00</span><div class="countdown-label" data-en="Days" data-de="Tage">Days</div></div>
           <div class="countdown-sep">:</div>
-          <div class="countdown-unit"><span class="countdown-num" id="drop-h">00</span><div class="countdown-label">Hours</div></div>
+          <div class="countdown-unit"><span class="countdown-num" id="drop-h">00</span><div class="countdown-label" data-en="Hours" data-de="Stunden">Hours</div></div>
           <div class="countdown-sep">:</div>
-          <div class="countdown-unit"><span class="countdown-num" id="drop-m">00</span><div class="countdown-label">Mins</div></div>
+          <div class="countdown-unit"><span class="countdown-num" id="drop-m">00</span><div class="countdown-label" data-en="Mins" data-de="Min.">Mins</div></div>
           <div class="countdown-sep">:</div>
-          <div class="countdown-unit"><span class="countdown-num" id="drop-s">00</span><div class="countdown-label">Secs</div></div>
+          <div class="countdown-unit"><span class="countdown-num" id="drop-s">00</span><div class="countdown-label" data-en="Secs" data-de="Sek.">Secs</div></div>
         </div>
       </div>
       <div style="text-align:right">
         <div class="stock-label" style="justify-content:flex-end;margin-bottom:10px">
-          <span style="color:var(--accent);font-size:13px;font-weight:700">100 units left</span>
+          <span style="color:var(--accent);font-size:13px;font-weight:700" data-en="100 units left" data-de="100 Stück verbleibend">100 units left</span>
         </div>
         <div class="stock-bar" style="width:200px">
           <div class="stock-fill"></div>
@@ -853,11 +859,11 @@
 
     <!-- Story section -->
     <section class="section" style="max-width:800px;margin:0 auto;text-align:center">
-      <div class="section-label reveal">The Story Behind It</div>
-      <h2 class="reveal delay-1" style="font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-.025em;line-height:1.15;margin-bottom:24px">
+      <div class="section-label reveal" data-en="The Story Behind It" data-de="Die Geschichte dahinter">The Story Behind It</div>
+      <h2 class="reveal delay-1" style="font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-.025em;line-height:1.15;margin-bottom:24px" data-en='"Built for the version of you<br>that doesn&#39;t need proof."' data-de='"Für die Version von dir gebaut,<br>die keinen Beweis braucht."'>
         "Built for the version of you<br>that doesn't need proof."
       </h2>
-      <p class="reveal delay-2" style="font-size:16px;font-weight:300;line-height:1.9;color:var(--grey-400)">
+      <p class="reveal delay-2" style="font-size:16px;font-weight:300;line-height:1.9;color:var(--grey-400)" data-en="Drop 002 started with a single question: what would you wear if you had nothing to prove? Not a logo to hide behind. Not a trend to follow. Just intention, material, and movement. Stay On Your Path Tee is that answer. Heavy enough to mean something. Clean enough to say nothing." data-de="Drop 002 begann mit einer einzigen Frage: Was würdest du tragen, wenn du nichts zu beweisen hättest? Kein Logo, hinter dem man sich verstecken kann. Kein Trend, dem man folgen muss. Nur Absicht, Material und Bewegung. Das Stay On Your Path Tee ist diese Antwort. Schwer genug, um etwas zu bedeuten. Klar genug, um nichts zu sagen.">
         Drop 002 started with a single question: what would you wear if you had nothing to prove?
         Not a logo to hide behind. Not a trend to follow. Just intention, material, and movement.
         Stay On Your Path Tee is that answer. Heavy enough to mean something. Clean enough to say nothing.
@@ -867,7 +873,7 @@
     <footer>
       <div class="footer-bottom" style="padding-top:0;border-top:none">
         <span>© 2026 Driven Co.</span>
-        <button class="btn btn-ghost" data-link="home">← Back to Home</button>
+        <button class="btn btn-ghost" data-link="home" data-en="← Back to Home" data-de="← Zurück zur Startseite">← Back to Home</button>
       </div>
     </footer>
   </div><!-- /page-drop -->
@@ -877,13 +883,13 @@
        ================================================================ -->
   <div class="page" id="page-collection">
     <section class="collection-hero">
-      <div class="section-label reveal">All Products</div>
-      <h1 class="section-title reveal delay-1">The Collection.</h1>
-      <p class="section-sub reveal delay-2">Every piece considered. Nothing excess.</p>
+      <div class="section-label reveal" data-en="All Products" data-de="Alle Produkte">All Products</div>
+      <h1 class="section-title reveal delay-1" data-en="The Collection." data-de="Die Kollektion.">The Collection.</h1>
+      <p class="section-sub reveal delay-2" data-en="Every piece considered. Nothing excess." data-de="Jedes Stück durchdacht. Nichts Überflüssiges.">Every piece considered. Nothing excess.</p>
       <div class="collection-filter reveal delay-3">
-        <button class="filter-btn active" onclick="setFilter(this,'all')">All</button>
-        <button class="filter-btn" onclick="setFilter(this,'tshirts')">T-Shirts</button>
-        <button class="filter-btn" onclick="setFilter(this,'hoodies')">Hoodies</button>
+        <button class="filter-btn active" onclick="setFilter(this,'all')" data-en="All" data-de="Alle">All</button>
+        <button class="filter-btn" onclick="setFilter(this,'tshirts')" data-en="T-Shirts" data-de="T-Shirts">T-Shirts</button>
+        <button class="filter-btn" onclick="setFilter(this,'hoodies')" data-en="Hoodies" data-de="Hoodies">Hoodies</button>
         <button class="filter-btn" onclick="setFilter(this,'core')">Core Edition</button>
         <button class="filter-btn" onclick="setFilter(this,'drop')">Drop 002</button>
       </div>
@@ -894,18 +900,18 @@
     </div>
 
     <section class="email-section" style="background:var(--black)">
-      <div class="section-label reveal" style="color:var(--grey-600)">Never Miss a Drop</div>
-      <h2 class="section-title reveal delay-1" style="position:relative;z-index:2">Drop alerts.<br>Zero noise.</h2>
+      <div class="section-label reveal" style="color:var(--grey-600)" data-en="Never Miss a Drop" data-de="Keinen Drop verpassen">Never Miss a Drop</div>
+      <h2 class="section-title reveal delay-1" style="position:relative;z-index:2" data-en="Drop alerts.<br>Zero noise." data-de="Drop-Benachrichtigungen.<br>Kein Rauschen.">Drop alerts.<br>Zero noise.</h2>
       <form class="email-form reveal delay-2" onsubmit="handleEmailSubmit(event)">
-        <input class="email-input" type="email" placeholder="your@email.com" required />
-        <button type="submit" class="email-submit">Join</button>
+        <input class="email-input" type="email" placeholder="your@email.com" required data-en-placeholder="your@email.com" data-de-placeholder="deine@email.de" />
+        <button type="submit" class="email-submit" data-en="Join" data-de="Beitreten">Join</button>
       </form>
     </section>
 
     <footer>
       <div class="footer-bottom" style="padding-top:0;border-top:none">
         <span>© 2026 Driven Co.</span>
-        <button class="btn btn-ghost" data-link="home">← Back to Home</button>
+        <button class="btn btn-ghost" data-link="home" data-en="← Back to Home" data-de="← Zurück zur Startseite">← Back to Home</button>
       </div>
     </footer>
   </div><!-- /page-collection -->
@@ -931,31 +937,31 @@
         </div>
       </div>
       <div class="pdp-info">
-        <div class="pdp-tag">Drop 002 — Limited to 100 Units</div>
+        <div class="pdp-tag" data-en="Drop 002 — Limited to 100 Units" data-de="Drop 002 — Limitiert auf 100 Stück">Drop 002 — Limited to 100 Units</div>
         <h1 class="pdp-title">Stay On<br>Your Path<br>Tee</h1>
         <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:20px">CHF 37.–</div>
         <div class="pdp-attrs reveal delay-1">
           <div class="pdp-attr">
-            <div class="pdp-attr-label">Material</div>
-            <div class="pdp-attr-val">340gsm Cotton</div>
+            <div class="pdp-attr-label" data-en="Material" data-de="Material">Material</div>
+            <div class="pdp-attr-val" data-en="340gsm Cotton" data-de="340gsm Baumwolle">340gsm Cotton</div>
           </div>
           <div class="pdp-attr">
-            <div class="pdp-attr-label">Fit</div>
-            <div class="pdp-attr-val">Light Oversized Cropped</div>
+            <div class="pdp-attr-label" data-en="Fit" data-de="Schnitt">Fit</div>
+            <div class="pdp-attr-val" data-en="Light Oversized Cropped" data-de="Leicht Oversized, Cropped">Light Oversized Cropped</div>
           </div>
           <div class="pdp-attr">
-            <div class="pdp-attr-label">Created</div>
-            <div class="pdp-attr-val">in Switzerland</div>
+            <div class="pdp-attr-label" data-en="Created" data-de="Hergestellt">Created</div>
+            <div class="pdp-attr-val" data-en="in Switzerland" data-de="in der Schweiz">in Switzerland</div>
           </div>
           <div class="pdp-attr">
             <div class="pdp-attr-label">Drop</div>
-            <div class="pdp-attr-val">100 Units</div>
+            <div class="pdp-attr-val" data-en="100 Units" data-de="100 Stück">100 Units</div>
           </div>
         </div>
         <div class="size-configurator reveal delay-2">
           <div class="size-label">
-            <span>Select Size</span>
-            <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide()">Size Guide →</button>
+            <span data-en="Select Size" data-de="Größe wählen">Select Size</span>
+            <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide()" data-en="Size Guide →" data-de="Größentabelle →">Size Guide →</button>
           </div>
           <div class="size-grid">
             <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
@@ -967,24 +973,24 @@
           </div>
         </div>
         <div class="add-to-cart-section reveal delay-3">
-          <button class="btn-add-cart" onclick="addToCart()">Add to Cart — CHF 37.–</button>
+          <button class="btn-add-cart" onclick="addToCart()" data-en="Add to Cart — CHF 37.–" data-de="In den Warenkorb — CHF 37.–">Add to Cart — CHF 37.–</button>
         </div>
         <div class="drop-trust reveal delay-4">
-          <span>✓ Free shipping</span>
-          <span>✓ Ships in 3–5 days</span>
+          <span data-en="✓ Free shipping" data-de="✓ Kostenloser Versand">✓ Free shipping</span>
+          <span data-en="✓ Ships in 3–5 days" data-de="✓ Lieferung in 3–5 Tagen">✓ Ships in 3–5 days</span>
         </div>
         <div style="border-top:1px solid rgba(0,0,0,.07);margin-top:48px;padding-top:48px">
-          <div class="section-label" style="margin-bottom:16px">The Fabric</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
+          <div class="section-label" style="margin-bottom:16px" data-en="The Fabric" data-de="Das Material">The Fabric</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px" data-en="340gsm heavyweight cotton." data-de="340gsm schwere Baumwolle.">
             340gsm heavyweight cotton.
           </p>
-          <div class="section-label" style="margin-bottom:16px">The Fit</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
+          <div class="section-label" style="margin-bottom:16px" data-en="The Fit" data-de="Der Schnitt">The Fit</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px" data-en="Dropped shoulder, relaxed through the chest, slightly cropped at the hem. Easy to layer. Double-stitched cuffs and collar so it holds up long-term." data-de="Dropped Shoulder, entspannt durch die Brust, am Saum leicht gecroppt. Einfach zu layern. Doppelt genähte Bündchen und Kragen für langfristige Haltbarkeit.">
             Dropped shoulder, relaxed through the chest, slightly cropped at the hem.
             Easy to layer. Double-stitched cuffs and collar so it holds up long-term.
           </p>
-          <div class="section-label" style="margin-bottom:16px">Care</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
+          <div class="section-label" style="margin-bottom:16px" data-en="Care" data-de="Pflege">Care</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)" data-en="Machine wash 30°C gentle cycle. Turn inside out before washing and ironing. Do not tumble dry. Wash with similar colours." data-de="Maschinenwäsche 30°C Schongang. Vor dem Waschen und Bügeln auf links drehen. Nicht im Trockner trocknen. Mit ähnlichen Farben waschen.">
             Machine wash 30°C gentle cycle. Turn inside out before washing and ironing.
             Do not tumble dry. Wash with similar colours.
           </p>
@@ -995,20 +1001,20 @@
     <!-- Drop countdown -->
     <div style="background:var(--grey-800);padding:clamp(32px,4vw,52px) var(--gutter);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;border-bottom:1px solid rgba(0,0,0,.07)">
       <div>
-        <div class="section-label" style="margin-bottom:8px">Drops in</div>
+        <div class="section-label" style="margin-bottom:8px" data-en="Drops in" data-de="Erscheint in">Drops in</div>
         <div class="countdown-wrap" style="margin:0">
-          <div class="countdown-unit"><span class="countdown-num" id="pdp-d">00</span><div class="countdown-label">Days</div></div>
+          <div class="countdown-unit"><span class="countdown-num" id="pdp-d">00</span><div class="countdown-label" data-en="Days" data-de="Tage">Days</div></div>
           <div class="countdown-sep">:</div>
-          <div class="countdown-unit"><span class="countdown-num" id="pdp-h">00</span><div class="countdown-label">Hours</div></div>
+          <div class="countdown-unit"><span class="countdown-num" id="pdp-h">00</span><div class="countdown-label" data-en="Hours" data-de="Stunden">Hours</div></div>
           <div class="countdown-sep">:</div>
-          <div class="countdown-unit"><span class="countdown-num" id="pdp-m">00</span><div class="countdown-label">Mins</div></div>
+          <div class="countdown-unit"><span class="countdown-num" id="pdp-m">00</span><div class="countdown-label" data-en="Mins" data-de="Min.">Mins</div></div>
           <div class="countdown-sep">:</div>
-          <div class="countdown-unit"><span class="countdown-num" id="pdp-s">00</span><div class="countdown-label">Secs</div></div>
+          <div class="countdown-unit"><span class="countdown-num" id="pdp-s">00</span><div class="countdown-label" data-en="Secs" data-de="Sek.">Secs</div></div>
         </div>
       </div>
       <div style="text-align:right">
         <div class="stock-label" style="justify-content:flex-end;margin-bottom:10px">
-          <span style="color:var(--accent);font-size:13px;font-weight:700">100 units left</span>
+          <span style="color:var(--accent);font-size:13px;font-weight:700" data-en="100 units left" data-de="100 Stück verbleibend">100 units left</span>
         </div>
         <div class="stock-bar" style="width:200px">
           <div class="stock-fill"></div>
@@ -1069,7 +1075,7 @@
     <footer>
       <div class="footer-bottom" style="padding-top:0;border-top:none">
         <span>© 2026 Driven Co.</span>
-        <button class="btn btn-ghost" data-link="collection">← Back to Collection</button>
+        <button class="btn btn-ghost" data-link="collection" data-en="← Back to Collection" data-de="← Zurück zur Kollektion">← Back to Collection</button>
       </div>
     </footer>
   </div><!-- /page-pdp -->
@@ -1095,21 +1101,21 @@
       </div>
       <!-- Info -->
       <div class="pdp-info">
-        <div class="pdp-tag">Core Edition — Limited Drop</div>
+        <div class="pdp-tag" data-en="Core Edition — Limited Drop" data-de="Core Edition — Limitierter Drop">Core Edition — Limited Drop</div>
         <h1 class="pdp-title">What If<br>Hoodie<br>Midnight Black</h1>
         <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:20px">CHF 74.–</div>
         <div class="pdp-attrs reveal delay-1">
           <div class="pdp-attr">
-            <div class="pdp-attr-label">Material</div>
-            <div class="pdp-attr-val">330gsm Cotton / Poly</div>
+            <div class="pdp-attr-label" data-en="Material" data-de="Material">Material</div>
+            <div class="pdp-attr-val" data-en="330gsm Cotton / Poly" data-de="330gsm Baumwolle / Poly">330gsm Cotton / Poly</div>
           </div>
           <div class="pdp-attr">
-            <div class="pdp-attr-label">Fit</div>
-            <div class="pdp-attr-val">Light Oversized Cropped</div>
+            <div class="pdp-attr-label" data-en="Fit" data-de="Schnitt">Fit</div>
+            <div class="pdp-attr-val" data-en="Light Oversized Cropped" data-de="Leicht Oversized, Cropped">Light Oversized Cropped</div>
           </div>
           <div class="pdp-attr">
-            <div class="pdp-attr-label">Created</div>
-            <div class="pdp-attr-val">in Switzerland</div>
+            <div class="pdp-attr-label" data-en="Created" data-de="Hergestellt">Created</div>
+            <div class="pdp-attr-val" data-en="in Switzerland" data-de="in der Schweiz">in Switzerland</div>
           </div>
           <div class="pdp-attr">
             <div class="pdp-attr-label">Drop</div>
@@ -1118,8 +1124,8 @@
         </div>
         <div class="size-configurator reveal delay-2">
           <div class="size-label">
-            <span>Select Size</span>
-            <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide()">Size Guide →</button>
+            <span data-en="Select Size" data-de="Größe wählen">Select Size</span>
+            <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide()" data-en="Size Guide →" data-de="Größentabelle →">Size Guide →</button>
           </div>
           <div class="size-grid">
             <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
@@ -1131,24 +1137,24 @@
           </div>
         </div>
         <div class="add-to-cart-section reveal delay-3">
-          <button class="btn-add-cart" onclick="addToCart()">Add to Cart — CHF 74.–</button>
+          <button class="btn-add-cart" onclick="addToCart()" data-en="Add to Cart — CHF 74.–" data-de="In den Warenkorb — CHF 74.–">Add to Cart — CHF 74.–</button>
         </div>
         <div class="drop-trust reveal delay-4">
-          <span>✓ Free shipping</span>
-          <span>✓ Ships in 3–5 days</span>
+          <span data-en="✓ Free shipping" data-de="✓ Kostenloser Versand">✓ Free shipping</span>
+          <span data-en="✓ Ships in 3–5 days" data-de="✓ Lieferung in 3–5 Tagen">✓ Ships in 3–5 days</span>
         </div>
         <div style="border-top:1px solid rgba(0,0,0,.07);margin-top:48px;padding-top:48px">
-          <div class="section-label" style="margin-bottom:16px">The Fabric</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
+          <div class="section-label" style="margin-bottom:16px" data-en="The Fabric" data-de="Das Material">The Fabric</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px" data-en="330gsm, 70% cotton / 30% polyester." data-de="330gsm, 70% Baumwolle / 30% Polyester.">
             330gsm, 70% cotton / 30% polyester.
           </p>
-          <div class="section-label" style="margin-bottom:16px">The Fit</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
+          <div class="section-label" style="margin-bottom:16px" data-en="The Fit" data-de="Der Schnitt">The Fit</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px" data-en="Light oversized cropped silhouette. Relaxed through the chest, slightly cropped at the hem. Designed to layer. Double-stitched cuffs and collar for longevity." data-de="Leicht oversized-gecropte Silhouette. Entspannt durch die Brust, am Saum leicht gecroppt. Zum Layern konzipiert. Doppelt genähte Bündchen und Kragen für Langlebigkeit.">
             Light oversized cropped silhouette. Relaxed through the chest, slightly cropped at the hem.
             Designed to layer. Double-stitched cuffs and collar for longevity.
           </p>
-          <div class="section-label" style="margin-bottom:16px">Care</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
+          <div class="section-label" style="margin-bottom:16px" data-en="Care" data-de="Pflege">Care</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)" data-en="Machine wash 30°C gentle cycle. Turn inside out before washing and ironing. Do not tumble dry. Wash with similar colours." data-de="Maschinenwäsche 30°C Schongang. Vor dem Waschen und Bügeln auf links drehen. Nicht im Trockner trocknen. Mit ähnlichen Farben waschen.">
             Machine wash 30°C gentle cycle. Turn inside out before washing and ironing.
             Do not tumble dry. Wash with similar colours.
           </p>
@@ -1158,7 +1164,7 @@
     <footer>
       <div class="footer-bottom" style="padding-top:0;border-top:none">
         <span>© 2026 Driven Co.</span>
-        <button class="btn btn-ghost" data-link="collection">← Back to Collection</button>
+        <button class="btn btn-ghost" data-link="collection" data-en="← Back to Collection" data-de="← Zurück zur Kollektion">← Back to Collection</button>
       </div>
     </footer>
   </div><!-- /page-hoodie-black -->
@@ -1184,21 +1190,21 @@
       </div>
       <!-- Info -->
       <div class="pdp-info">
-        <div class="pdp-tag">Core Edition — Limited Drop</div>
+        <div class="pdp-tag" data-en="Core Edition — Limited Drop" data-de="Core Edition — Limitierter Drop">Core Edition — Limited Drop</div>
         <h1 class="pdp-title">What If<br>Hoodie<br>Ocean Blue</h1>
         <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:20px">CHF 74.–</div>
         <div class="pdp-attrs reveal delay-1">
           <div class="pdp-attr">
-            <div class="pdp-attr-label">Material</div>
-            <div class="pdp-attr-val">330gsm Cotton / Poly</div>
+            <div class="pdp-attr-label" data-en="Material" data-de="Material">Material</div>
+            <div class="pdp-attr-val" data-en="330gsm Cotton / Poly" data-de="330gsm Baumwolle / Poly">330gsm Cotton / Poly</div>
           </div>
           <div class="pdp-attr">
-            <div class="pdp-attr-label">Fit</div>
-            <div class="pdp-attr-val">Light Oversized Cropped</div>
+            <div class="pdp-attr-label" data-en="Fit" data-de="Schnitt">Fit</div>
+            <div class="pdp-attr-val" data-en="Light Oversized Cropped" data-de="Leicht Oversized, Cropped">Light Oversized Cropped</div>
           </div>
           <div class="pdp-attr">
-            <div class="pdp-attr-label">Created</div>
-            <div class="pdp-attr-val">in Switzerland</div>
+            <div class="pdp-attr-label" data-en="Created" data-de="Hergestellt">Created</div>
+            <div class="pdp-attr-val" data-en="in Switzerland" data-de="in der Schweiz">in Switzerland</div>
           </div>
           <div class="pdp-attr">
             <div class="pdp-attr-label">Drop</div>
@@ -1207,8 +1213,8 @@
         </div>
         <div class="size-configurator reveal delay-2">
           <div class="size-label">
-            <span>Select Size</span>
-            <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide()">Size Guide →</button>
+            <span data-en="Select Size" data-de="Größe wählen">Select Size</span>
+            <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide()" data-en="Size Guide →" data-de="Größentabelle →">Size Guide →</button>
           </div>
           <div class="size-grid">
             <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
@@ -1220,24 +1226,24 @@
           </div>
         </div>
         <div class="add-to-cart-section reveal delay-3">
-          <button class="btn-add-cart" onclick="addToCart()">Add to Cart — CHF 74.–</button>
+          <button class="btn-add-cart" onclick="addToCart()" data-en="Add to Cart — CHF 74.–" data-de="In den Warenkorb — CHF 74.–">Add to Cart — CHF 74.–</button>
         </div>
         <div class="drop-trust reveal delay-4">
-          <span>✓ Free shipping</span>
-          <span>✓ Ships in 3–5 days</span>
+          <span data-en="✓ Free shipping" data-de="✓ Kostenloser Versand">✓ Free shipping</span>
+          <span data-en="✓ Ships in 3–5 days" data-de="✓ Lieferung in 3–5 Tagen">✓ Ships in 3–5 days</span>
         </div>
         <div style="border-top:1px solid rgba(0,0,0,.07);margin-top:48px;padding-top:48px">
-          <div class="section-label" style="margin-bottom:16px">The Fabric</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
+          <div class="section-label" style="margin-bottom:16px" data-en="The Fabric" data-de="Das Material">The Fabric</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px" data-en="330gsm, 70% cotton / 30% polyester." data-de="330gsm, 70% Baumwolle / 30% Polyester.">
             330gsm, 70% cotton / 30% polyester.
           </p>
-          <div class="section-label" style="margin-bottom:16px">The Fit</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px">
+          <div class="section-label" style="margin-bottom:16px" data-en="The Fit" data-de="Der Schnitt">The Fit</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px" data-en="Light oversized cropped silhouette. Relaxed through the chest, slightly cropped at the hem. Designed to layer. Double-stitched cuffs and collar for longevity." data-de="Leicht oversized-gecropte Silhouette. Entspannt durch die Brust, am Saum leicht gecroppt. Zum Layern konzipiert. Doppelt genähte Bündchen und Kragen für Langlebigkeit.">
             Light oversized cropped silhouette. Relaxed through the chest, slightly cropped at the hem.
             Designed to layer. Double-stitched cuffs and collar for longevity.
           </p>
-          <div class="section-label" style="margin-bottom:16px">Care</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
+          <div class="section-label" style="margin-bottom:16px" data-en="Care" data-de="Pflege">Care</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)" data-en="Machine wash 30°C gentle cycle. Turn inside out before washing and ironing. Do not tumble dry. Wash with similar colours." data-de="Maschinenwäsche 30°C Schongang. Vor dem Waschen und Bügeln auf links drehen. Nicht im Trockner trocknen. Mit ähnlichen Farben waschen.">
             Machine wash 30°C gentle cycle. Turn inside out before washing and ironing.
             Do not tumble dry. Wash with similar colours.
           </p>
@@ -1247,7 +1253,7 @@
     <footer>
       <div class="footer-bottom" style="padding-top:0;border-top:none">
         <span>© 2026 Driven Co.</span>
-        <button class="btn btn-ghost" data-link="collection">← Back to Collection</button>
+        <button class="btn btn-ghost" data-link="collection" data-en="← Back to Collection" data-de="← Zurück zur Kollektion">← Back to Collection</button>
       </div>
     </footer>
   </div><!-- /page-hoodie-blue -->
@@ -1261,7 +1267,7 @@
       <div class="brand-hero-content">
         <span class="brand-hero-word reveal">Driven</span>
         <span class="brand-hero-word reveal delay-1">Co.</span>
-        <p class="reveal delay-3" style="font-size:clamp(14px,1.8vw,18px);font-weight:300;color:var(--grey-400);line-height:1.8;max-width:480px;margin:36px auto 0">
+        <p class="reveal delay-3" style="font-size:clamp(14px,1.8vw,18px);font-weight:300;color:var(--grey-400);line-height:1.8;max-width:480px;margin:36px auto 0" data-en="We didn't start a clothing brand. We answered a feeling." data-de="Wir haben keine Modemarke gegründet. Wir haben ein Gefühl beantwortet.">
           We didn't start a clothing brand. We answered a feeling.
         </p>
       </div>
@@ -1269,27 +1275,27 @@
 
     <!-- Manifesto -->
     <div class="manifesto">
-      <div class="manifesto-line reveal">Some move with purpose.</div>
-      <div class="manifesto-line grey reveal">Some just move.</div>
-      <div class="manifesto-line reveal">We make clothes for <em>the former</em>.</div>
-      <div class="manifesto-line grey reveal">Not the noise.</div>
-      <div class="manifesto-line reveal">The drive.</div>
+      <div class="manifesto-line reveal" data-en="Some move with purpose." data-de="Manche bewegen sich mit Absicht.">Some move with purpose.</div>
+      <div class="manifesto-line grey reveal" data-en="Some just move." data-de="Manche bewegen sich einfach nur.">Some just move.</div>
+      <div class="manifesto-line reveal" data-en="We make clothes for <em>the former</em>." data-de="Wir machen Kleidung für <em>Erstere</em>.">We make clothes for <em>the former</em>.</div>
+      <div class="manifesto-line grey reveal" data-en="Not the noise." data-de="Nicht den Lärm.">Not the noise.</div>
+      <div class="manifesto-line reveal" data-en="The drive." data-de="Den Antrieb.">The drive.</div>
     </div>
 
     <!-- Story body -->
     <section class="section" style="max-width:760px;margin:0 auto">
-      <div class="section-label reveal">The Beginning</div>
-      <h2 class="reveal delay-1" style="font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.1;margin-bottom:28px">
+      <div class="section-label reveal" data-en="The Beginning" data-de="Der Anfang">The Beginning</div>
+      <h2 class="reveal delay-1" style="font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.1;margin-bottom:28px" data-en="Built at 5am,<br>when no one was watching." data-de="Gebaut um 5 Uhr morgens,<br>als niemand zugeschaut hat.">
         Built at 5am,<br>when no one was watching.
       </h2>
-      <p class="reveal delay-2" style="font-size:16px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:28px">
+      <p class="reveal delay-2" style="font-size:16px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:28px" data-en="Driven started in a small office. No team, no budget, just a clear idea of what we wanted and what was missing." data-de="Driven begann in einem kleinen Büro. Kein Team, kein Budget, nur eine klare Vorstellung davon, was wir wollten und was fehlte.">
         Driven started in a small office. No team, no budget, just a clear idea of what we wanted and what was missing.
       </p>
-      <p class="reveal delay-3" style="font-size:16px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:28px">
+      <p class="reveal delay-3" style="font-size:16px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:28px" data-en="We were tired of clothing that looked the part but meant nothing. So we decided to make things differently. Every piece would start with a purpose. Every detail would earn its place.<br>That hasn't changed." data-de="Wir hatten genug von Kleidung, die gut aussah, aber nichts bedeutete. Also entschieden wir uns, Dinge anders zu machen. Jedes Stück würde mit einem Zweck beginnen. Jedes Detail würde seinen Platz verdienen.<br>Das hat sich nicht geändert.">
         We were tired of clothing that looked the part but meant nothing. So we decided to make things differently. Every piece would start with a purpose. Every detail would earn its place.<br>
         That hasn't changed.
       </p>
-      <p class="reveal delay-3" style="font-size:16px;font-weight:300;line-height:1.9;color:var(--grey-400)">
+      <p class="reveal delay-3" style="font-size:16px;font-weight:300;line-height:1.9;color:var(--grey-400)" data-en="Driven is for people who move with intention. Who want their wardrobe to reflect how they think — not just how they look.<br>No noise. No filler. Just the right pieces, made properly." data-de="Driven ist für Menschen, die mit Absicht handeln. Die wollen, dass ihre Garderobe widerspiegelt, wie sie denken – nicht nur, wie sie aussehen.<br>Kein Lärm. Kein Füllstoff. Nur die richtigen Stücke, richtig gemacht.">
         Driven is for people who move with intention. Who want their wardrobe to reflect how they think — not just how they look.<br>
         No noise. No filler. Just the right pieces, made properly.
       </p>
@@ -1299,18 +1305,18 @@
     <div class="values-grid">
       <div class="value-card reveal">
         <div class="value-num">01</div>
-        <div class="value-title">Start With Purpose</div>
-        <div class="value-body">Every piece earns its place. We don't make things to fill a range. We make things because they need to exist — and not before.</div>
+        <div class="value-title" data-en="Start With Purpose" data-de="Mit Ziel beginnen">Start With Purpose</div>
+        <div class="value-body" data-en="Every piece earns its place. We don't make things to fill a range. We make things because they need to exist — and not before." data-de="Jedes Stück verdient seinen Platz. Wir machen keine Dinge, um eine Kollektion zu füllen. Wir machen Dinge, weil sie existieren müssen – und nicht früher.">Every piece earns its place. We don't make things to fill a range. We make things because they need to exist — and not before.</div>
       </div>
       <div class="value-card reveal delay-1">
         <div class="value-num">02</div>
-        <div class="value-title">Reflect How You Think</div>
-        <div class="value-body">Driven isn't about how you look. It's about what you stand for. The people who wear it move with intention — and their wardrobe should too.</div>
+        <div class="value-title" data-en="Reflect How You Think" data-de="Reflektiere dein Denken">Reflect How You Think</div>
+        <div class="value-body" data-en="Driven isn't about how you look. It's about what you stand for. The people who wear it move with intention — and their wardrobe should too." data-de="Driven geht nicht darum, wie du aussiehst. Es geht darum, wofür du stehst. Die Menschen, die es tragen, handeln mit Absicht – und ihre Garderobe sollte das auch.">Driven isn't about how you look. It's about what you stand for. The people who wear it move with intention — and their wardrobe should too.</div>
       </div>
       <div class="value-card reveal delay-2">
         <div class="value-num">03</div>
-        <div class="value-title">Nothing Extra</div>
-        <div class="value-body">No noise, no filler, no trend-chasing. We make the right pieces, made properly. If it doesn't add something real, it doesn't go in.</div>
+        <div class="value-title" data-en="Nothing Extra" data-de="Nichts Überflüssiges">Nothing Extra</div>
+        <div class="value-body" data-en="No noise, no filler, no trend-chasing. We make the right pieces, made properly. If it doesn't add something real, it doesn't go in." data-de="Kein Lärm, kein Füllstoff, kein Trendjagen. Wir machen die richtigen Stücke, richtig gemacht. Wenn es nichts Echtes hinzufügt, kommt es nicht rein.">No noise, no filler, no trend-chasing. We make the right pieces, made properly. If it doesn't add something real, it doesn't go in.</div>
       </div>
     </div>
 
@@ -1352,11 +1358,11 @@
 
     <!-- CTA strip -->
     <section class="section" style="text-align:center">
-      <div class="section-label reveal">Ready to Move?</div>
-      <h2 class="section-title reveal delay-1" style="margin-bottom:36px">Shop Drop 002.</h2>
+      <div class="section-label reveal" data-en="Ready to Move?" data-de="Bereit loszulegen?">Ready to Move?</div>
+      <h2 class="section-title reveal delay-1" style="margin-bottom:36px" data-en="Shop Drop 002." data-de="Shop Drop 002.">Shop Drop 002.</h2>
       <div class="reveal delay-2" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-        <button class="btn btn-primary" data-link="drop">Enter Drop 002 →</button>
-        <button class="btn btn-outline" data-link="collection">View Collection</button>
+        <button class="btn btn-primary" data-link="drop" data-en="Enter Drop 002 →" data-de="Zu Drop 002 →">Enter Drop 002 →</button>
+        <button class="btn btn-outline" data-link="collection" data-en="View Collection" data-de="Kollektion ansehen">View Collection</button>
       </div>
     </section>
 
@@ -1364,35 +1370,35 @@
       <div class="footer-top">
         <div>
           <img src="assets/images/logo.png" alt="Driven Co." style="height:40px;width:auto;margin-bottom:14px;display:block" />
-          <div class="footer-brand-tagline">Premium streetwear for those who move differently. No noise. Just drive.</div>
+          <div class="footer-brand-tagline" data-en="Premium streetwear for those who move differently. No noise. Just drive." data-de="Premium Streetwear für alle, die sich anders bewegen. Kein Lärm. Nur Antrieb.">Premium streetwear for those who move differently. No noise. Just drive.</div>
           <div class="footer-socials">
             <a class="footer-social-link" href="https://www.instagram.com/drivenco_" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
           </div>
         </div>
         <div>
-          <div class="footer-col-title">Shop</div>
+          <div class="footer-col-title" data-en="Shop" data-de="Shop">Shop</div>
           <div class="footer-links">
             <a class="footer-link" href="#" data-link="drop">Drop 002</a>
-            <a class="footer-link" href="#" data-link="collection">Collection</a>
+            <a class="footer-link" href="#" data-link="collection" data-en="Collection" data-de="Kollektion">Collection</a>
           </div>
         </div>
         <div>
-          <div class="footer-col-title">Info</div>
+          <div class="footer-col-title" data-en="Info" data-de="Info">Info</div>
           <div class="footer-links">
-            <a class="footer-link" href="#" data-link="story">Our Story</a>
+            <a class="footer-link" href="#" data-link="story" data-en="Our Story" data-de="Unsere Geschichte">Our Story</a>
           </div>
         </div>
         <div>
-          <div class="footer-col-title">Support</div>
+          <div class="footer-col-title" data-en="Support" data-de="Support">Support</div>
           <div class="footer-links">
-            <a class="footer-link" href="#" data-link="shipping">Shipping &amp; Returns</a>
-            <a class="footer-link" href="#" data-link="contact">Contact</a>
+            <a class="footer-link" href="#" data-link="shipping" data-en="Shipping &amp; Returns" data-de="Versand &amp; Rückgabe">Shipping &amp; Returns</a>
+            <a class="footer-link" href="#" data-link="contact" data-en="Contact" data-de="Kontakt">Contact</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Driven Co. All rights reserved.</span>
-        <span>Privacy · Terms</span>
+        <span data-en="© 2026 Driven Co. All rights reserved." data-de="© 2026 Driven Co. Alle Rechte vorbehalten.">© 2026 Driven Co. All rights reserved.</span>
+        <span data-en="Privacy · Terms" data-de="Datenschutz · AGB">Privacy · Terms</span>
       </div>
     </footer>
   </div><!-- /page-story -->
@@ -1402,40 +1408,40 @@
        ================================================================ -->
   <div class="page" id="page-contact">
     <div style="padding:calc(var(--nav-h) + clamp(60px,8vw,100px)) var(--gutter) clamp(60px,8vw,100px); max-width:720px; margin:0 auto">
-      <div class="section-label reveal">Get in touch</div>
-      <h1 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:24px" class="reveal delay-1">Contact</h1>
-      <p style="font-size:16px;font-weight:300;line-height:1.8;color:var(--grey-400);margin-bottom:48px;max-width:480px" class="reveal delay-2">
+      <div class="section-label reveal" data-en="Get in touch" data-de="Kontakt aufnehmen">Get in touch</div>
+      <h1 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:24px" class="reveal delay-1" data-en="Contact" data-de="Kontakt">Contact</h1>
+      <p style="font-size:16px;font-weight:300;line-height:1.8;color:var(--grey-400);margin-bottom:48px;max-width:480px" class="reveal delay-2" data-en="Questions about your order, sizing, or anything else — we're here." data-de="Fragen zu deiner Bestellung, Größen oder sonst etwas – wir sind hier.">
         Questions about your order, sizing, or anything else — we're here.
       </p>
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:56px" class="reveal delay-2">
         <div style="background:var(--grey-800);padding:32px 28px">
-          <div class="section-label" style="margin-bottom:10px">Email</div>
+          <div class="section-label" style="margin-bottom:10px" data-en="Email" data-de="E-Mail">Email</div>
           <a href="mailto:hello@driven-co.ch" style="font-size:16px;font-weight:500;color:var(--white);transition:color .2s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--white)'">hello@driven-co.ch</a>
         </div>
         <div style="background:var(--grey-800);padding:32px 28px">
-          <div class="section-label" style="margin-bottom:10px">Address</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.7;color:var(--grey-400)">Ribetschi 2<br>6405 Immensee<br>Switzerland</p>
+          <div class="section-label" style="margin-bottom:10px" data-en="Address" data-de="Adresse">Address</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.7;color:var(--grey-400)">Ribetschi 2<br>6405 Immensee<br><span data-en="Switzerland" data-de="Schweiz">Switzerland</span></p>
         </div>
       </div>
 
       <div class="reveal delay-3">
-        <div class="section-label" style="margin-bottom:24px">Send a message</div>
+        <div class="section-label" style="margin-bottom:24px" data-en="Send a message" data-de="Nachricht senden">Send a message</div>
         <form id="contactForm" onsubmit="handleContactSubmit(event)" style="display:flex;flex-direction:column;gap:14px">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-            <input type="text" name="name" placeholder="Name" required style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;width:100%" />
-            <input type="email" name="email" placeholder="Email" required style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;width:100%" />
+            <input type="text" name="name" placeholder="Name" required style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;width:100%" data-en-placeholder="Name" data-de-placeholder="Name" />
+            <input type="email" name="email" placeholder="Email" required style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;width:100%" data-en-placeholder="Email" data-de-placeholder="E-Mail" />
           </div>
-          <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;width:100%" />
-          <textarea name="message" placeholder="Your message" rows="5" required style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;resize:vertical;width:100%"></textarea>
-          <button type="submit" class="btn btn-primary" style="align-self:flex-start">Send Message</button>
+          <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;width:100%" data-en-placeholder="Phone (optional)" data-de-placeholder="Telefon (optional)" />
+          <textarea name="message" placeholder="Your message" rows="5" required style="padding:14px 16px;background:var(--grey-800);border:1px solid rgba(0,0,0,.1);color:var(--white);font-size:14px;font-family:var(--font);outline:none;resize:vertical;width:100%" data-en-placeholder="Your message" data-de-placeholder="Deine Nachricht"></textarea>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start" data-en="Send Message" data-de="Nachricht absenden">Send Message</button>
         </form>
       </div>
     </div>
     <footer>
       <div class="footer-bottom" style="padding-top:0;border-top:none">
         <span>© 2026 Driven Co.</span>
-        <button class="btn btn-ghost" data-link="home">← Back to Home</button>
+        <button class="btn btn-ghost" data-link="home" data-en="← Back to Home" data-de="← Zurück zur Startseite">← Back to Home</button>
       </div>
     </footer>
   </div><!-- /page-contact -->
@@ -1445,43 +1451,43 @@
        ================================================================ -->
   <div class="page" id="page-shipping">
     <div style="padding:calc(var(--nav-h) + clamp(60px,8vw,100px)) var(--gutter) clamp(60px,8vw,100px); max-width:800px; margin:0 auto">
-      <div class="section-label reveal">Legal</div>
-      <h1 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:56px" class="reveal delay-1">Shipping &amp; Returns</h1>
+      <div class="section-label reveal" data-en="Legal" data-de="Rechtliches">Legal</div>
+      <h1 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:56px" class="reveal delay-1" data-en="Shipping &amp; Returns" data-de="Versand &amp; Rückgabe">Shipping &amp; Returns</h1>
 
       <div style="display:flex;flex-direction:column;gap:48px">
 
         <div class="reveal">
-          <div class="section-label" style="margin-bottom:16px;color:var(--accent)">Shipping</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:20px">Orders are generally processed within <strong style="color:var(--white)">2–4 business days</strong> after receipt of payment. Delays may occur during peak periods.</p>
+          <div class="section-label" style="margin-bottom:16px;color:var(--accent)" data-en="Shipping" data-de="Versand">Shipping</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:20px" data-en="Orders are generally processed within <strong style='color:var(--white)'>2–4 business days</strong> after receipt of payment. Delays may occur during peak periods." data-de="Bestellungen werden im Allgemeinen innerhalb von <strong style='color:var(--white)'>2–4 Werktagen</strong> nach Zahlungseingang bearbeitet. Verzögerungen können in Stoßzeiten auftreten.">Orders are generally processed within <strong style="color:var(--white)">2–4 business days</strong> after receipt of payment. Delays may occur during peak periods.</p>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:24px">
             <div style="background:var(--grey-800);padding:24px">
-              <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-400);margin-bottom:8px">Switzerland &amp; Liechtenstein</div>
-              <div style="font-size:15px;font-weight:500">2–4 business days</div>
+              <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-400);margin-bottom:8px" data-en="Switzerland &amp; Liechtenstein" data-de="Schweiz &amp; Liechtenstein">Switzerland &amp; Liechtenstein</div>
+              <div style="font-size:15px;font-weight:500" data-en="2–4 business days" data-de="2–4 Werktage">2–4 business days</div>
             </div>
             <div style="background:var(--grey-800);padding:24px">
-              <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-400);margin-bottom:8px">Germany &amp; Austria</div>
-              <div style="font-size:15px;font-weight:500">4–7 business days</div>
+              <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-400);margin-bottom:8px" data-en="Germany &amp; Austria" data-de="Deutschland &amp; Österreich">Germany &amp; Austria</div>
+              <div style="font-size:15px;font-weight:500" data-en="4–7 business days" data-de="4–7 Werktage">4–7 business days</div>
             </div>
           </div>
-          <p style="font-size:13px;font-weight:300;line-height:1.8;color:var(--grey-400);margin-top:20px">Shipping costs are displayed at checkout. Free shipping within Switzerland for orders over CHF 100. International customers are responsible for any customs duties or import fees. Once handed to the carrier, responsibility passes to the customer. Tracking information is sent by email after dispatch.</p>
+          <p style="font-size:13px;font-weight:300;line-height:1.8;color:var(--grey-400);margin-top:20px" data-en="Shipping costs are displayed at checkout. Free shipping within Switzerland for orders over CHF 100. International customers are responsible for any customs duties or import fees. Once handed to the carrier, responsibility passes to the customer. Tracking information is sent by email after dispatch." data-de="Versandkosten werden beim Checkout angezeigt. Kostenloser Versand innerhalb der Schweiz für Bestellungen über CHF 100. Internationale Kunden sind für Zollgebühren oder Einfuhrabgaben verantwortlich. Nach Übergabe an den Spediteur geht die Verantwortung an den Kunden über. Tracking-Informationen werden nach dem Versand per E-Mail gesendet.">Shipping costs are displayed at checkout. Free shipping within Switzerland for orders over CHF 100. International customers are responsible for any customs duties or import fees. Once handed to the carrier, responsibility passes to the customer. Tracking information is sent by email after dispatch.</p>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:48px" class="reveal">
-          <div class="section-label" style="margin-bottom:16px;color:var(--accent)">Returns</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:20px">We accept returns within <strong style="color:var(--white)">30 days</strong> of receipt. Items must be unworn, unused, with tags intact, in original packaging, and accompanied by proof of purchase.</p>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:20px">To initiate a return, contact us at <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a> before sending anything back — unsolicited returns will not be accepted.</p>
-          <p style="font-size:13px;font-weight:300;line-height:1.8;color:var(--grey-400)"><strong style="color:var(--white)">Return address:</strong> Ribetschi 2, 6405 Immensee, Switzerland</p>
+          <div class="section-label" style="margin-bottom:16px;color:var(--accent)" data-en="Returns" data-de="Rückgaben">Returns</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:20px" data-en="We accept returns within <strong style='color:var(--white)'>30 days</strong> of receipt. Items must be unworn, unused, with tags intact, in original packaging, and accompanied by proof of purchase." data-de="Wir akzeptieren Rücksendungen innerhalb von <strong style='color:var(--white)'>30 Tagen</strong> nach Erhalt. Artikel müssen ungetragen, unbenutzt, mit intakten Etiketten, in Originalverpackung und mit Kaufnachweis zurückgesendet werden.">We accept returns within <strong style="color:var(--white)">30 days</strong> of receipt. Items must be unworn, unused, with tags intact, in original packaging, and accompanied by proof of purchase.</p>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:20px" data-en="To initiate a return, contact us at <a href='mailto:hello@driven-co.ch' style='color:var(--accent)'>hello@driven-co.ch</a> before sending anything back — unsolicited returns will not be accepted." data-de="Um eine Rückgabe einzuleiten, kontaktiere uns unter <a href='mailto:hello@driven-co.ch' style='color:var(--accent)'>hello@driven-co.ch</a>, bevor du etwas zurückschickst – unaufgeforderte Rücksendungen werden nicht akzeptiert.">To initiate a return, contact us at <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a> before sending anything back — unsolicited returns will not be accepted.</p>
+          <p style="font-size:13px;font-weight:300;line-height:1.8;color:var(--grey-400)" data-en="<strong style='color:var(--white)'>Return address:</strong> Ribetschi 2, 6405 Immensee, Switzerland" data-de="<strong style='color:var(--white)'>Rücksendeadresse:</strong> Ribetschi 2, 6405 Immensee, Schweiz"><strong style="color:var(--white)">Return address:</strong> Ribetschi 2, 6405 Immensee, Switzerland</p>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:48px" class="reveal">
-          <div class="section-label" style="margin-bottom:16px;color:var(--accent)">Refunds</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">Once your return is approved, refunds are processed within <strong style="color:var(--white)">10 business days</strong> to your original payment method. If you haven't received your refund after 15 business days, contact us at <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a>.</p>
+          <div class="section-label" style="margin-bottom:16px;color:var(--accent)" data-en="Refunds" data-de="Erstattungen">Refunds</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)" data-en="Once your return is approved, refunds are processed within <strong style='color:var(--white)'>10 business days</strong> to your original payment method. If you haven't received your refund after 15 business days, contact us at <a href='mailto:hello@driven-co.ch' style='color:var(--accent)'>hello@driven-co.ch</a>." data-de="Sobald deine Rückgabe genehmigt wurde, werden Erstattungen innerhalb von <strong style='color:var(--white)'>10 Werktagen</strong> auf deine ursprüngliche Zahlungsart verarbeitet. Wenn du deine Erstattung nach 15 Werktagen noch nicht erhalten hast, kontaktiere uns unter <a href='mailto:hello@driven-co.ch' style='color:var(--accent)'>hello@driven-co.ch</a>.">Once your return is approved, refunds are processed within <strong style="color:var(--white)">10 business days</strong> to your original payment method. If you haven't received your refund after 15 business days, contact us at <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a>.</p>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:48px" class="reveal">
-          <div class="section-label" style="margin-bottom:16px;color:var(--accent)">Non-returnable items</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">Sale items, gift cards, and custom/personalised products cannot be returned.</p>
-          <p style="font-size:13px;font-weight:300;line-height:1.8;color:var(--grey-400);margin-top:12px">EU customers have the right to cancel or return within 14 days under the EU Cooling-Off Period, for any reason.</p>
+          <div class="section-label" style="margin-bottom:16px;color:var(--accent)" data-en="Non-returnable items" data-de="Nicht rückgabefähige Artikel">Non-returnable items</div>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)" data-en="Sale items, gift cards, and custom/personalised products cannot be returned." data-de="Salartikel, Geschenkkarten und individuelle/personalisierte Produkte können nicht zurückgegeben werden.">Sale items, gift cards, and custom/personalised products cannot be returned.</p>
+          <p style="font-size:13px;font-weight:300;line-height:1.8;color:var(--grey-400);margin-top:12px" data-en="EU customers have the right to cancel or return within 14 days under the EU Cooling-Off Period, for any reason." data-de="EU-Kunden haben das Recht, innerhalb von 14 Tagen gemäß EU-Widerrufsrecht aus jedem Grund zu stornieren oder zurückzusenden.">EU customers have the right to cancel or return within 14 days under the EU Cooling-Off Period, for any reason.</p>
         </div>
 
       </div>
@@ -1489,7 +1495,7 @@
     <footer>
       <div class="footer-bottom" style="padding-top:0;border-top:none">
         <span>© 2026 Driven Co.</span>
-        <button class="btn btn-ghost" data-link="home">← Back to Home</button>
+        <button class="btn btn-ghost" data-link="home" data-en="← Back to Home" data-de="← Zurück zur Startseite">← Back to Home</button>
       </div>
     </footer>
   </div><!-- /page-shipping -->
@@ -1499,40 +1505,40 @@
        ================================================================ -->
   <div class="page" id="page-privacy">
     <div style="padding:calc(var(--nav-h) + clamp(60px,8vw,100px)) var(--gutter) clamp(60px,8vw,100px); max-width:800px; margin:0 auto">
-      <div class="section-label reveal">Legal</div>
-      <h1 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:12px" class="reveal delay-1">Privacy Policy</h1>
-      <p style="font-size:13px;color:var(--grey-400);margin-bottom:56px" class="reveal delay-2">Last updated: October 26, 2025</p>
+      <div class="section-label reveal" data-en="Legal" data-de="Rechtliches">Legal</div>
+      <h1 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:12px" class="reveal delay-1" data-en="Privacy Policy" data-de="Datenschutzrichtlinie">Privacy Policy</h1>
+      <p style="font-size:13px;color:var(--grey-400);margin-bottom:56px" class="reveal delay-2" data-en="Last updated: October 26, 2025" data-de="Zuletzt aktualisiert: 26. Oktober 2025">Last updated: October 26, 2025</p>
 
       <div style="display:flex;flex-direction:column;gap:40px;font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
 
         <div class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">What we collect</div>
-          <p>We collect information you provide directly: name, address, billing and shipping address, phone number, and email. We also collect financial data, transaction history, device information, and usage analytics to provide and improve our services.</p>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="What we collect" data-de="Was wir sammeln">What we collect</div>
+          <p data-en="We collect information you provide directly: name, address, billing and shipping address, phone number, and email. We also collect financial data, transaction history, device information, and usage analytics to provide and improve our services." data-de="Wir sammeln Informationen, die du direkt angibst: Name, Adresse, Rechnungs- und Lieferadresse, Telefonnummer und E-Mail. Wir erfassen auch Finanzdaten, Transaktionsverlauf, Geräteinformationen und Nutzungsanalysen zur Bereitstellung und Verbesserung unserer Dienste.">We collect information you provide directly: name, address, billing and shipping address, phone number, and email. We also collect financial data, transaction history, device information, and usage analytics to provide and improve our services.</p>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">How we use it</div>
-          <p>Your data is used to process orders, fulfil payments, send marketing communications (with consent), prevent fraud, provide customer support, and comply with legal obligations.</p>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="How we use it" data-de="Wie wir es verwenden">How we use it</div>
+          <p data-en="Your data is used to process orders, fulfil payments, send marketing communications (with consent), prevent fraud, provide customer support, and comply with legal obligations." data-de="Deine Daten werden zur Auftragsabwicklung, Zahlungsabwicklung, zum Versand von Marketingkommunikation (mit Einwilligung), zur Betrugsprävention, zum Kundenservice und zur Erfüllung rechtlicher Verpflichtungen verwendet.">Your data is used to process orders, fulfil payments, send marketing communications (with consent), prevent fraud, provide customer support, and comply with legal obligations.</p>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Third parties</div>
-          <p>We share information with Shopify (our hosting and commerce platform), payment processors, shipping carriers, and marketing partners only as necessary to operate our services. We do not sell your personal data.</p>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="Third parties" data-de="Dritte">Third parties</div>
+          <p data-en="We share information with Shopify (our hosting and commerce platform), payment processors, shipping carriers, and marketing partners only as necessary to operate our services. We do not sell your personal data." data-de="Wir teilen Informationen mit Shopify (unserer Hosting- und Commerce-Plattform), Zahlungsabwicklern, Versanddienstleistern und Marketingpartnern nur soweit es für den Betrieb unserer Dienste notwendig ist. Wir verkaufen deine personenbezogenen Daten nicht.">We share information with Shopify (our hosting and commerce platform), payment processors, shipping carriers, and marketing partners only as necessary to operate our services. We do not sell your personal data.</p>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Your rights</div>
-          <p>Depending on your location, you may request access, deletion, correction, or portability of your personal data. EU and UK residents have additional rights including the right to object to processing. To exercise these rights, contact us at <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a>.</p>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="Your rights" data-de="Deine Rechte">Your rights</div>
+          <p data-en="Depending on your location, you may request access, deletion, correction, or portability of your personal data. EU and UK residents have additional rights including the right to object to processing. To exercise these rights, contact us at <a href='mailto:hello@driven-co.ch' style='color:var(--accent)'>hello@driven-co.ch</a>." data-de="Je nach deinem Standort kannst du den Zugang zu deinen personenbezogenen Daten, deren Löschung, Berichtigung oder Übertragbarkeit beantragen. EU- und UK-Einwohner haben zusätzliche Rechte, einschließlich des Rechts, der Verarbeitung zu widersprechen. Um diese Rechte auszuüben, kontaktiere uns unter <a href='mailto:hello@driven-co.ch' style='color:var(--accent)'>hello@driven-co.ch</a>.">Depending on your location, you may request access, deletion, correction, or portability of your personal data. EU and UK residents have additional rights including the right to object to processing. To exercise these rights, contact us at <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a>.</p>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Data security</div>
-          <p>We take reasonable measures to protect your data, though no security system is completely impenetrable. Retention periods vary based on business necessity and legal requirements.</p>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="Data security" data-de="Datensicherheit">Data security</div>
+          <p data-en="We take reasonable measures to protect your data, though no security system is completely impenetrable. Retention periods vary based on business necessity and legal requirements." data-de="Wir ergreifen angemessene Maßnahmen zum Schutz deiner Daten, obwohl kein Sicherheitssystem vollständig undurchdringlich ist. Die Aufbewahrungsfristen variieren je nach Geschäftsnotwendigkeit und gesetzlichen Anforderungen.">We take reasonable measures to protect your data, though no security system is completely impenetrable. Retention periods vary based on business necessity and legal requirements.</p>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Contact</div>
-          <p>Driven Co. · Ribetschi 2, 6405 Immensee, Switzerland · <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a></p>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="Contact" data-de="Kontakt">Contact</div>
+          <p data-en="Driven Co. · Ribetschi 2, 6405 Immensee, Switzerland · <a href='mailto:hello@driven-co.ch' style='color:var(--accent)'>hello@driven-co.ch</a>" data-de="Driven Co. · Ribetschi 2, 6405 Immensee, Schweiz · <a href='mailto:hello@driven-co.ch' style='color:var(--accent)'>hello@driven-co.ch</a>">Driven Co. · Ribetschi 2, 6405 Immensee, Switzerland · <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a></p>
         </div>
 
       </div>
@@ -1540,7 +1546,7 @@
     <footer>
       <div class="footer-bottom" style="padding-top:0;border-top:none">
         <span>© 2026 Driven Co.</span>
-        <button class="btn btn-ghost" data-link="home">← Back to Home</button>
+        <button class="btn btn-ghost" data-link="home" data-en="← Back to Home" data-de="← Zurück zur Startseite">← Back to Home</button>
       </div>
     </footer>
   </div><!-- /page-privacy -->
@@ -1550,44 +1556,44 @@
        ================================================================ -->
   <div class="page" id="page-terms">
     <div style="padding:calc(var(--nav-h) + clamp(60px,8vw,100px)) var(--gutter) clamp(60px,8vw,100px); max-width:800px; margin:0 auto">
-      <div class="section-label reveal">Legal</div>
-      <h1 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:56px" class="reveal delay-1">Terms of Service</h1>
+      <div class="section-label reveal" data-en="Legal" data-de="Rechtliches">Legal</div>
+      <h1 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:56px" class="reveal delay-1" data-en="Terms of Service" data-de="Nutzungsbedingungen">Terms of Service</h1>
 
       <div style="display:flex;flex-direction:column;gap:40px;font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
 
         <div class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Acceptance</div>
-          <p>By using our services, you agree to be bound by these terms and our Privacy Policy. You must be of legal age in your jurisdiction and provide accurate information.</p>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="Acceptance" data-de="Annahme">Acceptance</div>
+          <p data-en="By using our services, you agree to be bound by these terms and our Privacy Policy. You must be of legal age in your jurisdiction and provide accurate information." data-de="Durch die Nutzung unserer Dienste stimmst du zu, an diese Bedingungen und unsere Datenschutzrichtlinie gebunden zu sein. Du musst in deiner Gerichtsbarkeit volljährig sein und genaue Informationen angeben.">By using our services, you agree to be bound by these terms and our Privacy Policy. You must be of legal age in your jurisdiction and provide accurate information.</p>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Products &amp; orders</div>
-          <p>Product colours may differ from screen representation. Orders constitute purchase offers which we may accept or decline. Payment must be received before acceptance. Prices exclude taxes and shipping and may change without notice.</p>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="Products &amp; orders" data-de="Produkte &amp; Bestellungen">Products &amp; orders</div>
+          <p data-en="Product colours may differ from screen representation. Orders constitute purchase offers which we may accept or decline. Payment must be received before acceptance. Prices exclude taxes and shipping and may change without notice." data-de="Produktfarben können von der Bildschirmdarstellung abweichen. Bestellungen stellen Kaufangebote dar, die wir annehmen oder ablehnen können. Die Zahlung muss vor der Annahme eingehen. Preise verstehen sich ohne Steuern und Versand und können sich ohne Vorankündigung ändern.">Product colours may differ from screen representation. Orders constitute purchase offers which we may accept or decline. Payment must be received before acceptance. Prices exclude taxes and shipping and may change without notice.</p>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Shipping</div>
-          <p>All delivery times are estimates only and are not guaranteed. Driven Co. is not liable for delivery delays. Title and risk transfer to you once the carrier receives your order.</p>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="Shipping" data-de="Versand">Shipping</div>
+          <p data-en="All delivery times are estimates only and are not guaranteed. Driven Co. is not liable for delivery delays. Title and risk transfer to you once the carrier receives your order." data-de="Alle Lieferzeiten sind nur Schätzungen und nicht garantiert. Driven Co. haftet nicht für Lieferverzögerungen. Eigentum und Risiko gehen auf dich über, sobald der Spediteur deine Bestellung erhält.">All delivery times are estimates only and are not guaranteed. Driven Co. is not liable for delivery delays. Title and risk transfer to you once the carrier receives your order.</p>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Intellectual property</div>
-          <p>All site content is protected. You may use our services for personal, non-commercial purposes only. You may not reproduce or distribute any materials without permission.</p>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="Intellectual property" data-de="Geistiges Eigentum">Intellectual property</div>
+          <p data-en="All site content is protected. You may use our services for personal, non-commercial purposes only. You may not reproduce or distribute any materials without permission." data-de="Alle Inhalte der Website sind geschützt. Du darfst unsere Dienste nur für persönliche, nicht kommerzielle Zwecke nutzen. Du darfst keine Materialien ohne Genehmigung vervielfältigen oder verbreiten.">All site content is protected. You may use our services for personal, non-commercial purposes only. You may not reproduce or distribute any materials without permission.</p>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Prohibited use</div>
-          <p>You may not engage in unlawful conduct, harassment, malware transmission, or attempts to compromise site security. We may suspend accounts for violations.</p>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="Prohibited use" data-de="Verbotene Nutzung">Prohibited use</div>
+          <p data-en="You may not engage in unlawful conduct, harassment, malware transmission, or attempts to compromise site security. We may suspend accounts for violations." data-de="Du darfst keine rechtswidrigen Handlungen, Belästigungen, Malware-Übertragungen oder Versuche, die Website-Sicherheit zu gefährden, vornehmen. Wir können Konten bei Verstößen sperren.">You may not engage in unlawful conduct, harassment, malware transmission, or attempts to compromise site security. We may suspend accounts for violations.</p>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Liability</div>
-          <p>Our service is provided "as is." We disclaim liability for damages including lost profits or data loss. We may terminate access at any time without notice.</p>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="Liability" data-de="Haftung">Liability</div>
+          <p data-en='Our service is provided "as is." We disclaim liability for damages including lost profits or data loss. We may terminate access at any time without notice.' data-de='Unser Dienst wird "wie besehen" bereitgestellt. Wir schließen die Haftung für Schäden einschließlich entgangener Gewinne oder Datenverluste aus. Wir können den Zugang jederzeit ohne Vorankündigung beenden.'>Our service is provided "as is." We disclaim liability for damages including lost profits or data loss. We may terminate access at any time without notice.</p>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Contact</div>
-          <p>Driven Co. · Ribetschi 2, 6405 Immensee, Switzerland · <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a></p>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="Contact" data-de="Kontakt">Contact</div>
+          <p data-en="Driven Co. · Ribetschi 2, 6405 Immensee, Switzerland · <a href='mailto:hello@driven-co.ch' style='color:var(--accent)'>hello@driven-co.ch</a>" data-de="Driven Co. · Ribetschi 2, 6405 Immensee, Schweiz · <a href='mailto:hello@driven-co.ch' style='color:var(--accent)'>hello@driven-co.ch</a>">Driven Co. · Ribetschi 2, 6405 Immensee, Switzerland · <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a></p>
         </div>
 
       </div>
@@ -1595,7 +1601,7 @@
     <footer>
       <div class="footer-bottom" style="padding-top:0;border-top:none">
         <span>© 2026 Driven Co.</span>
-        <button class="btn btn-ghost" data-link="home">← Back to Home</button>
+        <button class="btn btn-ghost" data-link="home" data-en="← Back to Home" data-de="← Zurück zur Startseite">← Back to Home</button>
       </div>
     </footer>
   </div><!-- /page-terms -->
@@ -1605,42 +1611,42 @@
        ================================================================ -->
   <div class="page" id="page-cookies">
     <div style="padding:calc(var(--nav-h) + clamp(60px,8vw,100px)) var(--gutter) clamp(60px,8vw,100px); max-width:800px; margin:0 auto">
-      <div class="section-label reveal">Legal</div>
-      <h1 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:56px" class="reveal delay-1">Cookie Policy</h1>
+      <div class="section-label reveal" data-en="Legal" data-de="Rechtliches">Legal</div>
+      <h1 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:56px" class="reveal delay-1" data-en="Cookie Policy" data-de="Cookie-Richtlinie">Cookie Policy</h1>
 
       <div style="display:flex;flex-direction:column;gap:40px;font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400)">
 
         <div class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">What are cookies</div>
-          <p>Cookies are small text files placed on your device when you visit our website. They help us operate the site, remember your preferences, and understand how visitors use our pages.</p>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="What are cookies" data-de="Was sind Cookies">What are cookies</div>
+          <p data-en="Cookies are small text files placed on your device when you visit our website. They help us operate the site, remember your preferences, and understand how visitors use our pages." data-de="Cookies sind kleine Textdateien, die auf deinem Gerät platziert werden, wenn du unsere Website besuchst. Sie helfen uns, die Website zu betreiben, deine Einstellungen zu speichern und zu verstehen, wie Besucher unsere Seiten nutzen.">Cookies are small text files placed on your device when you visit our website. They help us operate the site, remember your preferences, and understand how visitors use our pages.</p>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Cookies we use</div>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="Cookies we use" data-de="Cookies, die wir verwenden">Cookies we use</div>
           <div style="display:flex;flex-direction:column;gap:16px">
             <div style="background:var(--grey-800);padding:20px 24px">
-              <div style="font-size:13px;font-weight:600;margin-bottom:6px;color:var(--white)">Essential cookies</div>
-              <p style="font-size:14px">Required for the website to function — cart, checkout session, security. These cannot be disabled.</p>
+              <div style="font-size:13px;font-weight:600;margin-bottom:6px;color:var(--white)" data-en="Essential cookies" data-de="Notwendige Cookies">Essential cookies</div>
+              <p style="font-size:14px" data-en="Required for the website to function — cart, checkout session, security. These cannot be disabled." data-de="Notwendig für die Funktion der Website – Warenkorb, Checkout-Sitzung, Sicherheit. Diese können nicht deaktiviert werden.">Required for the website to function — cart, checkout session, security. These cannot be disabled.</p>
             </div>
             <div style="background:var(--grey-800);padding:20px 24px">
-              <div style="font-size:13px;font-weight:600;margin-bottom:6px;color:var(--white)">Analytics cookies</div>
-              <p style="font-size:14px">Help us understand how visitors interact with our site (pages visited, time spent). Data is anonymised.</p>
+              <div style="font-size:13px;font-weight:600;margin-bottom:6px;color:var(--white)" data-en="Analytics cookies" data-de="Analyse-Cookies">Analytics cookies</div>
+              <p style="font-size:14px" data-en="Help us understand how visitors interact with our site (pages visited, time spent). Data is anonymised." data-de="Helfen uns zu verstehen, wie Besucher mit unserer Website interagieren (besuchte Seiten, verbrachte Zeit). Daten sind anonymisiert.">Help us understand how visitors interact with our site (pages visited, time spent). Data is anonymised.</p>
             </div>
             <div style="background:var(--grey-800);padding:20px 24px">
-              <div style="font-size:13px;font-weight:600;margin-bottom:6px;color:var(--white)">Marketing cookies</div>
-              <p style="font-size:14px">Used to show relevant advertisements and measure campaign effectiveness. You can opt out at any time.</p>
+              <div style="font-size:13px;font-weight:600;margin-bottom:6px;color:var(--white)" data-en="Marketing cookies" data-de="Marketing-Cookies">Marketing cookies</div>
+              <p style="font-size:14px" data-en="Used to show relevant advertisements and measure campaign effectiveness. You can opt out at any time." data-de="Werden verwendet, um relevante Werbung anzuzeigen und die Kampagneneffektivität zu messen. Du kannst jederzeit widersprechen.">Used to show relevant advertisements and measure campaign effectiveness. You can opt out at any time.</p>
             </div>
           </div>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Managing cookies</div>
-          <p>You can control cookies through your browser settings. Note that disabling certain cookies may affect site functionality. To opt out of analytics, adjust your browser or device settings.</p>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="Managing cookies" data-de="Cookie-Verwaltung">Managing cookies</div>
+          <p data-en="You can control cookies through your browser settings. Note that disabling certain cookies may affect site functionality. To opt out of analytics, adjust your browser or device settings." data-de="Du kannst Cookies über deine Browser-Einstellungen verwalten. Beachte, dass das Deaktivieren bestimmter Cookies die Website-Funktionalität beeinträchtigen kann. Um Analytics abzulehnen, passe deine Browser- oder Geräteeinstellungen an.">You can control cookies through your browser settings. Note that disabling certain cookies may affect site functionality. To opt out of analytics, adjust your browser or device settings.</p>
         </div>
 
         <div style="border-top:1px solid rgba(0,0,0,.09);padding-top:40px" class="reveal">
-          <div class="section-label" style="margin-bottom:14px;color:var(--accent)">Contact</div>
-          <p>Questions about our use of cookies: <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a></p>
+          <div class="section-label" style="margin-bottom:14px;color:var(--accent)" data-en="Contact" data-de="Kontakt">Contact</div>
+          <p data-en="Questions about our use of cookies: <a href='mailto:hello@driven-co.ch' style='color:var(--accent)'>hello@driven-co.ch</a>" data-de="Fragen zu unserer Cookie-Nutzung: <a href='mailto:hello@driven-co.ch' style='color:var(--accent)'>hello@driven-co.ch</a>">Questions about our use of cookies: <a href="mailto:hello@driven-co.ch" style="color:var(--accent)">hello@driven-co.ch</a></p>
         </div>
 
       </div>
@@ -1648,7 +1654,7 @@
     <footer>
       <div class="footer-bottom" style="padding-top:0;border-top:none">
         <span>© 2026 Driven Co.</span>
-        <button class="btn btn-ghost" data-link="home">← Back to Home</button>
+        <button class="btn btn-ghost" data-link="home" data-en="← Back to Home" data-de="← Zurück zur Startseite">← Back to Home</button>
       </div>
     </footer>
   </div><!-- /page-cookies -->
@@ -1663,12 +1669,12 @@
   <div id="cookieBanner" style="display:none">
     <div class="cookie-inner">
       <div class="cookie-text">
-        <p class="cookie-title">We use cookies</p>
-        <p class="cookie-body">We use cookies to improve your experience on our site. By continuing, you agree to our <a href="#" onclick="navigate('privacy');closeCookieBanner();return false;" class="cookie-link">Privacy Policy</a>.</p>
+        <p class="cookie-title" data-en="We use cookies" data-de="Wir verwenden Cookies">We use cookies</p>
+        <p class="cookie-body" data-en="We use cookies to improve your experience on our site. By continuing, you agree to our <a href='#' onclick='navigate(&quot;privacy&quot;);closeCookieBanner();return false;' class='cookie-link'>Privacy Policy</a>." data-de="Wir verwenden Cookies, um dein Erlebnis auf unserer Website zu verbessern. Durch die Nutzung stimmst du unserer <a href='#' onclick='navigate(&quot;privacy&quot;);closeCookieBanner();return false;' class='cookie-link'>Datenschutzrichtlinie</a> zu.">We use cookies to improve your experience on our site. By continuing, you agree to our <a href="#" onclick="navigate('privacy');closeCookieBanner();return false;" class="cookie-link">Privacy Policy</a>.</p>
       </div>
       <div class="cookie-actions">
-        <button class="cookie-btn-accept" onclick="acceptCookies()">Accept</button>
-        <button class="cookie-btn-decline" onclick="declineCookies()">Decline</button>
+        <button class="cookie-btn-accept" onclick="acceptCookies()" data-en="Accept" data-de="Akzeptieren">Accept</button>
+        <button class="cookie-btn-decline" onclick="declineCookies()" data-en="Decline" data-de="Ablehnen">Decline</button>
       </div>
     </div>
   </div>
@@ -1676,5 +1682,6 @@
   <script src="js/password.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/language.js"></script>
 </body>
 </html>
