@@ -187,7 +187,7 @@ function showToast(msg) {
 }
 
 // updateCountdowns — calculates time remaining to DROP_DATE and updates all countdown elements
-const DROP_DATE = new Date('2026-05-02T18:00:00');
+const DROP_DATE = new Date('2026-05-03T20:00:00');
 function updateCountdowns() {
   const now  = new Date();
   const diff = Math.max(0, DROP_DATE - now);

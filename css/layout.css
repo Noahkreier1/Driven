@@ -156,9 +156,9 @@ nav.scrolled {
 .marquee-item {
   display: inline-block;
   font-size: 11px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase;
-  color: var(--grey-600); margin-right: 60px;
+  color: #c8a96e; margin-right: 60px;
 }
-.marquee-item span { color: var(--accent); margin-right: 60px; font-size: 14px; }
+.marquee-item span { color: #c8a96e; margin-right: 60px; font-size: 11px; }
 
 /* Storytelling strips */
 .story-strip {
