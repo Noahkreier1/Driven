@@ -575,6 +575,51 @@ function openCheckout() {
   }).catch(function() { showToast('Checkout error — please try again'); });
 }
 
+/* ── Inventory ── */
+// UPDATE THIS NUMBER after each order
+const UNITS_REMAINING = 91;
+const INVENTORY_TOTAL = 100;
+
+function initInventory() {
+  var r = UNITS_REMAINING;
+  var lang = localStorage.getItem('driven_lang') || 'en';
+  var pct = (r / INVENTORY_TOTAL * 100).toFixed(1) + '%';
+
+  document.querySelectorAll('.stock-fill').forEach(function(el) { el.style.width = pct; });
+
+  var stockLabel = document.getElementById('stockLabelCount');
+  if (stockLabel) stockLabel.textContent = r + ' / ' + INVENTORY_TOTAL;
+
+  var proofRem = document.getElementById('proofRemaining');
+  if (proofRem) proofRem.textContent = r;
+
+  var stickySub = document.getElementById('stickyCTASub');
+  if (stickySub) {
+    stickySub.setAttribute('data-en', 'Only ' + r + ' units remaining');
+    stickySub.setAttribute('data-de', 'Nur noch ' + r + ' Stück verfügbar');
+    stickySub.textContent = lang === 'de' ? 'Nur noch ' + r + ' Stück verfügbar' : 'Only ' + r + ' units remaining';
+  }
+
+  var coNote = document.getElementById('checkoutUnitsLeft');
+  if (coNote) {
+    coNote.setAttribute('data-en', r + ' units left. Your order holds your unit for 10 minutes.');
+    coNote.setAttribute('data-de', 'Noch ' + r + ' Einheiten verfügbar. Deine Bestellung reserviert deine Einheit für 10 Minuten.');
+    coNote.textContent = lang === 'de' ? 'Noch ' + r + ' Einheiten verfügbar. Deine Bestellung reserviert deine Einheit für 10 Minuten.' : r + ' units left. Your order holds your unit for 10 minutes.';
+  }
+
+  document.querySelectorAll('.units-left-count').forEach(function(el) {
+    el.setAttribute('data-en', r + ' units left');
+    el.setAttribute('data-de', r + ' Stück verbleibend');
+    el.textContent = lang === 'de' ? r + ' Stück verbleibend' : r + ' units left';
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() { setTimeout(initInventory, 120); });
+} else {
+  setTimeout(initInventory, 120);
+}
+
 // cookie banner IIFE — shows the cookie consent banner if consent has not been given
 (function() {
   const consent = localStorage.getItem('driven_cookie_consent');

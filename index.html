@@ -230,7 +230,7 @@
             </div>
             <div style="margin-top:24px;padding:16px;background:rgba(200,169,110,.05);border-left:2px solid var(--accent)">
               <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:6px">Drop 002</div>
-              <div style="font-size:12px;color:var(--grey-400);line-height:1.7" data-en="100 units left. Your order holds your unit for 10 minutes." data-de="Noch 100 Einheiten verfügbar. Deine Bestellung reserviert deine Einheit für 10 Minuten.">100 units left. Your order holds your unit for 10 minutes.</div>
+              <div id="checkoutUnitsLeft" style="font-size:12px;color:var(--grey-400);line-height:1.7" data-en="91 units left. Your order holds your unit for 10 minutes." data-de="Noch 91 Einheiten verfügbar. Deine Bestellung reserviert deine Einheit für 10 Minuten.">91 units left. Your order holds your unit for 10 minutes.</div>
             </div>
           </div>
         </div>
@@ -393,7 +393,7 @@
   <div class="sticky-cta" id="stickyCta">
     <div>
       <div class="sticky-cta-info">Stay On Your Path Tee — Drop 002</div>
-      <div class="sticky-cta-sub" data-en="Only 100 units remaining" data-de="Nur noch 100 Stück verfügbar">Only 100 units remaining</div>
+      <div id="stickyCTASub" class="sticky-cta-sub" data-en="Only 91 units remaining" data-de="Nur noch 91 Stück verfügbar">Only 91 units remaining</div>
     </div>
     <button class="btn btn-primary" onclick="addToCart()" data-en="Add to Cart — CHF 37.–" data-de="In den Warenkorb — CHF 37.–">Add to Cart — CHF 37.–</button>
   </div>
@@ -486,7 +486,7 @@
         <div class="proof-label" data-en="Units — Drop 002" data-de="Einheiten — Drop 002">Units — Drop 002</div>
       </div>
       <div class="proof-item">
-        <div class="proof-num count-up" data-target="100">0</div>
+        <div class="proof-num" id="proofRemaining">91</div>
         <div class="proof-label" data-en="Remaining" data-de="Verbleibend">Remaining</div>
       </div>
       <div class="proof-item">
@@ -558,7 +558,7 @@
         <div class="stock-bar-wrap reveal delay-3">
           <div class="stock-label">
             <span data-en="Stock remaining" data-de="Lagerbestand">Stock remaining</span>
-            <span style="color:var(--accent)">100 / 100</span>
+            <span id="stockLabelCount" style="color:var(--accent)">91 / 100</span>
           </div>
           <div class="stock-bar"><div class="stock-fill" id="stockFill"></div></div>
         </div>
@@ -808,7 +808,7 @@
       </div>
       <div style="text-align:right">
         <div class="stock-label" style="justify-content:flex-end;margin-bottom:10px">
-          <span style="color:var(--accent);font-size:13px;font-weight:700" data-en="100 units left" data-de="100 Stück verbleibend">100 units left</span>
+          <span class="units-left-count" style="color:var(--accent);font-size:13px;font-weight:700" data-en="91 units left" data-de="91 Stück verbleibend">91 units left</span>
         </div>
         <div class="stock-bar" style="width:200px">
           <div class="stock-fill"></div>
@@ -1010,7 +1010,7 @@
       </div>
       <div style="text-align:right">
         <div class="stock-label" style="justify-content:flex-end;margin-bottom:10px">
-          <span style="color:var(--accent);font-size:13px;font-weight:700" data-en="100 units left" data-de="100 Stück verbleibend">100 units left</span>
+          <span class="units-left-count" style="color:var(--accent);font-size:13px;font-weight:700" data-en="91 units left" data-de="91 Stück verbleibend">91 units left</span>
         </div>
         <div class="stock-bar" style="width:200px">
           <div class="stock-fill"></div>
