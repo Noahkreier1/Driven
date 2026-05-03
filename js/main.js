@@ -580,7 +580,7 @@ function openCheckout() {
 
 /* ── Inventory ── */
 // UPDATE THIS NUMBER after each order
-const UNITS_REMAINING = 91;
+const UNITS_REMAINING = 85;
 const INVENTORY_TOTAL = 100;
 
 function initInventory() {
