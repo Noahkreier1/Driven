@@ -448,7 +448,7 @@ function renderCollection(filter) {
     return;
   }
 
-  const _quickAdd  = window._t ? window._t('quickAdd')  : 'Quick Add';
+  const _quickAdd  = window._t ? window._t('seeProduct') : 'See Product';
   const _notifyMe  = window._t ? window._t('notifyMe')  : 'Notify Me';
   grid.innerHTML = filtered.map((p,i) => `
     <div class="full-product-card" onclick="${p.sold ? 'openNotify()' : `navigate('${p.page||'pdp'}')`}">

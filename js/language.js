@@ -18,6 +18,7 @@
     nothingHere:     { en: 'Nothing here yet. Check back soon.',
                        de: 'Noch nichts hier. Schau bald nochmal vorbei.' },
     quickAdd:        { en: 'Quick Add',   de: 'Schnell kaufen' },
+    seeProduct:      { en: 'See Product', de: 'Zum Produkt' },
     notifyMe:        { en: 'Notify Me',   de: 'Benachrichtige mich' },
     remove:          { en: 'Remove',      de: 'Entfernen' },
     size:            { en: 'Size:',       de: 'Größe:' },
