@@ -1,5 +1,7 @@
 // Password gate IIFE — checks session storage and shows/hides the gate on load
+// GATE DISABLED: set to always unlocked — re-enable by removing the first two lines below
 (function() {
+  sessionStorage.setItem('driven_unlocked', '1');
   const gate = document.getElementById('passwordGate');
   if (sessionStorage.getItem('driven_unlocked') === '1') {
     gate.style.display = 'none';
