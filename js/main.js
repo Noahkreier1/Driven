@@ -329,8 +329,11 @@ function hbluGalleryGo(idx) {
 // hbluGalleryNav — navigates the Hoodie Blue gallery by a relative direction offset
 function hbluGalleryNav(dir) { hbluGalleryGo(_hbluIdx + dir); }
 
-// openSizeGuide — shows the size guide modal overlay
-function openSizeGuide() {
+// openSizeGuide — shows the size guide modal overlay; type = 'tee' | 'hoodie'
+function openSizeGuide(type) {
+  var t = type || 'tee';
+  document.getElementById('sizeGuide-tee').style.display    = t === 'tee'    ? '' : 'none';
+  document.getElementById('sizeGuide-hoodie').style.display = t === 'hoodie' ? '' : 'none';
   document.getElementById('sizeGuideOverlay').classList.add('visible');
 }
 // closeSizeGuide — hides the size guide modal overlay

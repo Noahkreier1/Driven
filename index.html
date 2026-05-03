@@ -41,23 +41,41 @@
         <button class="modal-close" onclick="closeSizeGuide()">×</button>
       </div>
       <div class="modal-body">
-        <div style="font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px">Stay On Your Path Tee</div>
-        <table class="size-table">
-          <thead>
-            <tr><th data-en="Size" data-de="Größe">Size</th><th data-en="Chest (in)" data-de="Brust (Zoll)">Chest (in)</th><th data-en="Length (in)" data-de="Länge (Zoll)">Length (in)</th><th data-en="Shoulder (in)" data-de="Schulter (Zoll)">Shoulder (in)</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>XS</td><td>34–36</td><td>27</td><td>16.5</td></tr>
-            <tr><td>S</td><td>36–38</td><td>27.5</td><td>17.5</td></tr>
-            <tr><td>M</td><td>38–40</td><td>28</td><td>18.5</td></tr>
-            <tr><td>L</td><td>40–42</td><td>28.5</td><td>19.5</td></tr>
-            <tr><td>XL</td><td>42–44</td><td>29</td><td>20.5</td></tr>
-            <tr><td>XXL</td><td>44–46</td><td>29.5</td><td>21.5</td></tr>
-          </tbody>
-        </table>
-        <div class="size-tip" data-en="&lt;strong&gt;Our recommendation:&lt;/strong&gt; Stay On Your Path Tee has a dropped-shoulder, relaxed fit. If you prefer a closer fit, size down. All measurements are of the garment, not the body." data-de="&lt;strong&gt;Unsere Empfehlung:&lt;/strong&gt; Das Stay On Your Path Tee hat einen Drop-Shoulder-Schnitt mit entspannter Passform. Wenn du eine engere Passform bevorzugst, wähle eine Größe kleiner. Alle Maße beziehen sich auf das Kleidungsstück, nicht auf den Körper.">
-          <strong>Our recommendation:</strong> Stay On Your Path Tee has a dropped-shoulder, relaxed fit.
-          If you prefer a closer fit, size down. All measurements are of the garment, not the body.
+        <!-- Tee size table -->
+        <div id="sizeGuide-tee">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px">Stay On Your Path Tee</div>
+          <table class="size-table">
+            <thead>
+              <tr><th data-en="Size" data-de="Größe">Size</th><th data-en="Chest (cm)" data-de="Brust (cm)">Chest (cm)</th><th data-en="Length (cm)" data-de="Länge (cm)">Length (cm)</th><th data-en="Shoulder (cm)" data-de="Schulter (cm)">Shoulder (cm)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>XS</td><td>86–91</td><td>69</td><td>42</td></tr>
+              <tr><td>S</td><td>91–97</td><td>70</td><td>44</td></tr>
+              <tr><td>M</td><td>97–102</td><td>71</td><td>47</td></tr>
+              <tr><td>L</td><td>102–107</td><td>72</td><td>50</td></tr>
+              <tr><td>XL</td><td>107–112</td><td>74</td><td>52</td></tr>
+              <tr><td>XXL</td><td>112–117</td><td>75</td><td>55</td></tr>
+            </tbody>
+          </table>
+          <div class="size-tip" data-en="&lt;strong&gt;Our recommendation:&lt;/strong&gt; Stay On Your Path Tee has a dropped-shoulder, relaxed fit. If you prefer a closer fit, size down. All measurements are of the garment, not the body." data-de="&lt;strong&gt;Unsere Empfehlung:&lt;/strong&gt; Das Stay On Your Path Tee hat einen Drop-Shoulder-Schnitt mit entspannter Passform. Wenn du eine engere Passform bevorzugst, wähle eine Größe kleiner. Alle Maße beziehen sich auf das Kleidungsstück, nicht auf den Körper."><strong>Our recommendation:</strong> Stay On Your Path Tee has a dropped-shoulder, relaxed fit. If you prefer a closer fit, size down. All measurements are of the garment, not the body.</div>
+        </div>
+        <!-- Hoodie size table -->
+        <div id="sizeGuide-hoodie" style="display:none">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px" data-en="Stay On Your Path Hoodie" data-de="Stay On Your Path Hoodie">Stay On Your Path Hoodie</div>
+          <table class="size-table">
+            <thead>
+              <tr><th data-en="Size" data-de="Größe">Size</th><th data-en="Width (cm)" data-de="Breite (cm)">Width (cm)</th><th data-en="Height (cm)" data-de="Höhe (cm)">Height (cm)</th><th data-en="Sleeve (cm)" data-de="Ärmellänge (cm)">Sleeve (cm)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>XS</td><td>55</td><td>70</td><td>63.2</td></tr>
+              <tr><td>S</td><td>58</td><td>72</td><td>63.6</td></tr>
+              <tr><td>M</td><td>61</td><td>73</td><td>64</td></tr>
+              <tr><td>L</td><td>64</td><td>75</td><td>64.4</td></tr>
+              <tr><td>XL</td><td>67</td><td>77</td><td>64.8</td></tr>
+              <tr><td>XXL</td><td>70</td><td>79</td><td>65.2</td></tr>
+            </tbody>
+          </table>
+          <div class="size-tip" data-en="&lt;strong&gt;Our recommendation:&lt;/strong&gt; The hoodie has an oversized fit. If you prefer a closer fit, size down. All measurements are of the garment, not the body." data-de="&lt;strong&gt;Unsere Empfehlung:&lt;/strong&gt; Der Hoodie hat einen Oversized-Schnitt. Wenn du eine engere Passform bevorzugst, wähle eine Größe kleiner. Alle Maße beziehen sich auf das Kleidungsstück, nicht auf den Körper."><strong>Our recommendation:</strong> The hoodie has an oversized fit. If you prefer a closer fit, size down. All measurements are of the garment, not the body.</div>
         </div>
       </div>
     </div>
@@ -742,7 +760,7 @@
             <div class="pdp-attr-val" data-en="Light Oversized Cropped" data-de="Leicht Oversized, Cropped">Light Oversized Cropped</div>
           </div>
           <div class="pdp-attr">
-            <div class="pdp-attr-label" data-en="Created" data-de="Hergestellt">Created</div>
+            <div class="pdp-attr-label" data-en="Created" data-de="Entwickelt">Created</div>
             <div class="pdp-attr-val" data-en="in Switzerland" data-de="in der Schweiz">in Switzerland</div>
           </div>
           <div class="pdp-attr">
@@ -946,7 +964,7 @@
             <div class="pdp-attr-val" data-en="Light Oversized Cropped" data-de="Leicht Oversized, Cropped">Light Oversized Cropped</div>
           </div>
           <div class="pdp-attr">
-            <div class="pdp-attr-label" data-en="Created" data-de="Hergestellt">Created</div>
+            <div class="pdp-attr-label" data-en="Created" data-de="Entwickelt">Created</div>
             <div class="pdp-attr-val" data-en="in Switzerland" data-de="in der Schweiz">in Switzerland</div>
           </div>
           <div class="pdp-attr">
@@ -1110,7 +1128,7 @@
             <div class="pdp-attr-val" data-en="Light Oversized Cropped" data-de="Leicht Oversized, Cropped">Light Oversized Cropped</div>
           </div>
           <div class="pdp-attr">
-            <div class="pdp-attr-label" data-en="Created" data-de="Hergestellt">Created</div>
+            <div class="pdp-attr-label" data-en="Created" data-de="Entwickelt">Created</div>
             <div class="pdp-attr-val" data-en="in Switzerland" data-de="in der Schweiz">in Switzerland</div>
           </div>
           <div class="pdp-attr">
@@ -1121,7 +1139,7 @@
         <div class="size-configurator reveal delay-2">
           <div class="size-label">
             <span data-en="Select Size" data-de="Größe wählen">Select Size</span>
-            <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide()" data-en="Size Guide →" data-de="Größentabelle →">Size Guide →</button>
+            <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide('hoodie')" data-en="Size Guide →" data-de="Größentabelle →">Size Guide →</button>
           </div>
           <div class="size-grid">
             <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
@@ -1199,7 +1217,7 @@
             <div class="pdp-attr-val" data-en="Light Oversized Cropped" data-de="Leicht Oversized, Cropped">Light Oversized Cropped</div>
           </div>
           <div class="pdp-attr">
-            <div class="pdp-attr-label" data-en="Created" data-de="Hergestellt">Created</div>
+            <div class="pdp-attr-label" data-en="Created" data-de="Entwickelt">Created</div>
             <div class="pdp-attr-val" data-en="in Switzerland" data-de="in der Schweiz">in Switzerland</div>
           </div>
           <div class="pdp-attr">
@@ -1210,7 +1228,7 @@
         <div class="size-configurator reveal delay-2">
           <div class="size-label">
             <span data-en="Select Size" data-de="Größe wählen">Select Size</span>
-            <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide()" data-en="Size Guide →" data-de="Größentabelle →">Size Guide →</button>
+            <button class="btn-ghost" style="font-size:11px;color:var(--grey-400)" onclick="openSizeGuide('hoodie')" data-en="Size Guide →" data-de="Größentabelle →">Size Guide →</button>
           </div>
           <div class="size-grid">
             <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
