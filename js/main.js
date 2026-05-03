@@ -594,7 +594,11 @@ function initInventory() {
   if (stockLabel) stockLabel.textContent = r + ' / ' + INVENTORY_TOTAL;
 
   var proofRem = document.getElementById('proofRemaining');
-  if (proofRem) proofRem.textContent = r;
+  if (proofRem) {
+    proofRem.dataset.target = r;
+    proofRem.dataset.done = '';
+    if (typeof animateCountUp === 'function') animateCountUp(proofRem);
+  }
 
   var stickySub = document.getElementById('stickyCTASub');
   if (stickySub) {
