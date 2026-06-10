@@ -246,10 +246,6 @@
               <div class="co-total-row"><span data-en="Tax (7.7%)" data-de="MwSt. (7.7%)">Tax (7.7%)</span><span id="co-tax">CHF 2.85</span></div>
               <div class="co-total-row grand"><span data-en="Total" data-de="Gesamt">Total</span><span id="co-total">CHF 47.85</span></div>
             </div>
-            <div style="margin-top:24px;padding:16px;background:rgba(200,169,110,.05);border-left:2px solid var(--accent)">
-              <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:6px">Drop 002</div>
-              <div id="checkoutUnitsLeft" style="font-size:12px;color:var(--grey-400);line-height:1.7" data-en="55 units left. Your order holds your unit for 10 minutes." data-de="Noch 55 Einheiten verfügbar. Deine Bestellung reserviert deine Einheit für 10 Minuten.">55 units left. Your order holds your unit for 10 minutes.</div>
-            </div>
           </div>
         </div>
 
@@ -411,7 +407,6 @@
   <div class="sticky-cta" id="stickyCta">
     <div>
       <div class="sticky-cta-info">Stay On Your Path Tee — Drop 002</div>
-      <div id="stickyCTASub" class="sticky-cta-sub" data-en="Only 55 units remaining" data-de="Nur noch 55 Stück verfügbar">Only 55 units remaining</div>
     </div>
     <button class="btn btn-primary" onclick="addToCart()" data-en="Add to Cart — CHF 37.–" data-de="In den Warenkorb — CHF 37.–">Add to Cart — CHF 37.–</button>
   </div>
@@ -424,7 +419,7 @@
     <!-- Hero -->
     <section class="hero">
       <div class="hero-bg">
-        <img src="assets/images/flatlay.jpg" alt="" style="object-fit:cover;width:100%;height:100%;opacity:1;object-position:center 30%" />
+        <img src="assets/images/flatlay.png" alt="" style="object-fit:cover;width:100%;height:100%;opacity:1;object-position:center 30%" />
       </div>
       <div class="hero-geo"></div>
       <div class="hero-lines"></div>
@@ -454,12 +449,10 @@
     <div class="marquee-bar">
       <div class="marquee-track">
         <span class="marquee-item">Drop 002 <span>·</span></span>
-        <span class="marquee-item"><span data-en="Limited to 100 Units" data-de="Limitiert auf 100 Stück">Limited to 100 Units</span> <span>·</span></span>
         <span class="marquee-item"><span data-en="No Restock" data-de="Kein Nachschub">No Restock</span> <span>·</span></span>
         <span class="marquee-item"><span data-en="Free Shipping" data-de="Kostenloser Versand">Free Shipping</span> <span>·</span></span>
         <span class="marquee-item">Wear the Drive <span>·</span></span>
         <span class="marquee-item">Drop 002 <span>·</span></span>
-        <span class="marquee-item"><span data-en="Limited to 100 Units" data-de="Limitiert auf 100 Stück">Limited to 100 Units</span> <span>·</span></span>
         <span class="marquee-item"><span data-en="No Restock" data-de="Kein Nachschub">No Restock</span> <span>·</span></span>
         <span class="marquee-item"><span data-en="Free Shipping" data-de="Kostenloser Versand">Free Shipping</span> <span>·</span></span>
         <span class="marquee-item">Wear the Drive <span>·</span></span>
@@ -497,26 +490,6 @@
       </div>
     </div>
 
-    <!-- Social proof -->
-    <div class="social-proof">
-      <div class="proof-item">
-        <div class="proof-num count-up" data-target="100">0</div>
-        <div class="proof-label" data-en="Units — Drop 002" data-de="Einheiten — Drop 002">Units — Drop 002</div>
-      </div>
-      <div class="proof-item">
-        <div class="proof-num count-up" id="proofRemaining" data-target="55">0</div>
-        <div class="proof-label" data-en="Remaining" data-de="Verbleibend">Remaining</div>
-      </div>
-      <div class="proof-item">
-        <div class="proof-num">72<span style="font-size:.5em;font-weight:400">hr</span></div>
-        <div class="proof-label" data-en="Avg. Sell-Out" data-de="Ø Ausverkauft">Avg. Sell-Out</div>
-      </div>
-      <div class="proof-item">
-        <div class="proof-num count-up" data-target="203">0</div>
-        <div class="proof-label" data-en="On the Waitlist" data-de="Auf der Warteliste">On the Waitlist</div>
-      </div>
-    </div>
-
     <!-- Featured product grid preview -->
     <section class="section">
       <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:clamp(32px,4vw,52px);flex-wrap:wrap;gap:16px;">
@@ -551,36 +524,8 @@
       </div>
       <div class="drop-banner-content">
         <div class="section-label reveal">Drop 002 — Stay On Your Path Tee</div>
-        <h2 class="section-title reveal delay-1" data-en="Drops in:" data-de="Erscheint in:">Drops in:</h2>
-        <div class="countdown-wrap reveal delay-2">
-          <div class="countdown-unit">
-            <span class="countdown-num" id="home-d">00</span>
-            <div class="countdown-label" data-en="Days" data-de="Tage">Days</div>
-          </div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-unit">
-            <span class="countdown-num" id="home-h">00</span>
-            <div class="countdown-label" data-en="Hours" data-de="Stunden">Hours</div>
-          </div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-unit">
-            <span class="countdown-num" id="home-m">00</span>
-            <div class="countdown-label" data-en="Mins" data-de="Min.">Mins</div>
-          </div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-unit">
-            <span class="countdown-num" id="home-s">00</span>
-            <div class="countdown-label" data-en="Secs" data-de="Sek.">Secs</div>
-          </div>
-        </div>
-        <div class="stock-bar-wrap reveal delay-3">
-          <div class="stock-label">
-            <span data-en="Stock remaining" data-de="Lagerbestand">Stock remaining</span>
-            <span id="stockLabelCount" style="color:var(--accent)">55 / 100</span>
-          </div>
-          <div class="stock-bar"><div class="stock-fill" id="stockFill"></div></div>
-        </div>
-        <div class="reveal delay-4">
+        <h2 class="section-title reveal delay-1" data-en="Now live." data-de="Jetzt verfügbar.">Now live.</h2>
+        <div class="reveal delay-4" style="margin-top:24px">
           <button class="btn btn-primary" data-link="drop" data-en="Enter Drop →" data-de="Zum Drop →">Enter Drop →</button>
         </div>
       </div>
@@ -747,13 +692,13 @@
         </div>
       </div>
       <div class="pdp-info">
-        <div class="pdp-tag" data-en="Drop 002 — Limited to 100 Units" data-de="Drop 002 — Limitiert auf 100 Stück">Drop 002 — Limited to 100 Units</div>
+        <div class="pdp-tag" data-en="Drop 002 — Limited Edition" data-de="Drop 002 — Limited Edition">Drop 002 — Limited Edition</div>
         <h1 class="pdp-title">Stay On<br>Your Path<br>Tee</h1>
         <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:20px">CHF 37.–</div>
         <div class="pdp-attrs reveal delay-1">
           <div class="pdp-attr">
             <div class="pdp-attr-label" data-en="Material" data-de="Material">Material</div>
-            <div class="pdp-attr-val" data-en="340gsm Cotton" data-de="340gsm Baumwolle">340gsm Cotton</div>
+            <div class="pdp-attr-val" data-en="270gsm Cotton" data-de="270gsm Baumwolle">270gsm Cotton</div>
           </div>
           <div class="pdp-attr">
             <div class="pdp-attr-label" data-en="Fit" data-de="Schnitt">Fit</div>
@@ -765,7 +710,7 @@
           </div>
           <div class="pdp-attr">
             <div class="pdp-attr-label">Drop</div>
-            <div class="pdp-attr-val" data-en="100 Units" data-de="100 Stück">100 Units</div>
+            <div class="pdp-attr-val" data-en="Limited Run" data-de="Limitierte Auflage">Limited Run</div>
           </div>
         </div>
         <div class="size-configurator reveal delay-2">
@@ -794,8 +739,8 @@
         <!-- Story continued -->
         <div style="border-top:1px solid rgba(0,0,0,.07);margin-top:48px;padding-top:48px">
           <div class="section-label" style="margin-bottom:16px" data-en="The Fabric" data-de="Das Material">The Fabric</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px" data-en="340gsm heavyweight cotton." data-de="340gsm schwere Baumwolle.">
-            340gsm heavyweight cotton.
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px" data-en="270gsm heavyweight cotton." data-de="270gsm schwere Baumwolle.">
+            270gsm heavyweight cotton.
           </p>
           <div class="section-label" style="margin-bottom:16px" data-en="The Fit" data-de="Der Schnitt">The Fit</div>
           <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px" data-en="Dropped shoulder, relaxed through the chest, slightly cropped at the hem. Easy to layer. Double-stitched cuffs and collar so it holds up long-term." data-de="Dropped Shoulder, entspannt durch die Brust, am Saum leicht gecroppt. Einfach zu layern. Doppelt genähte Bündchen und Kragen für langfristige Haltbarkeit.">
@@ -814,24 +759,8 @@
     <!-- Drop countdown -->
     <div style="background:var(--grey-800);padding:clamp(32px,4vw,52px) var(--gutter);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;border-bottom:1px solid rgba(0,0,0,.07)">
       <div>
-        <div class="section-label" style="margin-bottom:8px" data-en="Drops in" data-de="Erscheint in">Drops in</div>
-        <div class="countdown-wrap" style="margin:0">
-          <div class="countdown-unit"><span class="countdown-num" id="drop-d">00</span><div class="countdown-label" data-en="Days" data-de="Tage">Days</div></div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-unit"><span class="countdown-num" id="drop-h">00</span><div class="countdown-label" data-en="Hours" data-de="Stunden">Hours</div></div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-unit"><span class="countdown-num" id="drop-m">00</span><div class="countdown-label" data-en="Mins" data-de="Min.">Mins</div></div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-unit"><span class="countdown-num" id="drop-s">00</span><div class="countdown-label" data-en="Secs" data-de="Sek.">Secs</div></div>
-        </div>
-      </div>
-      <div style="text-align:right">
-        <div class="stock-label" style="justify-content:flex-end;margin-bottom:10px">
-          <span class="units-left-count" style="color:var(--accent);font-size:13px;font-weight:700" data-en="55 units left" data-de="55 Stück verbleibend">55 units left</span>
-        </div>
-        <div class="stock-bar" style="width:200px">
-          <div class="stock-fill"></div>
-        </div>
+        <div class="section-label" style="margin-bottom:8px" data-en="Status" data-de="Status">Status</div>
+        <div style="font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.02em;line-height:1" data-en="Live Now" data-de="Jetzt verfügbar">Live Now</div>
       </div>
     </div>
 
@@ -952,13 +881,13 @@
         </div>
       </div>
       <div class="pdp-info">
-        <div class="pdp-tag" data-en="Drop 002 — Limited to 100 Units" data-de="Drop 002 — Limitiert auf 100 Stück">Drop 002 — Limited to 100 Units</div>
+        <div class="pdp-tag" data-en="Drop 002 — Limited Edition" data-de="Drop 002 — Limited Edition">Drop 002 — Limited Edition</div>
         <h1 class="pdp-title">Stay On<br>Your Path<br>Tee</h1>
         <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:20px">CHF 37.–</div>
         <div class="pdp-attrs reveal delay-1">
           <div class="pdp-attr">
             <div class="pdp-attr-label" data-en="Material" data-de="Material">Material</div>
-            <div class="pdp-attr-val" data-en="340gsm Cotton" data-de="340gsm Baumwolle">340gsm Cotton</div>
+            <div class="pdp-attr-val" data-en="270gsm Cotton" data-de="270gsm Baumwolle">270gsm Cotton</div>
           </div>
           <div class="pdp-attr">
             <div class="pdp-attr-label" data-en="Fit" data-de="Schnitt">Fit</div>
@@ -970,7 +899,7 @@
           </div>
           <div class="pdp-attr">
             <div class="pdp-attr-label">Drop</div>
-            <div class="pdp-attr-val" data-en="100 Units" data-de="100 Stück">100 Units</div>
+            <div class="pdp-attr-val" data-en="Limited Run" data-de="Limitierte Auflage">Limited Run</div>
           </div>
         </div>
         <div class="size-configurator reveal delay-2">
@@ -997,8 +926,8 @@
         </div>
         <div style="border-top:1px solid rgba(0,0,0,.07);margin-top:48px;padding-top:48px">
           <div class="section-label" style="margin-bottom:16px" data-en="The Fabric" data-de="Das Material">The Fabric</div>
-          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px" data-en="340gsm heavyweight cotton." data-de="340gsm schwere Baumwolle.">
-            340gsm heavyweight cotton.
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px" data-en="270gsm heavyweight cotton." data-de="270gsm schwere Baumwolle.">
+            270gsm heavyweight cotton.
           </p>
           <div class="section-label" style="margin-bottom:16px" data-en="The Fit" data-de="Der Schnitt">The Fit</div>
           <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--grey-400);margin-bottom:24px" data-en="Dropped shoulder, relaxed through the chest, slightly cropped at the hem. Easy to layer. Double-stitched cuffs and collar so it holds up long-term." data-de="Dropped Shoulder, entspannt durch die Brust, am Saum leicht gecroppt. Einfach zu layern. Doppelt genähte Bündchen und Kragen für langfristige Haltbarkeit.">
@@ -1017,24 +946,8 @@
     <!-- Drop countdown -->
     <div style="background:var(--grey-800);padding:clamp(32px,4vw,52px) var(--gutter);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;border-bottom:1px solid rgba(0,0,0,.07)">
       <div>
-        <div class="section-label" style="margin-bottom:8px" data-en="Drops in" data-de="Erscheint in">Drops in</div>
-        <div class="countdown-wrap" style="margin:0">
-          <div class="countdown-unit"><span class="countdown-num" id="pdp-d">00</span><div class="countdown-label" data-en="Days" data-de="Tage">Days</div></div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-unit"><span class="countdown-num" id="pdp-h">00</span><div class="countdown-label" data-en="Hours" data-de="Stunden">Hours</div></div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-unit"><span class="countdown-num" id="pdp-m">00</span><div class="countdown-label" data-en="Mins" data-de="Min.">Mins</div></div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-unit"><span class="countdown-num" id="pdp-s">00</span><div class="countdown-label" data-en="Secs" data-de="Sek.">Secs</div></div>
-        </div>
-      </div>
-      <div style="text-align:right">
-        <div class="stock-label" style="justify-content:flex-end;margin-bottom:10px">
-          <span class="units-left-count" style="color:var(--accent);font-size:13px;font-weight:700" data-en="55 units left" data-de="55 Stück verbleibend">55 units left</span>
-        </div>
-        <div class="stock-bar" style="width:200px">
-          <div class="stock-fill"></div>
-        </div>
+        <div class="section-label" style="margin-bottom:8px" data-en="Status" data-de="Status">Status</div>
+        <div style="font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.02em;line-height:1" data-en="Live Now" data-de="Jetzt verfügbar">Live Now</div>
       </div>
     </div>
 
